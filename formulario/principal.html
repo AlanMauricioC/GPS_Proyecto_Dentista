@@ -17,21 +17,38 @@
 <body style="background-color: #B2EBF2">
 <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
       <div class="container">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">Agenda dentista</a>
+  			<a href=""><img class="logo1" src="img/icon.png"></a>
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarResponsive">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#">Usuarios</a>
-            </li>
+ <!-- Menú desplegable Usuarios	-->           
+            <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          Usuarios
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		          <a class="dropdown-item" href="#">Nuevo Usuario</a>
+		          <a class="dropdown-item" href="#">Buscar Usuario</a>
+		          <a class="dropdown-item" href="#">Dentistas</a>
+		        </div>
+		    </li>
+<!-- Horario-->
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#">Horarios</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#">Citas</a>
-            </li>
+ <!-- Menú desplegable Citas	-->           
+            <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          Citas
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		          <a class="dropdown-item" href="#">Agendar Cita</a>
+		          <a class="dropdown-item" href="#">Buscar Cita</a>
+		        </div>
+		    </li>
+
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#">Agenda</a>
             </li>
