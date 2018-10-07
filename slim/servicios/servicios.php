@@ -1,5 +1,5 @@
 <?php
-
+require 'DAO/usuariosDAO.php';
 class servicios {
    
     public function ejemploGet($request, $response, $args) {
@@ -13,10 +13,10 @@ class servicios {
     }    
 
     public function ejemploConsulta($request, $response, $args) {
-        $conn = $GLOBALS['conn'];
-        $res = $conn -> query("select * from agenda");
+        
+        $usuarios=new Usuarios();
 
-        return json_encode($res);
+        return $usuarios->search();
 
     }
 
