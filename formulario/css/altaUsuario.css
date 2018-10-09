@@ -1,0 +1,7 @@
+
+  #aceptar, #cancelar{
+    margin: 5px;
+  }
+  #cancelar{
+    background-color:red;
+  }
