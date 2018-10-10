@@ -3,7 +3,7 @@
 require 'vendor/autoload.php';
 require 'includes/conexion.php';
 require 'servicios/servicios.php';
-
+require 'servicios/userController.php';
 
 $configuration = [
     'settings' => [
@@ -19,7 +19,7 @@ $app->get('/', function ($request, $response, $args) {
     return $response;
 });
 
-$app->get('/ejemploGet', '\servicios:ejemploGet');
+$app->get('/getUsuarios', '\userController:getUsuarios');
 
 $app->get('/ejemploConsulta', '\servicios:ejemploConsulta');
 
