@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Alta Usuario</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <link href="css/creative.css" rel="stylesheet">
+    <link href="css/altaUsuario.css" rel="stylesheet">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+	
+<!--===============================================================================================-->
+</head>
+<body style="background-color: #B2EBF2">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+  			<a href=""><img class="logo1" src="img/icon.png"></a>
+        	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          		<span class="navbar-toggler-icon"></span>
+        	</button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+ <!-- Menú desplegable Usuarios	-->           
+            <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          Usuarios
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		          <a class="dropdown-item" href="#">Nuevo Usuario</a>
+		          <a class="dropdown-item" href="#">Buscar Usuario</a>
+		          <a class="dropdown-item" href="#">Dentistas</a>
+		        </div>
+		    </li>
+<!-- Horario-->
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#">Horarios</a>
+            </li>
+ <!-- Menú desplegable Citas	-->           
+            <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          Citas
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		          <a class="dropdown-item" href="#">Agendar Cita</a>
+		          <a class="dropdown-item" href="#">Buscar Cita</a>
+		        </div>
+		    </li>
+
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#">Agenda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#">Reportes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#">Configuración</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+	<div class="container-contact100" style="margin-top: 5%">
+		
+
+		<div class="wrap-contact100">
+			<div class="contact100-form-title" style="background-image: url(images/bg-01.jpg);">
+				<span class="contact100-form-title-1">
+					INFORMACIÓN DEL USUARIO
+				</span>
+
+				<span class="contact100-form-title-2">
+					
+				</span>
+			</div>
+
+			<form class="contact100-form validate-form">
+				<div class="wrap-input100 validate-input" data-validate="Se requiere tipo de usuario">
+					<span class="label-input100" id="etsell" d>Tipo de usuario:</span>
+					 <select class="form-control" id="sel1" disabled>
+                        <option>Informes</option>
+                        <option>Administración</option>
+                        <option>Dirección</option>
+                        <option>Recursos Humanos</option>
+                    </select>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Se requiere nombre">
+					<span class="label-input100" id="etname">Nombre:</span>
+					<input class="input100" type="text" name="name" id="name" disabled>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Se requieren apellidos">
+					<span class="label-input100" id="etapellidos">Apellidos:</span>
+					<input class="input100" type="text" name="apellidos" id="apellidos" disabled>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Se requiere usuario">
+					<span class="label-input100" id="etusuario">Usuario:</span>
+					<input class="input100" type="text" name="usuario" id="usuario" disabled>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Se requiere clave">
+					<span class="label-input100" id="etclave">Clave:</span>
+					<input class="input100" type="text" name="clave" id="clave" disabled>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Se requiere perfil">
+					<span class="label-input100" id="etperfil">Perfil:</span>
+					 <select class="form-control" disabled>
+  						<option>1</option>
+  						<option>2</option>
+  						<option>3</option>
+  						<option>4</option>
+  						<option>5</option>
+					</select>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Se requiere sucursal">
+					<span class="label-input100" id="etsucursal">Sucursal:</span>
+					 <select class="form-control" disabled>
+  						<option>1</option>
+  						<option>2</option>
+  						<option>3</option>
+  						<option>4</option>
+  						<option>5</option>
+					</select>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="validate-input">
+					<span class="label-input100" id="etdentista">Dentista:</span>
+					<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups" >
+    					<div class="btn-group mr-2" role="group" aria-label="First group" >
+        					<button type="button" class="btn btn-info" disabled>Sí</button>
+        					<button type="button" class="btn btn-default" disabled>No</button>
+    					</div>
+    				</div>
+					<span class="focus-input100"></span>
+				</div>
+
+				<br>
+
+				<div class="validate-input">
+					<span class="label-input100" id="etestado">Estado:</span>
+					<div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+    					<div class="btn-group mr-2" role="group" aria-label="First group">
+        					<button type="button" class="btn btn-info" disabled>Sí</button>
+        					<button type="button" class="btn btn-default" disabled>No</button>
+    					</div>
+    				</div>
+				</div>
+
+				<br/>
+				<br/>
+
+				<div class="wrap-input100 validate-input" data-validate="Se requiere RFC">
+					<span class="label-input100" id="etrfc">RFC:</span>
+					<input class="input100" type="text" name="rfc" id="rfc" disabled>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Se requiere teléfono">
+					<span class="label-input100" id="etphone">Teléfono:</span>
+					<input class="input100" type="text" name="phone" id="phone" disabled>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Se requiere número de celular">
+					<span class="label-input100" id="etcel">Celular:</span>
+					<input class="input100" type="text" name="cel" id="cel" disabled>
+					<span class="focus-input100"></span>
+				</div>
+				<div class="container-contact100-form-btn">
+
+                
+                    
+					<button class="contact100-form-btn" id="cancelar">
+						<span>
+							Regresar
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+<!--===============================================================================================-->
+	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>   
+    <script type="text/javascript" src="js/altaUsuario.js"></script>
+
+</body>
+</html>
