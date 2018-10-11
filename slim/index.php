@@ -21,6 +21,8 @@ $app->get('/', function ($request, $response, $args) {
 
 $app->get('/getUsuarios', '\userController:getUsuarios');
 
+$app->post('/insertUsuarios', '\userController:insertUsuarios');
+
 $app->get('/ejemploConsulta', '\servicios:ejemploConsulta');
 
 $app->post("/ejemploPost", '\servicios:ejemploPost');

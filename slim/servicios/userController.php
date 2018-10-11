@@ -5,19 +5,15 @@ class userController {
     public function getUsuarios($request, $response, $args) {
         $usuarios=new Usuarios();
         return $usuarios->search();
-
-        return json_encode($data);
-
     }    
 
-     public function ejemploPost($request, $response, $args) {
+     public function insertUsuarios($request, $response, $args) {
         
-        $post = $request->getParsedBody();
-       
-		$data["respuesta"] = "Texto enviado por el cliente -> ".$post["cliente"];
-
-        return json_encode($data);
-  
+        $post = $request->getParsedBody();       
+        $usuarios=new Usuarios();
+        return $usuarios->insert($post["ID_USUARIO"],$post["ID_TIPODEUSUARIO"],$post["NOMBRE"],$post["APELLIDOS"],
+            $post["USUARIO"],$post["CLAVE"],$post["ID_PERFIL"],$post["SUCURSAL"],$post["ES_DENTISTA"],$post["ESTADO"],
+            $post["RFC"],$post["NUM_CEL"],$post["NUM_TEL"],$post["ID_PERMISOS"]);
 
     }
 }
