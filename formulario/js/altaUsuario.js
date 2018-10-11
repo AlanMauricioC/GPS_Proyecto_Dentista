@@ -1,10 +1,12 @@
 $(document).ready(function(){
 
 	$("#aceptar").click(function(argument) {
+        var faltas = 0;
 		//validar que el campo nombre no esté vacío
 		if($("#name").val() == ""){
         	$("#etname").css('color', 'red');
         	$("#etname").css('font-size', 'larger');
+            faltas += 1;
     	}
     	else{
         	$("#etname").css('color', 'gray');
@@ -14,6 +16,7 @@ $(document).ready(function(){
 		if($("#apellidos").val() == ""){
         	$("#etapellidos").css('color', 'red');
         	$("#etapellidos").css('font-size', 'larger');
+            faltas += 1;
     	}
     	else{
         	$("#etapellidos").css('color', 'gray');
@@ -23,6 +26,7 @@ $(document).ready(function(){
 		if($("#usuario").val() == ""){
         	$("#etusuario").css('color', 'red');
         	$("#etusuario").css('font-size', 'larger');
+            faltas += 1;
     	}
     	else{
         	$("#etusuario").css('color', 'gray');
@@ -32,6 +36,7 @@ $(document).ready(function(){
 		if($("#clave").val() == ""){
         	$("#etclave").css('color', 'red');
         	$("#etclave").css('font-size', 'larger');
+            faltas += 1;
     	}
     	else{
         	$("#etclave").css('color', 'gray');
@@ -43,6 +48,7 @@ $(document).ready(function(){
     	if(regex.test($("#rfc").val())){
         	$("#etrfc").css('color', 'red');
         	$("#etrfc").css('font-size', 'larger');
+            faltas += 1;
     	}else{
         	$("#etrfc").css('color', 'gray');
         	$("#etrfc").css('font-size', 'smaller');
@@ -52,6 +58,7 @@ $(document).ready(function(){
 		if(isNaN($("#phone").val())){
         	$("#etphone").css('color', 'red');
         	$("#etphone").css('font-size', 'larger');
+            faltas += 1;
     	}else{
          	$("#etphone").css('color', 'gray');
         	$("#etphone").css('font-size', 'smaller');
@@ -60,10 +67,23 @@ $(document).ready(function(){
 		if(isNaN($("#cel").val()) || $("#cel").val() == ""){
         	$("#etcel").css('color', 'red');
         	$("#etcel").css('font-size', 'larger');
+            faltas += 1;
     	}else{
          	$("#etcel").css('color', 'gray');
         	$("#etcel").css('font-size', 'smaller');
     	}
+        if(faltas == 0){
+            $.ajax({
+                url: "url.php",
+                method: "POST",
+                async: false,
+                data: {funcion: "insert"},
+                dataType: "json",
+                success: function(respuesta) {
+                //Accion 1
+                }
+            });
+        }
     	return false;
 	})
 })
