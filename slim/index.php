@@ -25,6 +25,10 @@ $app->post('/insertUsuarios', '\userController:insertUsuarios');
 
 $app->get('/ejemploConsulta', '\servicios:ejemploConsulta');
 
+$app->get('/consultaAgenda', '\servicios:consultaAgenda');
+
+$app->get('/insertAgenda', '\servicios:insertAgenda');
+
 $app->post("/ejemploPost", '\servicios:ejemploPost');
 
 $app->run();

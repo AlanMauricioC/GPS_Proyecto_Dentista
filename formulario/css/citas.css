@@ -82,6 +82,12 @@
 	background-color: #008CA1;
 }
 
+.validacion{
+  color: red;
+  /*opacity: 0;*/
+  display: none;
+}
+
 /*------------------------------------------------------------------
 [Switch]*/
 /* The switch - the box around the slider */
@@ -133,6 +139,9 @@ input:checked + .slider:before {
   -ms-transform: translateX(26px);
   transform: translateX(26px);
 }
+
+
+
 
 
 

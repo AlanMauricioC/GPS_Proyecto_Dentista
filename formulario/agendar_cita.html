@@ -77,38 +77,62 @@
 
 				<div class="row" >
 					<span class="col-4 label-input-citas col-form-label">Fecha: </span>
-					<input class="col form-control" type="text" placeholder="">
+					<input class="col form-control" type="date" name="fecha_cita" id="fecha_cita">
+				</div>
+				<div class="row">
+					<div class="col-4"></div>
+					<span class="validacion" id="span_fecha">Obligatorio</span>
 				</div><br>
 				<div class="row">
 					<span class="col-4 label-input-citas col-form-label"> Hora de inicio: </span>
-					<select class="col-8 form-control" id="exampleFormControlSelect1">
+					<select class="col-8 form-control" name="hora_ini" id="hora_ini">
+				      <option>Selecciona una opción</option>
 				      <option>1</option>
 				      <option>2</option>
 				      <option>3</option>
 				      <option>4</option>
 				      <option>5</option>
 				    </select>
-				</div><br>				
+				</div>
+				<div class="row">
+					<div class="col-4"></div>
+					<span class="validacion" id="span_ini">Obligatorio</span>
+				</div><br>	
 				<div class="row">
 					<span class="col-4 label-input-citas col-form-label">Hora de fin: </span>
-					<select class="col-8 form-control" id="exampleFormControlSelect1">
+					<select class="col-8 form-control" name="hora_fin" id="hora_fin">
+				      <option>Selecciona una opción</option>
 				      <option>1</option>
 				      <option>2</option>
 				      <option>3</option>
 				      <option>4</option>
 				      <option>5</option>
 				    </select>
-				</div><br>				
+				</div>
+				<div class="row">
+					<div class="col-4"></div>
+					<span class="validacion" id="span_fin">Obligatorio</span>
+				</div><br>	
 				<div class="row">
 					<span class="col-4 label-input-citas col-form-label">Paciente: </span>
-					<input class="col form-control" type="text" placeholder="">
+					<input class="col form-control" type="text" name="paciente" id="paciente">
+				</div>
+				<div class="row">
+					<div class="col-4"></div>
+					<span class="validacion" id="span_paciente">Obligatorio</span>
 				</div><br>				
 				<div class="row">
 					<span class="col-4 label-input-citas col-form-label">Doctor: </span>
-					<select class="col-8 form-control" id="exampleFormControlSelect1">
+					<select class="col-8 form-control" name="doctor" id="doctor">
+				      <option>Selecciona una opción</option>
 				      <option>Juan Pérez</option>
 				      <option>Doctor 2</option>
+				      <option>3</option>
 				    </select>
+				</div>	
+				<div class="row">
+					<div class="col-4"></div>
+					<span class="validacion" id="span_doctor">Obligatorio</span>
 				</div><br>				
 				<div class="row">
 					<span class="col-4 label-input-citas col-form-label">Estado: </span>
@@ -118,7 +142,7 @@
 				      </button>
 				    </div> -->
 					<label class="switch">
-					  <input type="checkbox">
+					  <input type="checkbox" name="estado" id="estado" >
 					  <span class="slider"></span>
 					</label>
 
@@ -127,17 +151,23 @@
 				</div><br>				
 				<div class="row">
 					<span class="col-4 label-input-citas col-form-label">Especialidad: </span>
-					<select class="col-8 form-control" id="exampleFormControlSelect1">
+					<select class="col-8 form-control" name="especialidad" id="especialidad">
+				      <option>Selecciona una opción</option>
 				      <option>1</option>
 				      <option>2</option>
 				      <option>3</option>
 				      <option>4</option>
 				      <option>5</option>
 				    </select>
-				</div><br>				
+				</div>				
+				<div class="row">
+					<div class="col-4"></div>
+					<span class="validacion" id="span_esp">Obligatorio</span>
+				</div><br>	
+
 				<div class="row">
 					<span class="col-4 label-input-citas col-form-label">Comentarios: </span>
-    				<textarea class="col-8 form-control" id="" ></textarea>
+    				<textarea class="col-8 form-control" name="comentarios" id="comentarios" ></textarea>
 				</div><br>
 
 				
@@ -162,6 +192,8 @@
 	<script src="vendor/scrollreveal/scrollreveal.min.js"></script>
 <!--===============================================================================================-->
     <script src="js/creative.min.js"></script>
+    <script src="js/citas.js"></script>
+
 
 </body>
 </html>
