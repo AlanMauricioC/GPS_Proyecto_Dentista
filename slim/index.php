@@ -25,10 +25,19 @@ $app->post('/insertUsuarios', '\userController:insertUsuarios');
 
 $app->get('/ejemploConsulta', '\servicios:ejemploConsulta');
 
+//Jafet <---
 $app->get('/consultaAgenda', '\servicios:consultaAgenda');
 
-$app->get('/insertAgenda', '\servicios:insertAgenda');
+$app->get('/consultaDentistaAgendar', '\servicios:consultaDentistaAgendar');
 
+$app->get('/consultaHorarioAgendar', '\servicios:consultaHorarioAgendar');
+
+$app->get('/consultaPacienteAgendar', '\servicios:consultaPacienteAgendar');
+
+$app->get('/consultaEspecialidadAgendar', '\servicios:consultaEspecialidadAgendar');
+
+$app->get('/insertAgenda', '\servicios:insertAgenda');
+//--  -->
 $app->post("/ejemploPost", '\servicios:ejemploPost');
 
 $app->run();

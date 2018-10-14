@@ -1,11 +1,10 @@
 $(document).ready(function(){
-
 //Cargar dentistas a formulario-----------------------------------------------------------------------------------------
 $.ajax({
             url: "../../slim/index.php/consultaDentistaAgendar",
             type: "GET",
             async: true,
-            data: $("#form_agendar_citas").serialize(),
+            data: $("#form_buscar_citas").serialize(),
             dataType: "json",
             success: function(response){
 
@@ -19,33 +18,34 @@ $.ajax({
             }
         });
 
+
 //Cargar horarios a formulario -----------------------------------------------------------------------------------------
 $( "#dentista" ).change(function() {
 $.ajax({
             url: "../../slim/index.php/consultaHorarioAgendar",
             type: "GET",
             async: true,
-            data: $("#form_agendar_citas").serialize(),
+            data: $("#form_buscar_citas").serialize(),
             dataType: "json",
             success: function(response){
                     //limpia horarios anteriores
-                     $("#hora_ini").empty().append($("<option></option>").text("Selecciona una opción"));
-                     $("#hora_fin").empty().append($("<option></option>").text("Selecciona una opción"));
+                     $("#hora_ini_b").empty().append($("<option></option>").text("Selecciona una opción"));
+                     $("#hora_fin_b").empty().append($("<option></option>").text("Selecciona una opción"));
 
                     var inicio = parseInt(response[0].HORA_INICIO);
                     var fin = parseInt(response[0].HORA_TERMINO);
 
                     for (var i = inicio; i < fin; i++) {
-                        $("#hora_ini").append($("<option></option>").attr("value",i).text(i+":00"));
+                        $("#hora_ini_b").append($("<option></option>").attr("value",i).text(i+":00"));
                     }
 
                     for (var i = inicio+1 ; i <= fin; i++) {
-                        $("#hora_fin").append($("<option></option>").attr("value",i).text(i+":00"));
+                        $("#hora_fin_b").append($("<option></option>").attr("value",i).text(i+":00"));
                     }               
 
             },
             error: function(error){
-                alert("Seleccione un dentista")
+                alert("Seleccione. un dentista")
             }
         }); 
 
@@ -56,13 +56,13 @@ $.ajax({
             url: "../../slim/index.php/consultaPacienteAgendar",
             type: "GET",
             async: true,
-            data: $("#form_agendar_citas").serialize(),
+            data: $("#form_buscar_citas").serialize(),
             dataType: "json",
             success: function(response){
 
                 for (var i = 0; i < response.length; i++) {
                     var paciente = response[i].NOMBRE + " " + response[i].APELLIDOS;
-                    $("#paciente").append($("<option></option>").attr("value",response[i].ID_PACIENTE).text(paciente));
+                    $("#paciente_b").append($("<option></option>").attr("value",response[i].ID_PACIENTE).text(paciente));
                 }
             },
             error: function(error){
@@ -75,12 +75,12 @@ $.ajax({
             url: "../../slim/index.php/consultaEspecialidadAgendar",
             type: "GET",
             async: true,
-            data: $("#form_agendar_citas").serialize(),
+            data: $("#form_buscar_citas").serialize(),
             dataType: "json",
             success: function(response){
 
                 for (var i = 0; i < response.length; i++) {
-                    $("#especialidad").append($("<option></option>").attr("value",response[i].ID_ESPECIALIDAD).text(response[i].DESCRIPCION));
+                    $("#especialidad_b").append($("<option></option>").attr("value",response[i].ID_ESPECIALIDAD).text(response[i].DESCRIPCION));
                 }
             },
             error: function(error){
@@ -89,20 +89,20 @@ $.ajax({
         });
 
 
-//Boton agendar cita-----------------------------------------------------------------------------------------
+//Boton buscar cita-----------------------------------------------------------------------------------------
+$("#btn_buscar_cita").click(function(){
 
-$("#btn_agendar_cita").click(function(){
-valida_fecha();
 valida_hr_ini();
 valida_hr_fin();
+valida_fecha();
 valida_paciente();
 valida_dentista();
 valida_especialidad();
-valida_comentarios();
-/*
-
    
-     $.ajax({
+
+
+
+   /*  $.ajax({
             url: "../../slim/index.php/consultaAgenda",
             type: "GET",
             async: true,
@@ -118,23 +118,22 @@ valida_comentarios();
         });*/
 //alert("jeje");
 
-if(valida_fecha() && valida_hr_ini() && valida_hr_fin() && valida_paciente() && valida_dentista() && valida_especialidad() && valida_comentarios()){
-    alert("D:");
+
 $.ajax({
-            url: "../../slim/index.php/insertAgenda",
+            url: "../../slim/index.php/consultaAgenda",
             type: "GET",
             async: true,
-            data: $("#form_agendar_citas").serialize(),
+            data: $("#form_buscar_citas").serialize(),
             dataType: "json",
             success: function(response){
-              alert("todo bien");
-
+              alert("todo bien"+response.length + response[0].FECHA);
+              $("#tabla").td("jej");
             },
             error: function(error){
                 alert("rashos")
             }
         });
-}
+
 
 });
 
@@ -144,93 +143,68 @@ $.ajax({
 
 
 var valida_hr_ini= function(){
-    if($("#hora_ini").val()=="Selecciona una opción"){
-        $("#hora_ini").css({"border-color":"red"});
-        $("#span_ini").fadeIn();
-        return false;
+    if($("#hora_ini_b").val()=="Selecciona una opción"){
+        $("#hora_ini_b").css({"border-color":"red"});
+        $("#span_ini_b").fadeIn();
     }else{
-        $("#hora_ini").css({"border-color":"green"});
-        $("#span_ini").fadeOut();
-        return true;
+        $("#hora_ini_b").css({"border-color":"green"});
+        $("#span_ini_b").fadeOut();
     }
 
 }
 var valida_hr_fin= function(){
-    if($("#hora_fin").val()=="Selecciona una opción"){
-        $("#hora_fin").css({"border-color":"red"});
-        $("#span_fin").fadeIn();
-        return false;
+    if($("#hora_fin_b").val()=="Selecciona una opción"){
+        $("#hora_fin_b").css({"border-color":"red"});
+        $("#span_fin_b").fadeIn();
     }else{
-        $("#hora_fin").css({"border-color":"green"});
-        $("#span_fin").fadeOut();
-        return true;
+        $("#hora_fin_b").css({"border-color":"green"});
+        $("#span_fin_b").fadeOut();
     }
 
 }
 
 var valida_fecha = function(){
 
-    if($("#fecha_cita").val()==""){
-        $("#fecha_cita").css({"border-color":"red"});
-        $("#span_fecha").fadeIn();
-        return false;
+    if($("#fecha_cita_b").val()==""){
+        $("#fecha_cita_b").css({"border-color":"red"});
+        $("#span_fecha_b").fadeIn();
     }
     else{
-        $("#fecha_cita").css({"border-color":"green"});
-        $("#span_fecha").fadeOut();
-        return true;
+        $("#fecha_cita_b").css({"border-color":"green"});
+        $("#span_fecha_b").fadeOut();
     }   
 };
 
 var valida_paciente = function(){
 
-    if($("#paciente").val()=="Selecciona una opción"){
-        $("#paciente").css({"border-color":"red"});
-        $("#span_paciente").fadeIn();
-        return false;
+    if($("#paciente_b").val()=="Selecciona una opción"){
+        $("#paciente_b").css({"border-color":"red"});
+        $("#span_paciente_b").fadeIn();
     }
     else{
-        $("#paciente").css({"border-color":"green"});
-        $("#span_paciente").fadeOut();
-        return true;
+        $("#paciente_b").css({"border-color":"green"});
+        $("#span_paciente_b").fadeOut();
     }   
 };
 
 var valida_dentista = function(){
     if($("#dentista").val()=="Selecciona una opción"){
         $("#dentista").css({"border-color":"red"});
-        $("#span_dentista").fadeIn();
-        return false;
+        $("#span_doctor_b").fadeIn();
     }else{
         $("#dentista").css({"border-color":"green"});
-        $("#span_dentista").fadeOut();
-        return true;
+        $("#span_doctor_b").fadeOut();
     }
 
 }
 
 var valida_especialidad= function(){
-    if($("#especialidad").val()=="Selecciona una opción"){
-        $("#especialidad").css({"border-color":"red"});
-        $("#span_esp").fadeIn();
-        return false;
+    if($("#especialidad_b").val()=="Selecciona una opción"){
+        $("#especialidad_b").css({"border-color":"red"});
+        $("#span_esp_b").fadeIn();
     }else{
-        $("#especialidad").css({"border-color":"green"});
-        $("#span_esp").fadeOut();
-        return true;
-    }
-
-}
-
-var valida_comentarios= function(){
-    if($("#comentarios").val()==""){
-        $("#comentarios").css({"border-color":"red"});
-        $("#span_coment").fadeIn();
-        return false;
-    }else{
-        $("#comentarios").css({"border-color":"green"});
-        $("#span_coment").fadeOut();
-        return true;
+        $("#especialidad_b").css({"border-color":"green"});
+        $("#span_esp_b").fadeOut();
     }
 
 }

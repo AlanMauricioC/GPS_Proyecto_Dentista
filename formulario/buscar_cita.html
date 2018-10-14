@@ -71,40 +71,33 @@
 			<div class="row">
 					<h1 class=" col titulo" >BUSCAR CITA</h1>
 			</div>
-			<form class="form-citas">			
+			<form class="form-citas" id="form_buscar_citas" name="form_buscar_citas"> 			
 				<div class="row" >
 					<span class="col-4 label-input-citas col-form-label">Fecha: </span>
-					<input class="col form-control" type="text" placeholder="">
+					<input class="col form-control" type="date" name="fecha_cita_b" id="fecha_cita_b">
 				</div><br>
 				<div class="row">
 					<span class="col-4 label-input-citas col-form-label"> Hora de inicio: </span>
-					<select class="col-8 form-control" id="exampleFormControlSelect1">
-				      <option>1</option>
-				      <option>2</option>
-				      <option>3</option>
-				      <option>4</option>
-				      <option>5</option>
+					<select class="col-8 form-control" name="hora_ini_b" id="hora_ini_b">
+  				      <option>Selecciona una opción</option>
 				    </select>
 				</div><br>				
 				<div class="row">
 					<span class="col-4 label-input-citas col-form-label">Hora de fin: </span>
-					<select class="col-8 form-control" id="exampleFormControlSelect1">
-				      <option>1</option>
-				      <option>2</option>
-				      <option>3</option>
-				      <option>4</option>
-				      <option>5</option>
+					<select class="col-8 form-control" name="hora_fin_b" id="hora_fin_b">
+				      <option>Selecciona una opción</option>
 				    </select>
 				</div><br>				
 				<div class="row">
 					<span class="col-4 label-input-citas col-form-label">Paciente: </span>
-					<input class="col form-control" type="text" placeholder="">
+					<select class="col-8 form-control" name="paciente_b" id="paciente_b">
+				      <option>Selecciona una opción</option>
+				    </select>
 				</div><br>				
 				<div class="row">
-					<span class="col-4 label-input-citas col-form-label">Doctor: </span>
-					<select class="col-8 form-control" id="exampleFormControlSelect1">
-				      <option>Juan Pérez</option>
-				      <option>Doctor 2</option>
+					<span class="col-4 label-input-citas col-form-label">Dentista: </span>
+					<select class="col-8 form-control" name="dentista" id="dentista">
+				      <option>Selecciona una opción</option>
 				    </select>
 				</div><br>				
 				<div class="row">
@@ -115,7 +108,7 @@
 				      </button>
 				    </div> -->
 					<label class="switch">
-					  <input type="checkbox">
+					  <input type="checkbox" name="estado_b" id="estado_b" checked >
 					  <span class="slider"></span>
 					</label>
 
@@ -123,24 +116,20 @@
 				</div><br>				
 				<div class="row">
 					<span class="col-4 label-input-citas col-form-label">Especialidad: </span>
-					<select class="col-8 form-control" id="exampleFormControlSelect1">
-				      <option>1</option>
-				      <option>2</option>
-				      <option>3</option>
-				      <option>4</option>
-				      <option>5</option>
+					<select class="col-8 form-control" name="especialidad_b" id="especialidad_b">
+				      <option>Selecciona una opción</option>
 				    </select>
 				</div><br>				
 				<div class="row">
 					<span class="col-4 label-input-citas col-form-label">Comentarios: </span>
-    				<textarea class="col-8 form-control" id="" ></textarea>
+    				<textarea class="col-8 form-control" name="comentarios" id="comentarios" ></textarea>
 				</div><br>
 
 				
 
 				<div class="row">
 					<div class="col-4"></div>
-					<button type="button" class="btn btn-success">Buscar</button>
+					<button type="button" class="btn btn-success" id="btn_buscar_cita">Buscar</button>
 				</div>
 			</form>
 <!-- Tabla ------------------------------------------------------------------------------------------------------------>
@@ -218,6 +207,7 @@
 	<script src="vendor/scrollreveal/scrollreveal.min.js"></script>
 <!--===============================================================================================-->
     <script src="js/creative.min.js"></script>
+    <script src="js/consultaCita.js"></script>
 
 </body>
 </html>

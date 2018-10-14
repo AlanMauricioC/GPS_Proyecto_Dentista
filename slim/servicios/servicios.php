@@ -20,14 +20,40 @@ class servicios {
   
 
     }
-
- public function consultaAgenda($request, $response, $args) {
+//Jafet <-- 
+public function consultaAgenda($request, $response, $args) {
         
         $agenda=new Agenda();
 
         return $agenda->search();
 
     }    
+    public function consultaDentistaAgendar($request, $response, $args) {
+        
+        $agenda=new Agenda();
+
+        return $agenda->consultaDentista();
+    }   
+
+    public function consultaHorarioAgendar($request, $response, $args) {
+        
+        $agenda=new Agenda();
+
+        return $agenda->consultaHorario();
+    }    
+
+    public function consultaPacienteAgendar($request, $response, $args) {
+        
+        $agenda=new Agenda();
+
+        return $agenda->consultaPaciente();
+    }    
+    public function consultaEspecialidadAgendar($request, $response, $args) {
+        
+        $agenda=new Agenda();
+
+        return $agenda->consultaEspecialidad();
+    }
     
     public function insertAgenda($request, $response, $args) {
         
@@ -35,8 +61,13 @@ class servicios {
 
         return $agenda->insert();
     }
+// -->
 
 
+
+
+    
 }
+
 
 ?>

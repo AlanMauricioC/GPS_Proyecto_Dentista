@@ -87,11 +87,6 @@
 					<span class="col-4 label-input-citas col-form-label"> Hora de inicio: </span>
 					<select class="col-8 form-control" name="hora_ini" id="hora_ini">
 				      <option>Selecciona una opción</option>
-				      <option>1</option>
-				      <option>2</option>
-				      <option>3</option>
-				      <option>4</option>
-				      <option>5</option>
 				    </select>
 				</div>
 				<div class="row">
@@ -102,11 +97,6 @@
 					<span class="col-4 label-input-citas col-form-label">Hora de fin: </span>
 					<select class="col-8 form-control" name="hora_fin" id="hora_fin">
 				      <option>Selecciona una opción</option>
-				      <option>1</option>
-				      <option>2</option>
-				      <option>3</option>
-				      <option>4</option>
-				      <option>5</option>
 				    </select>
 				</div>
 				<div class="row">
@@ -115,19 +105,18 @@
 				</div><br>	
 				<div class="row">
 					<span class="col-4 label-input-citas col-form-label">Paciente: </span>
-					<input class="col form-control" type="text" name="paciente" id="paciente">
+					<select class="col-8 form-control" name="paciente" id="paciente">
+				      <option>Selecciona una opción</option>
+				    </select>
 				</div>
 				<div class="row">
 					<div class="col-4"></div>
 					<span class="validacion" id="span_paciente">Obligatorio</span>
 				</div><br>				
 				<div class="row">
-					<span class="col-4 label-input-citas col-form-label">Doctor: </span>
-					<select class="col-8 form-control" name="doctor" id="doctor">
+					<span class="col-4 label-input-citas col-form-label">Dentista: </span>
+					<select class="col-8 form-control" name="dentista" id="dentista">
 				      <option>Selecciona una opción</option>
-				      <option>Juan Pérez</option>
-				      <option>Doctor 2</option>
-				      <option>3</option>
 				    </select>
 				</div>	
 				<div class="row">
@@ -142,7 +131,7 @@
 				      </button>
 				    </div> -->
 					<label class="switch">
-					  <input type="checkbox" name="estado" id="estado" >
+					  <input type="checkbox" name="estado" id="estado" checked="1" >
 					  <span class="slider"></span>
 					</label>
 
@@ -153,11 +142,6 @@
 					<span class="col-4 label-input-citas col-form-label">Especialidad: </span>
 					<select class="col-8 form-control" name="especialidad" id="especialidad">
 				      <option>Selecciona una opción</option>
-				      <option>1</option>
-				      <option>2</option>
-				      <option>3</option>
-				      <option>4</option>
-				      <option>5</option>
 				    </select>
 				</div>				
 				<div class="row">
@@ -169,6 +153,10 @@
 					<span class="col-4 label-input-citas col-form-label">Comentarios: </span>
     				<textarea class="col-8 form-control" name="comentarios" id="comentarios" ></textarea>
 				</div><br>
+				<div class="row">
+					<div class="col-4"></div>
+					<span class="validacion" id="span_coment">Obligatorio</span>
+				</div><br>	
 
 				
 
