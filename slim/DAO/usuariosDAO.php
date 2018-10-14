@@ -31,7 +31,7 @@ class Usuarios {
 
     public function insert($ID_USUARIO,$ID_TIPODEUSUARIO,$NOMBRE,$APELLIDOS,$USUARIO,$CLAVE,$ID_PERFIL,$SUCURSAL,$ES_DENTISTA,$ESTADO,$RFC,$NUM_CEL,$NUM_TEL,$ID_PERMISOS){
         $conn = $GLOBALS['conn'];
-        $consulta="INSERT INTO USUARIO VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        $consulta="INSERT INTO USUARIO(ID_USUARIO, ID_TIPODEUSUARIO, NOMBRE, APELLIDOS, USUARIO, CLAVE, ID_PERFIL, SUCURSAL, ES_DENTISTA, ESTADO, RFC, NUM_CEL, NUM_TEL, ID_PERMISOS) VALUES (".$ID_USUARIO.",".$ID_TIPODEUSUARIO.",'".$NOMBRE."','".$APELLIDOS."','".$USUARIO."','".$CLAVE."',".$ID_PERFIL.",".$SUCURSAL.",".$ES_DENTISTA.",".$ESTADO.",'".$RFC."',".$NUM_CEL.",".$NUM_TEL.",".$ID_PERMISOS.")";
         $sentencia = $conn->stmt_init();
         $status=array();
         if(!$sentencia->prepare($consulta))
