@@ -4,6 +4,7 @@ require 'vendor/autoload.php';
 require 'includes/conexion.php';
 require 'servicios/servicios.php';
 require 'servicios/userController.php';
+require 'servicios/horariosController.php';
 
 $configuration = [
     'settings' => [
@@ -19,11 +20,20 @@ $app->get('/', function ($request, $response, $args) {
     return $response;
 });
 
+
+
+
 $app->get('/getUsuarios', '\userController:getUsuarios');
 
 $app->post('/insertUsuarios', '\userController:insertUsuarios');
 
 $app->get('/ejemploConsulta', '\servicios:ejemploConsulta');
+
+//Alan<---
+$app->post('/insertHorarios', '\horariosController:insertHorarios');
+
+
+
 
 //Jafet <---
 $app->get('/consultaAgenda', '\servicios:consultaAgenda');
