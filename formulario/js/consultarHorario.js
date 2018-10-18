@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
 
 	init();
@@ -20,7 +19,7 @@ function init(){
 			dataType : 'json',
 			success: function(response) {
 				for (var i = 0; i < response.length; i++) {
-					$("#usuario").append("<option value="+response[i].ID_USUARIO+"> "+response[i].NOMBRE+" "+response[i].APELLIDOS+" ID: "+response[i].ID_USUARIO+"</option>")
+					$("#usuario").append("<option> "+response[i].NOMBRE+" "+response[i].APELLIDOS+" ID: "+response[i].ID_USUARIO+"</option>")
 				}
 			},
 			error: function() {
@@ -78,7 +77,7 @@ function validar(){
 	}
 	if (envia) {
 		var data= {};
-		data ["IDUsuario"]=$("#usuario").val();
+		data ["IDUsuario"]=localStorage.getItem("IDUsuario");
 		data ["horaInicio"]=horaInicio;
 		data ["horaFin"]=horaFin;
 		data ["descansoInicio"]=descansoInicio;

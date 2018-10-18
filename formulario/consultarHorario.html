@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Alta Horarios</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <link href="css/creative.css" rel="stylesheet">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
+
+<!--===============================================================================================-->
+</head>
+<body style="background-color: #B2EBF2">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+  			<a href=""><img class="logo1" src="img/icon.png"></a>
+        	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          		<span class="navbar-toggler-icon"></span>
+        	</button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+ <!-- Menú desplegable Usuarios	-->
+            <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          Usuarios
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		          <a class="dropdown-item" href="#">Nuevo Usuario</a>
+		          <a class="dropdown-item" href="#">Buscar Usuario</a>
+		          <a class="dropdown-item" href="#">Dentistas</a>
+		        </div>
+		    </li>
+<!-- Horario-->
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#">Horarios</a>
+            </li>
+ <!-- Menú desplegable Citas	-->
+            <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          Citas
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		          <a class="dropdown-item" href="#">Agendar Cita</a>
+		          <a class="dropdown-item" href="#">Buscar Cita</a>
+		        </div>
+		    </li>
+
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#">Agenda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#">Reportes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#">Configuración</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+	<div class="container-contact100" style="margin-top: 5%">
+
+
+		<div class="wrap-contact100">
+			<div class="contact100-form-title" style="background-image: url(images/bg-01.jpg);">
+				<span class="contact100-form-title-1">
+					NUEVO HORARIO
+				</span>
+
+				<span class="contact100-form-title-2">
+
+				</span>
+			</div>
+
+			<form class="contact100-form validate-form">
+				<div class="wrap-input100" >
+					<span class="label-input100" id="etname">Usuario:</span>
+					<span  id="usuarioDentista">
+						<select class="form-control"  id="usuario">
+
+					 </select>
+				 </span>
+				</div>
+
+				<div class="validate-input">
+					<span class="label-input100" id="etestado">Dias de la semana:</span>
+					<div class="col-1">
+						<table class="table">
+						  <thead>
+						    <tr>
+						      <th scope="col">Lunes</th>
+						      <th scope="col">Martes</th>
+						      <th scope="col">Miercoles</th>
+						      <th scope="col">Jueves</th>
+									<th scope="col">Viernes</th>
+									<th scope="col">Sabado</th>
+									<th scope="col">Domingo</th>
+						    </tr>
+						  </thead>
+						  <tbody>
+						    <tr>
+						      <td scope="row"><input type="checkbox" data-toggle="toggle" data-onstyle="info" data-on="Sí" data-off="No" id="LU"></td>
+						      <td scope="row"><input type="checkbox" data-toggle="toggle" data-onstyle="info" data-on="Sí" data-off="No" id="MA"></td>
+									<td scope="row"><input type="checkbox" data-toggle="toggle" data-onstyle="info" data-on="Sí" data-off="No" id="MI"></td>
+									<td scope="row"><input type="checkbox" data-toggle="toggle" data-onstyle="info" data-on="Sí" data-off="No" id="JU"></td>
+									<td scope="row"><input type="checkbox" data-toggle="toggle" data-onstyle="info" data-on="Sí" data-off="No" id="VI"></td>
+									<td scope="row"><input type="checkbox" data-toggle="toggle" data-onstyle="info" data-on="Sí" data-off="No" id="SA"></td>
+									<td scope="row"><input type="checkbox" data-toggle="toggle" data-onstyle="info" data-on="Sí" data-off="No" id="DO"></td>
+						    </tr>
+						</table>
+					</div>
+
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Se requiere hora" style="border-bottom: 0px">
+					<span class="label-input100" id="SPANhoraInicio">Hora de inicio:</span>
+					<div class="row">
+					 <div class="col">
+						 <select class="form-control"  id="horaInicio">
+									<option>1:00</option>
+									<option>2:00</option>
+									<option>3:00</option>
+									<option>4:00</option>
+									<option>5:00</option>
+									<option>6:00</option>
+									<option>7:00</option>
+									<option>8:00</option>
+									<option>9:00</option>
+									<option>10:00</option>
+									<option>11:00</option>
+									<option>12:00</option>
+							</select>
+					 </div>
+					 <div class="col">
+						 <input type="checkbox" data-toggle="toggle" data-onstyle="info" data-on="AM" data-off="PM" id="horaInicioT">
+					 </div>
+				 </div>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Se requiere hora" style="border-bottom: 0px">
+					<span class="label-input100" id="SPANhoraFin">Hora de fin:</span>
+					<div class="row">
+						<div class="col">
+							<select class="form-control" id="horaFin">
+									 <option>1:00</option>
+									 <option>2:00</option>
+									 <option>3:00</option>
+									 <option>4:00</option>
+									 <option>5:00</option>
+									 <option>6:00</option>
+									 <option>7:00</option>
+									 <option>8:00</option>
+									 <option>9:00</option>
+									 <option>10:00</option>
+									 <option>11:00</option>
+									 <option>12:00</option>
+							 </select>
+						</div>
+						<div class="col">
+							<input type="checkbox" data-toggle="toggle" data-onstyle="info" data-on="AM" data-off="PM" id="horaFinT">
+						</div>
+					</div>
+				</div>
+
+				<div class="wrap-input100 " style="border-bottom: 0px">
+					<span class="label-input100" >¿Dar descanso?</span>
+					<input type="checkbox" data-toggle="toggle" data-onstyle="info" data-on="Si" data-off="No" id="descanso">
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Se requiere hora" style="border-bottom: 0px">
+					<span class="label-input100" id="SPANdescansoInicio">Inicio de descanso:</span>
+					<div class="row">
+					 <div class="col">
+						 <select class="form-control"  id="descansoInicio">
+									<option>1:00</option>
+									<option>2:00</option>
+									<option>3:00</option>
+									<option>4:00</option>
+									<option>5:00</option>
+									<option>6:00</option>
+									<option>7:00</option>
+									<option>8:00</option>
+									<option>9:00</option>
+									<option>10:00</option>
+									<option>11:00</option>
+									<option>12:00</option>
+							</select>
+					 </div>
+					 <div class="col">
+						 <input type="checkbox" data-toggle="toggle" data-onstyle="info" data-on="AM" data-off="PM" id="descansoInicioT">
+					 </div>
+				 </div>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Se requiere hora" style="border-bottom: 0px">
+					<span class="label-input100" id="SPANdescansoFin" >Fin de descanso:</span>
+					<div class="row">
+						<div class="col">
+							<select class="form-control" id="descansoFin">
+									 <option>1:00</option>
+									 <option>2:00</option>
+									 <option>3:00</option>
+									 <option>4:00</option>
+									 <option>5:00</option>
+									 <option>6:00</option>
+									 <option>7:00</option>
+									 <option>8:00</option>
+									 <option>9:00</option>
+									 <option>10:00</option>
+									 <option>11:00</option>
+									 <option>12:00</option>
+							 </select>
+						</div>
+						<div class="col">
+							<input type="checkbox" data-toggle="toggle" data-onstyle="info" data-on="AM" data-off="PM" id="descansoFinT">
+						</div>
+					</div>
+				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Se requiere atencion">
+					<span class="label-input100" >Box atencion:</span>
+					 <select class="form-control" id="BOX_ATENCION">
+  						<option>1</option>
+  						<option>2</option>
+  						<option>3</option>
+  						<option>4</option>
+  						<option>5</option>
+					</select>
+					<span class="focus-input100"></span>
+				</div>
+
+				<div class="wrap-input100 " style="border-bottom: 0px">
+				  <span class="label-input100">Sillón</span>
+				  <input class="form-control" type="number" value="1" id="sillon">
+				</div>
+
+				<div class="wrap-input100 " style="border-bottom: 0px">
+					<span class="label-input100">No atiende</span>
+					<input type="checkbox" data-toggle="toggle" data-onstyle="info" data-on="Si" data-off="No" id="atiende"/>
+				</div>
+
+				<div class="container-contact100-form-btn">
+
+					<button class="contact100-form-btn" id="aceptar">
+						<span>
+							Aceptar
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+					</button>
+					<button class="contact100-form-btn" id="cancelar">
+						<span>
+							Cancelar
+							<i class="fa fa-long-arrow-right m-l-7" aria-hidden="true"></i>
+						</span>
+					</button>
+				</div>
+
+			</form>
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+<!--===============================================================================================-->
+	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <script type="text/javascript" src="js/altaHorario.js"></script>
+
+</body>
+</html>

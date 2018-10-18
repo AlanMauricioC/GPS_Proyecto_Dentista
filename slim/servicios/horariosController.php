@@ -53,7 +53,12 @@ class horariosController {
           $post["descanso"],$post["descansoInicio"],$post["descansoFin"],
           $post["BOX_ATENCION"],$post["atiende"],$post["IDUsuario"],"DO");
         }
-        return json_encode($res);
+        if (empty($res)) {
+         return json_encode("Error, sin dias de la semana");
+       }else{
+
+         return json_encode($res);
+       }
 
     }
 }
