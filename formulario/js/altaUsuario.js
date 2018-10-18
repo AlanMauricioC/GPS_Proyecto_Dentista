@@ -1,6 +1,83 @@
 $(document).ready(function(){
+    
+    $.ajax({
+            url: "../../slim/index.php/consultaPerfiles",
+            type: "GET",
+            async: true,
+            data: $("#formulario").serialize(),
+            dataType: "json",
+            success: function(response){
+
+                for (var i = 0; i < response.length; i++) {
+                    var desc = response[i].DESCRIPCION;
+                    $("#perfil").append($("<option></option>").attr("value",response[i].ID_PERFIL).text(desc));
+                }
+            },
+            error: function(error){
+                alert("no hay perfiles")
+            }
+        });
+
+    $.ajax({
+            url: "../../slim/index.php/consultaSucursales",
+            type: "GET",
+            async: true,
+            data: $("#formulario").serialize(),
+            dataType: "json",
+            success: function(response){
+
+                for (var i = 0; i < response.length; i++) {
+                    var desc = response[i].DESCRIPCION;
+                    $("#sucursal").append($("<option></option>").attr("value",response[i].ID_SUCURSAL).text(desc));
+                }
+            },
+            error: function(error){
+                alert("no hay sucursales agregadas")
+            }
+        });
+
+    $.ajax({
+            url: "../../slim/index.php/consultaTipoUsuarios",
+            type: "GET",
+            async: true,
+            data: $("#formulario").serialize(),
+            dataType: "json",
+            success: function(response){
+
+                for (var i = 0; i < response.length; i++) {
+                    var desc = response[i].DESCRIPCION+ "( "+ response[i] + " )";
+                    $("#sucursal").append($("<option></option>").attr("value",response[i].ID_TIPODEUSUARIO).text(desc));
+                }
+            },
+            error: function(error){
+                alert("no hay tipos de usuario agregados")
+            }
+        });
 
 	$("#aceptar").click(function(argument) {
+        $("#estado").change();
+
+        $.ajax({
+            url: "../../slim/index.php/consultaUsuario",
+            type: "GET",
+            async: true,
+            data: $("#formulario").serialize(),
+            dataType: "json",
+            success: function(response){
+
+                for (var i = 0; i < response.length; i++) {
+                    if(response[i] == null){
+                        $("#etusuario").css('color', 'red');
+                        $("#etusuario").css('font-size', 'larger');
+                        faltas += 1;
+                    }
+                }
+            },
+            error: function(error){
+                alert("no hay tipos de usuario agregados")
+            }
+        });
+
         var faltas = 0;
 		//validar que el campo nombre no esté vacío
 		if($("#name").val() == ""){
@@ -72,12 +149,13 @@ $(document).ready(function(){
          	$("#etcel").css('color', 'gray');
         	$("#etcel").css('font-size', 'smaller');
     	}
+        //Insertar datos en tabla
         if(faltas == 0){
             $.ajax({
-                url: "url.php",
+                url: "../../slim/index.php/insertUsuarios",
                 method: "POST",
-                async: false,
-                data: {funcion: "insert"},
+                async: true,
+                data: $("#formulario").serialize(),
                 dataType: "json",
                 success: function(respuesta) {
                 //Accion 1

@@ -71,9 +71,9 @@
 		
 
 		<div class="wrap-contact100">
-			<div class="contact100-form-title" style="background-image: url(images/bg-01.jpg);">
+			<div style="background-color: #B2EBF2">
 				<span class="contact100-form-title-1">
-					NUEVO USUARIO
+					<h1 style="color: gray;">NUEVO USUARIO</h1>
 				</span>
 
 				<span class="contact100-form-title-2">
@@ -81,14 +81,11 @@
 				</span>
 			</div>
 
-			<form class="contact100-form validate-form">
+			<form class="contact100-form validate-form" name="formulario" id="formulario" style="background-color: #B2EBF2">
 				<div class="wrap-input100 validate-input" data-validate="Se requiere tipo de usuario">
 					<span class="label-input100" id="etsell">Tipo de usuario:</span>
-					 <select class="form-control" id="sel1">
-                        <option>Informes</option>
-                        <option>Administración</option>
-                        <option>Dirección</option>
-                        <option>Recursos Humanos</option>
+					 <select class="form-control" id="sel1" name="sel1">
+                        
                     </select>
 					<span class="focus-input100"></span>
 				</div>
@@ -119,31 +116,23 @@
 
 				<div class="wrap-input100 validate-input" data-validate="Se requiere perfil">
 					<span class="label-input100" id="etperfil">Perfil:</span>
-					 <select class="form-control">
-  						<option>1</option>
-  						<option>2</option>
-  						<option>3</option>
-  						<option>4</option>
-  						<option>5</option>
+					 <select class="form-control" name="perfil" id="perfil">
+  						
 					</select>
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input" data-validate="Se requiere sucursal">
 					<span class="label-input100" id="etsucursal">Sucursal:</span>
-					 <select class="form-control">
-  						<option>1</option>
-  						<option>2</option>
-  						<option>3</option>
-  						<option>4</option>
-  						<option>5</option>
+					 <select class="form-control" name="sucursal" id="sucursal">
+  						
 					</select>
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="validate-input">
 					<span class="label-input100" id="etdentista">Dentista:</span>
-					<input type="checkbox" data-toggle="toggle" data-onstyle="info" data-on="Sí" data-off="No">
+					<input type="checkbox" name="esdentista" id="esdentista" data-toggle="toggle" data-onstyle="info" data-on="Sí" data-off="No">
 					<span class="focus-input100"></span>
 				</div>
 
@@ -151,7 +140,7 @@
 
 				<div class="validate-input">
 					<span class="label-input100" id="etestado">Estado:</span>
-					<input type="checkbox" data-toggle="toggle" data-onstyle="info" data-on="Sí" data-off="No">
+					<input type="checkbox" name="estado" id="estado" data-toggle="toggle" data-onstyle="info" data-on="Sí" data-off="No">
 				</div>
 
 				<br/>
@@ -174,6 +163,16 @@
 					<input class="input100" type="text" name="cel" id="cel">
 					<span class="focus-input100"></span>
 				</div>
+
+				<div class="wrap-input100 validate-input" data-validate="Se requieren permisos">
+					<span class="label-input100" id="etpermiso">Permisos:</span>
+					 <select class="form-control" name="permisos" id="permisos">
+  						
+					</select>
+					<span class="focus-input100"></span>
+				</div>
+
+
 				<div class="container-contact100-form-btn">
 
 					<button class="contact100-form-btn" id="aceptar">

@@ -25,6 +25,20 @@ $app->post('/insertUsuarios', '\userController:insertUsuarios');
 
 $app->get('/ejemploConsulta', '\servicios:ejemploConsulta');
 
+$app->post('/consultaPerfiles', '\userController:consultaPerfiles');
+
+$app->post('/consultaSucursales', '\userController:consultaSucursales');
+
+$app->post('/consultaTipoUsuarios', '\userController:consultaTipoUsuarios');
+
+$app->post('/consultaUsuario', '\userController:consultaUsuario');
+
+$app->post('/consultaUsuarios', '\userController:consultaUsuarios');
+
+$app->post('/eliminarUsuarios', '\userController:eliminarUsuarios');
+
+$app->post('/modificarUsuario', '\userController:modificarUsuario');
+
 //Jafet <---
 $app->get('/consultaAgenda', '\servicios:consultaAgenda');
 
