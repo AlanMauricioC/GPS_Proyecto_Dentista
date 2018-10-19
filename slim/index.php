@@ -23,25 +23,25 @@ $app->get('/', function ($request, $response, $args) {
 
 
 
-$app->get('/getUsuarios', '\userController:getUsuarios');
+$app->get('/getUsuarios', '\servicios:getUsuarios');
 
-$app->post('/insertUsuarios', '\userController:insertUsuarios');
+$app->post('/insertUsuarios', '\servicios:insertUsuarios');
 
 $app->get('/ejemploConsulta', '\servicios:ejemploConsulta');
 
-$app->post('/consultaPerfiles', '\userController:consultaPerfiles');
+$app->post('/consultaPerfiles', '\servicios:consultaPerfiles');
 
-$app->post('/consultaSucursales', '\userController:consultaSucursales');
+$app->post('/consultaSucursales', '\servicios:consultaSucursales');
 
-$app->post('/consultaTipoUsuarios', '\userController:consultaTipoUsuarios');
+$app->post('/consultaTipoUsuarios', '\servicios:consultaTipoUsuarios');
 
-$app->post('/consultaUsuario', '\userController:consultaUsuario');
+$app->post('/consultaUsuario', '\servicios:consultaUsuario');
 
-$app->post('/consultaUsuarios', '\userController:consultaUsuarios');
+$app->post('/consultaUsuarios', '\servicios:consultaUsuarios');
 
-$app->post('/eliminarUsuarios', '\userController:eliminarUsuarios');
+$app->post('/eliminarUsuarios', '\servicios:eliminarUsuarios');
 
-$app->post('/modificarUsuario', '\userController:modificarUsuario');
+$app->post('/modificarUsuario', '\servicios:modificarUsuario');
 
 //Alan<---
 $app->post('/insertHorarios', '\horariosController:insertHorarios');
