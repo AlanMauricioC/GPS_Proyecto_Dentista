@@ -3,13 +3,21 @@ require 'DAO/horariosDAO.php';
 class horariosController {
 
     public function getHorarios($request, $response, $args) {
-      //falta implementar
+      $post = $request->getParsedBody();
+      $horarios=new Horarios();
+      return $horarios->getAll();
     }
 
     public function deleteHorarios($request, $response, $args) {
       $post = $request->getParsedBody();
       $horarios=new Horarios();
-      return $horarios->delete();
+      return $horarios->delete($post["ID"]);
+    }
+
+    public function deshabilitarDentista($request, $response, $args) {
+      $post = $request->getParsedBody();
+      $horarios=new Horarios();
+      return $horarios->habilitar($post["ID"],$post["estado"]);
     }
 
      public function insertHorarios($request, $response, $args) {

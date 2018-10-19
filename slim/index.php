@@ -45,7 +45,9 @@ $app->post('/modificarUsuario', '\userController:modificarUsuario');
 
 //Alan<---
 $app->post('/insertHorarios', '\horariosController:insertHorarios');
-
+$app->get('/getHorarios', '\horariosController:getHorarios');
+$app->post('/deleteHorarios', '\horariosController:deleteHorarios');
+$app->post('/deshabilitarDentista', '\horariosController:deshabilitarDentista');
 
 
 
