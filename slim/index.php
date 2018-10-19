@@ -4,6 +4,7 @@ require 'vendor/autoload.php';
 require 'includes/conexion.php';
 require 'servicios/servicios.php';
 require 'servicios/userController.php';
+require 'servicios/horariosController.php';
 
 $configuration = [
     'settings' => [
@@ -18,6 +19,9 @@ $app->get('/', function ($request, $response, $args) {
     $response->write("Hola Mundo");
     return $response;
 });
+
+
+
 
 $app->get('/getUsuarios', '\userController:getUsuarios');
 
@@ -38,6 +42,12 @@ $app->post('/consultaUsuarios', '\userController:consultaUsuarios');
 $app->post('/eliminarUsuarios', '\userController:eliminarUsuarios');
 
 $app->post('/modificarUsuario', '\userController:modificarUsuario');
+
+//Alan<---
+$app->post('/insertHorarios', '\horariosController:insertHorarios');
+
+
+
 
 //Jafet <---
 $app->get('/consultaAgenda', '\servicios:consultaAgenda');
