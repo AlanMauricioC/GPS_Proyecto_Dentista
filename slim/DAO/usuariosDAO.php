@@ -129,6 +129,7 @@ class Usuarios {
 
         $conn->close();
         
+        
         return json_encode(null);
     }
 
