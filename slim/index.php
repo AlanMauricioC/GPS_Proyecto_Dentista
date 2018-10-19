@@ -56,13 +56,23 @@ $app->get('/consultaAgenda', '\servicios:consultaAgenda');
 
 $app->get('/consultaDentistaAgendar', '\servicios:consultaDentistaAgendar');
 
+$app->get('/consultaEstadoAgendar', '\servicios:consultaEstadoAgendar');
+
 $app->get('/consultaHorarioAgendar', '\servicios:consultaHorarioAgendar');
 
 $app->get('/consultaPacienteAgendar', '\servicios:consultaPacienteAgendar');
 
 $app->get('/consultaEspecialidadAgendar', '\servicios:consultaEspecialidadAgendar');
 
+$app->get('/consultaMotivoAtencionAgendar', '\servicios:consultaMotivoAtencionAgendar');
+
 $app->get('/insertAgenda', '\servicios:insertAgenda');
+
+$app->get('/updateAgenda', '\servicios:updateAgenda');
+
+$app->get('/deleteAgenda', '\servicios:deleteAgenda');
+
+
 //--  -->
 $app->post("/ejemploPost", '\servicios:ejemploPost');
 

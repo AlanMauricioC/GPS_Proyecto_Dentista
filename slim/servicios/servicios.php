@@ -92,6 +92,12 @@ public function consultaAgenda($request, $response, $args) {
 
         return $agenda->consultaDentista();
     }   
+    public function consultaEstadoAgendar($request, $response, $args) {
+        
+        $agenda=new Agenda();
+
+        return $agenda->consultaEstado();
+    }   
 
     public function consultaHorarioAgendar($request, $response, $args) {
         
@@ -111,6 +117,13 @@ public function consultaAgenda($request, $response, $args) {
         $agenda=new Agenda();
 
         return $agenda->consultaEspecialidad();
+    }   
+
+    public function consultaMotivoAtencionAgendar($request, $response, $args) {
+        
+        $agenda=new Agenda();
+
+        return $agenda->consultaMotivoAtencion();
     }
     
     public function insertAgenda($request, $response, $args) {
@@ -118,6 +131,20 @@ public function consultaAgenda($request, $response, $args) {
         $agenda=new Agenda();
 
         return $agenda->insert();
+    }    
+
+    public function updateAgenda($request, $response, $args) {
+        
+        $agenda=new Agenda();
+
+        return $agenda->update();
+    }   
+
+    public function deleteAgenda($request, $response, $args) {
+        
+        $agenda=new Agenda();
+
+        return $agenda->delete();
     }
 // -->
 
