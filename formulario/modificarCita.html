@@ -46,7 +46,7 @@
 		        </a>
 		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
 		          <a class="dropdown-item" href="agendar_cita.html">Agendar Cita</a>
-		          <a class="dropdown-item" href="#">Buscar Cita</a>
+		          <a class="dropdown-item" href="buscar_cita.html">Buscar Cita</a>
 		        </div>
 		    </li>
 
@@ -69,167 +69,113 @@
 		<div class="">
 			<br><br>
 			<div class="row">
-					<h1 id="titulo_pag" class=" col titulo" >BUSCAR CITA</h1>
+					<h1 id="titulo_pag" class=" col titulo" >MODIFICAR CITA</h1>
 			</div>
-			<form class="form-citas" id="form_buscar_citas" name="form_buscar_citas"> 			
+			<form id="form_agendar_citas" class="form-citas">			
+
+				
+
 				<div class="row" >
 					<span class="col-4 label-input-citas col-form-label">Fecha: </span>
-					<input class="col form-control" type="date" name="fecha_cita_b" id="fecha_cita_b">
+					<input class="col form-control" type="date" name="fecha_cita" id="fecha_cita">
+				</div>
+				<div class="row">
+					<div class="col-4"></div>
+					<span class="validacion" id="span_fecha">Obligatorio</span>
 				</div><br>
 				<div class="row">
 					<span class="col-4 label-input-citas col-form-label"> Hora de inicio: </span>
-					<select class="col-8 form-control" name="hora_ini_b" id="hora_ini_b">
-  				      <option>Selecciona una opción</option>
+					<select class="col-8 form-control" name="hora_ini" id="hora_ini">
+				      <option>Selecciona una opción</option>
 				    </select>
-				</div><br>				
+				</div>
+				<div class="row">
+					<div class="col-4"></div>
+					<span class="validacion" id="span_ini">Obligatorio</span>
+				</div><br>	
 				<div class="row">
 					<span class="col-4 label-input-citas col-form-label">Hora de fin: </span>
-					<select class="col-8 form-control" name="hora_fin_b" id="hora_fin_b">
+					<select class="col-8 form-control" name="hora_fin" id="hora_fin">
 				      <option>Selecciona una opción</option>
 				    </select>
-				</div><br>				
+				</div>
+				<div class="row">
+					<div class="col-4"></div>
+					<span class="validacion" id="span_fin">Obligatorio</span>
+				</div><br>	
 				<div class="row">
 					<span class="col-4 label-input-citas col-form-label">Paciente: </span>
-					<select class="col-8 form-control" name="paciente_b" id="paciente_b">
+					<select class="col-8 form-control" name="paciente" id="paciente">
 				      <option>Selecciona una opción</option>
 				    </select>
+				</div>
+				<div class="row">
+					<div class="col-4"></div>
+					<span class="validacion" id="span_paciente">Obligatorio</span>
 				</div><br>				
 				<div class="row">
 					<span class="col-4 label-input-citas col-form-label">Dentista: </span>
 					<select class="col-8 form-control" name="dentista" id="dentista">
 				      <option>Selecciona una opción</option>
 				    </select>
+				</div>	
+				<div class="row">
+					<div class="col-4"></div>
+					<span class="validacion" id="span_doctor">Obligatorio</span>
 				</div><br>				
 				<div class="row">
 					<span class="col-4 label-input-citas col-form-label">Estado: </span>
-				  <!--  <div class="col-sm-5">
+				    <!--  <div class="col-sm-5">
 				      <button type="button" class="btn btn-toggle active" data-toggle="button" aria-pressed="true" autocomplete="off">
 				        <div class="handle"></div>
 				      </button>
 				    </div> -->
+				    <!--
+					<label class="switch">
+					  <input type="checkbox" name="estado" id="estado" checked="1" >
+					  <span class="slider"></span>
+					</label>
+					-->
 					<select class="col-8 form-control" name="estado" id="estado">
 				      <option>Selecciona una opción</option>
 				    </select>
-
-
+				</div>
+				<div class="row">
+					<div class="col-4"></div>
+					<span class="validacion" id="span_estado">Obligatorio</span>
 				</div><br>				
 				<div class="row">
 					<span class="col-4 label-input-citas col-form-label">Especialidad: </span>
-					<select class="col-8 form-control" name="especialidad_b" id="especialidad_b">
+					<select class="col-8 form-control" name="especialidad" id="especialidad">
 				      <option>Selecciona una opción</option>
 				    </select>
-				</div><br>				
+				</div>				
+				<div class="row">
+					<div class="col-4"></div>
+					<span class="validacion" id="span_esp">Obligatorio</span>
+				</div><br>	
+
 				<div class="row">
 					<span class="col-4 label-input-citas col-form-label">Motivo de atención: </span>
     				<select class="col-8 form-control" name="motivo" id="motivo">
 				      <option>Selecciona una opción</option>
 				    </select>
 				</div>
-				<br>
-
-				<input type="hidden" name="idAgenda" id="idAgenda">
-
 				<div class="row">
 					<div class="col-4"></div>
-					<button type="button" class="btn btn-success" id="btn_buscar_cita">Buscar</button>
-				</div>
-<!-- Tabla ------------------------------------------------------------------------------------------------------------>
+					<span class="validacion" id="span_coment">Obligatorio</span>
+				</div><br>	
 
-
-				</div>
-					<table id="tabla" name="tabla">
-					  <thead>
-					    <tr>
-			<!--		      <th>#</th>-->
-					      <th>Fecha</th>
-					      <th>Hora</th>
-					      <th>Paciente</th>
-					      <th>Estado</th>
-					      <th>Motivo</th>
-					    </tr>
-					  </thead>
-					  <tbody>
-					    <tr>
-			<!--		      <td><input type="checkbox" name=""> </td> -->
-					      <td>#</td>
-					      <td></td>
-					      <td></td>
-					      <td></td>
-					      <td></td>
-					    </tr>
-
-					  </tbody>
-					</table>
+				
 					<br>
-
-					<div class="row justify-content-between" >
-						<div class="row justify-content-center">
-							<div class="col-1"></div>
-							<div class="col-3"></div>
-							<button type="button" class="boton" id="btn_modificar_cita" disabled >Modificar</button>
-						</div>
-						<div class="row">
-							<div class="col-3 justify-content-center"></div>
-							<button type="button" class="boton" id="btn_imprimir_cita" disabled >Imprimir</button>
-						</div>
-						<div class="row">
-							<div class="col-3 justify-content-center"></div>
-							<button type="button" class=" boton" id="btn_eliminar_cita" data-toggle="modal" data-target="#modal_delete_confirmar" disabled >Eliminar</button>
-						</div>
-					</div>
+				<div class="row">
+					<div class="col-4"></div>
+					<button type="button" class="btn btn-success" id="btn_agendar_cita">Aceptar</button>
 				</div>
 			</form>
-
-
-
-<!-- Modal confirmación de eliminación cita--------------------------------------------------------------------------------------->
-
-			<div class="modal fade" id="modal_delete_confirmar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			  <div class="modal-dialog" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <h5 class="modal-title" id=""></h5>
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			          <span aria-hidden="true">&times;</span>
-			        </button>
-			      </div>
-			      <div class="modal-body">
-			      		¿Está seguro que desea eliminar el registro?
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" id="btn_cancel_delete" class="boton" data-dismiss="modal">No</button>
-			        <button type="button" id="btn_confirm_delete" class="boton" data-dismiss="modal" data-toggle="modal" data-target="#modal_cita_eliminada">Si</button>
-			      </div>
-			    </div>
-			  </div>
-			</div>
-
-<!-- Modal cita eliminada--------------------------------------------------------------------------------------->
-
-			<div class="modal fade" id="modal_cita_eliminada" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-			  <div class="modal-dialog" role="document">
-			    <div class="modal-content">
-			      <div class="modal-header">
-			        <h5 class="modal-title" id=""></h5>
-			        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-			          <span aria-hidden="true">&times;</span>
-			        </button>
-			      </div>
-			      <div class="modal-body">
-			      		Cita eliminada
-			      </div>
-			      <div class="modal-footer">
-			        <button type="button" id="btn_cancel_delete" class="boton" data-dismiss="modal">Aceptar</button>
-			      </div>
-			    </div>
-			  </div>
-			</div>
-
-
-
-
-			<br>
-
+			<br><br>
+		</div>
+	</div>
 
 
 
@@ -243,7 +189,8 @@
 	<script src="vendor/scrollreveal/scrollreveal.min.js"></script>
 <!--===============================================================================================-->
     <script src="js/creative.min.js"></script>
-    <script src="js/consultaCita.js"></script>
+    <script src="js/modificarCita.js"></script>
+
 
 </body>
 </html>

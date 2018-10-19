@@ -130,13 +130,19 @@
 				        <div class="handle"></div>
 				      </button>
 				    </div> -->
+				    <!--
 					<label class="switch">
 					  <input type="checkbox" name="estado" id="estado" checked="1" >
 					  <span class="slider"></span>
 					</label>
-
-
-
+					-->
+					<select class="col-8 form-control" name="estado" id="estado">
+				      <option>Selecciona una opción</option>
+				    </select>
+				</div>
+				<div class="row">
+					<div class="col-4"></div>
+					<span class="validacion" id="span_estado">Obligatorio</span>
 				</div><br>				
 				<div class="row">
 					<span class="col-4 label-input-citas col-form-label">Especialidad: </span>
@@ -150,21 +156,24 @@
 				</div><br>	
 
 				<div class="row">
-					<span class="col-4 label-input-citas col-form-label">Comentarios: </span>
-    				<textarea class="col-8 form-control" name="comentarios" id="comentarios" ></textarea>
-				</div><br>
+					<span class="col-4 label-input-citas col-form-label">Motivo de atención: </span>
+    				<select class="col-8 form-control" name="motivo" id="motivo">
+				      <option>Selecciona una opción</option>
+				    </select>
+				</div>
 				<div class="row">
 					<div class="col-4"></div>
 					<span class="validacion" id="span_coment">Obligatorio</span>
 				</div><br>	
 
 				
-
+					<br>
 				<div class="row">
 					<div class="col-4"></div>
 					<button type="button" class="btn btn-success" id="btn_agendar_cita">Aceptar</button>
 				</div>
 			</form>
+			<br><br>
 		</div>
 	</div>
 

@@ -53,7 +53,10 @@ $.ajax({
                     var fin = parseInt(response[0].HORA_TERMINO);
 
                     for (var i = inicio; i < fin; i++) {
-                        $("#hora_ini").append($("<option></option>").attr("value",i).text(i+":00"));
+                      //  if(inicio == response[0].hora_ini_modificar)
+                      //      $("#hora_ini").append($("<option selected></option>").attr("value",i).text(i+":00"));                    
+                      //  else
+                            $("#hora_ini").append($("<option></option>").attr("value",i).text(i+":00"));
                     }
 
                     for (var i = inicio+1 ; i <= fin; i++) {
@@ -161,15 +164,11 @@ $.ajax({
             data: $("#form_agendar_citas").serialize(),
             dataType: "json",
             success: function(response){
-             if(response.respuesta)
-                alert("Nueva cita registrada");
-            else
-                alert("La cita ya se encuentra registrada");
+              alert("todo bien");
 
             },
             error: function(error){
-                alert("La cita ya se encuentra registrada");
-
+                alert("rashos")
             }
         });
 }
