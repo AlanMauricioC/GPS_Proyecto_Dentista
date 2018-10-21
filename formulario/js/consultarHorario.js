@@ -1,66 +1,18 @@
 $(document).ready(function(){
 
 	init();
-	$("#modalEliminar").click(eliminar);
-	$("#modalHabilitar").click(habilitar);
-
 })
 function init(){
-
+		var data={};
+		data["ID_USUARIO"]=localStorage.getItem("IDDoctor");
 		$.ajax({
 			url: 'https://localhost/slim/index.php/getHorarios',
-			type : 'GET',
-			data: null,
+			type : 'POST',
+			data: data,
 			dataType : 'json',
 			success: function(response) {
-				response=response["result"];
-				var dias=["","","","","","",""]
-				for (var i = 0; i < response.length; i++) {
-					for (var j = 0; j < response[i].dias.length; j++) {
-						switch (response[i].dias[j]) {
-							case "LU":
-								dias[0]=" Lunes ";
-								break;
-							case "MA":
-								dias[1]=" Martes ";
-								break;
-							case "MI":
-								dias[2]=" Miercoles ";
-								break;
-							case "JU":
-								dias[3]=" Jueves ";
-								break;
-							case "VI":
-								dias[4]=" Viernes ";
-								break;
-							case "SA":
-								dias[5]=" Sabado ";
-								break;
-							case "DO":
-								dias[6]=" Domingo ";
-								break;
-							default:
-
-						}
-					}
-
-					$("#usuarios").append(
-						"<tr>"+
-						"<td>"+response[i].nombre+" "+response[i].apellidos+"</td>"+
-						"<td><input type=\"checkbox\"/ value=\""+response[i].ID+"\" class='checkDentista' "+(( response[i].estado==1 ) ? 'checked' : '')+">"+
-						"<td>"+dias[0]+dias[1]+dias[2]+dias[3]+dias[4]+dias[5]+dias[6]+"</td>"+
-						"<td><button class='print'  id='delete"+response[i].ID+"'><img class='img-thumbnail' height='42'  width='42' src='images/src/print.png'   /></button>"+
-						"<button class='view'  id='delete"+response[i].ID+"'><img class='img-thumbnail' height='42'  width='42' src='images/src/view.png'  /></button>"+
-						"<button class='edit'  id='delete"+response[i].ID+"'><img class='img-thumbnail' height='42'  width='42' src='images/src/edit.png'  /></button>"+
-						"<button class='delete'  id='delete"+response[i].ID+"'><img class='img-thumbnail' height='42'  width='42' src='images/src/delete.png'  /></button>"+
-						"</td>"+
-					"</tr>");
-					dias=["","","","","","",""];
-
-				}
-
-				$(".delete").click(deletemodal);
-				$(".checkDentista").change(habilitarmodal);
+				$("#dentista").text(response.Nombre.data[0][2]+" "+response.Nombre.data[0][3]+" ID:"+data["ID_USUARIO"]);
+				insertarDatos(response);
 			},
 			error: function() {
 				console.log("No se ha podido obtener la información de usuarios");
@@ -68,52 +20,67 @@ function init(){
 		});
 }
 
-var id="";
-var estado="";
-function habilitarmodal() {
-	$('#habilitar-modal').modal('show');
-	id=$(this).val();
-	estado=$(this).prop('checked')
-}
 
-function habilitar() {
-	var data= {};
-	data["ID"]=id;
-	data["estado"]=estado;
-	$.ajax({
-		url: 'https://localhost/slim/index.php/deshabilitarDentista',
-		type : 'POST',
-		data: data,
-		dataType : 'json',
-		success: function(response) {
-			alert("dentista modificado");
-		},
-		error: function() {
-			console.log("No se ha podido obtener la información de usuarios");
+function insertarDatos(response) {
+	//$("#usuarios").empty();
+
+	response=response["data"];
+	var dia=[null,null,null,null,null,null,null]
+	for (var j = 0; j < response.length; j++) {
+		switch (response[j].DIA) {
+			case "LU":
+				response[j].DIA="Lunes";
+				dia[0]=response[j];
+				break;
+			case "MA":
+				response[j].DIA="Martes";
+				dia[1]=response[j];
+				break;
+			case "MI":
+				response[j].DIA="Miercoles"
+				dia[2]=response[j];
+				break;
+			case "JU":
+				response[j].DIA="Jueves";
+				dia[3]=response[j];
+				break;
+			case "VI":
+				response[j].DIA="Viernes";
+				dia[4]=response[j];
+				break;
+			case "SA":
+				response[j].DIA="Sabado";
+				dia[5]=response[j];
+				break;
+			case "DO":
+				response[j].DIA="Domingo"
+				dia[6]=response[j];
+				break;
+			default:
+
 		}
-	});
-}
 
-function deletemodal(){
-	$('#delete-modal').modal('show');
-	id=$(this).attr('id').substring(6);
-
-}
-
-
-function eliminar(){
-	var data= {};
-	data["ID"]=id;
-	$.ajax({
-		url: 'https://localhost/slim/index.php/deleteHorarios',
-		type : 'POST',
-		data: data,
-		dataType : 'json',
-		success: function(response) {
-			alert("Horario eliminado");
-		},
-		error: function() {
-			console.log("No se ha podido obtener la información de usuarios");
+	}
+	for (var i = 0; i < dia.length; i++) {
+		if (dia[i]) {
+			ordenarDias(dia,i);
 		}
-	});
+	}
+	$.getScript( "https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js", function() {});
+}
+
+function ordenarDias(response,i) {
+
+		$("#usuarios").append(
+			"<tr>"+
+			"<td>"+response[i].DIA+"</td>"+
+			"<td>"+response[i].HORA_INICIO+":00"+"</td>"+
+			"<td>"+response[i].HORA_TERMINO+":00"+"</td>"+
+			"<td><input type='checkbox' data-toggle='toggle' data-onstyle='info' data-on='SI' data-off='NO' id='descansoInicioT' disabled "+(( response[i].DESCANSO==1 ) ? 'checked' : '')+"></td>"+
+			"<td>"+response[i].INICIO_DESCANSO+":00"+"</td>"+
+			"<td>"+response[i].TERMINO_DESCANSO+":00"+"</td>"+
+			"<td>"+response[i].BOX_ATENCION+"</td>"+
+
+		"</tr>");
+		dias=["","","","","","",""];
 }

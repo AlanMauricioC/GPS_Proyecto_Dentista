@@ -20,7 +20,7 @@ class horariosController {
       return $horarios->habilitar($post["ID"],$post["estado"]);
     }
 
-     public function insertHorarios($request, $response, $args) {
+    public function insertHorarios($request, $response, $args) {
        //HORA_INICIO HORA_TERMINO SILLONES_SIMULATANEOS DESCANSO INICIO_DESCANSO TERMINO_DESCANSO BOX_ATENCION NO_ATIENDE ID_USUARIO DIA
 
         $post = $request->getParsedBody();
@@ -68,6 +68,31 @@ class horariosController {
          return json_encode($res);
        }
 
+    }
+
+    public function searchHorarios($request, $response, $args)
+    {
+      $post = $request->getParsedBody();
+      $horarios=new Horarios();
+      return $horarios->searchHorarios($post["usuario"]);
+    }
+
+    public function getHorariosByID($request, $response, $args)
+    {
+      $post = $request->getParsedBody();
+      $horarios=new Horarios();
+      $res=$horarios->search($post["ID_USUARIO"]);
+      $usuarios=new Usuarios();
+      $usuario=$usuarios->consultaUsuarioByID($post["ID_USUARIO"]);
+      $res["Nombre"]=$usuario;
+      return json_encode($res);
+    }
+
+    public function updateHorarios($request, $response, $args)
+    {
+      $post = $request->getParsedBody();
+      $horarios=new Horarios();
+      return json_encode($horarios->update($post["ID_USUARIO"],$post["HORA_INICIO"],$post["HORA_TERMINO"],$post["INICIO_DESCANSO"],$post["TERMINO_DESCANSO"],$post["BOX_ATENCION"],$post["DESCANSO"],$post["DIA"]));
     }
 }
 

@@ -1,15 +1,15 @@
 <?php
 
 class Usuarios {
-    
+
 
     public function search() {
         $conn = $GLOBALS['conn'];
-        $res = $conn -> query("select * from usuarios";
-        
+        $res = $conn -> query("select * from usuarios");
+
         $array = array();
         $i=0;
-         
+
         while ($registro = $res->fetch_array()) {
             $array[$i]["ID_USUARIO"] = $registro["ID_USUARIO"];
             $array[$i]["NOMBRE"] = utf8_decode(($registro["NOMBRE"]));
@@ -34,11 +34,11 @@ class Usuarios {
 
     public function consultaUsuario(){
         $conn = $GLOBALS['conn'];
-        $res = $conn -> query("select * from usuarios where USUARIO = '".$_POST['usuario']."'";
-        
+        $res = $conn -> query("select * from usuarios where USUARIO = '".$_POST['usuario']."'");
+
         $array = array();
         $i=0;
-         
+
         while ($registro = $res->fetch_array()) {
             $array[$i]["ID_USUARIO"] = $registro["ID_USUARIO"];
             $array[$i]["NOMBRE"] = utf8_decode(($registro["NOMBRE"]));
@@ -61,10 +61,49 @@ class Usuarios {
         return json_encode($array);
     }
 
+    public function consultaUsuarioByID($ID_USUARIO) {
+      $conn = $GLOBALS['conn'];
+      $consulta="SELECT * FROM usuario WHERE ID_USUARIO = ?";
+      $sentencia = $conn->stmt_init();
+      $arrayRes=array();
+      $status=array();
+      if(!$sentencia->prepare($consulta))
+      {
+          print "Falló la preparación de la sentencia\n";
+          return $conn->error;
+      }
+      else
+      {
+          $sentencia->bind_param("i", $ID_USUARIO);
+          if (!$sentencia->execute()) {
+            $status["status"]="error";
+            $status["errorNum"]=$sentencia->errno;
+            $status["error"]=$conn->error;
+            return json_encode($status);
+          }else{
+            $resultado = $sentencia->get_result();
+            while ($fila = $resultado->fetch_array(MYSQLI_NUM))
+            {
+              $fila["ID_USUARIO"]=$fila[3];
+              $arrayRes[]=$fila;
+            }
+            $status["data"]=$arrayRes;
+            $status["status"]="ok";
+            $status["error"]=false;
+            return $status;
+          }
+      }
+
+      //$sentencia->close();
+      $conn->close();
+
+      return json_encode(null);
+    }
+
     public function consulta_tipo_usuario(){
         $conn = $GLOBALS['conn'];
         $res = $conn -> query("select * from catalogo_tipodeusuario");
-        
+
         $array = array();
         $i=0;
         while ($registro = $res->fetch_array()) {
@@ -82,7 +121,7 @@ class Usuarios {
     public function consulta_catalogo_sucursales(){
         $conn = $GLOBALS['conn'];
         $res = $conn -> query("select * from catalogo_sucursales");
-        
+
         $array = array();
         $i=0;
         while ($registro = $res->fetch_array()) {
@@ -99,7 +138,7 @@ class Usuarios {
     public function consulta_catalogo_perfiles(){
         $conn = $GLOBALS['conn'];
         $res = $conn -> query("select * from catalogo_perfiles");
-        
+
         $array = array();
         $i=0;
         while ($registro = $res->fetch_array()) {
@@ -110,7 +149,7 @@ class Usuarios {
 
         $conn->close();
         return json_encode($array);
-        
+
     }
 
     public function eliminarUsuario(){
@@ -128,8 +167,8 @@ class Usuarios {
         }
 
         $conn->close();
-        
-        
+
+
         return json_encode(null);
     }
 
@@ -142,7 +181,7 @@ class Usuarios {
         if (isset($_POST['estado']) && $_POST['estado'] == '1')
             $ES_DENTISTA = true;
         else
-            $ES_DENTISTA = false;        
+            $ES_DENTISTA = false;
 
         $conn = $GLOBALS['conn'];
 
@@ -159,7 +198,7 @@ class Usuarios {
         }
 
         $conn->close();
-        
+
         return json_encode(null);
     }
 
@@ -174,7 +213,7 @@ class Usuarios {
         if (isset($_POST['estado']) && $_POST['estado'] == '1')
             $ES_DENTISTA = true;
         else
-            $ES_DENTISTA = false;        
+            $ES_DENTISTA = false;
 
         $conn = $GLOBALS['conn'];
 
@@ -192,7 +231,7 @@ class Usuarios {
         }
 
         $conn->close();
-        
+
         return json_encode(null);
     }
 }

@@ -13,6 +13,8 @@
 	<link rel="stylesheet" type="text/css" href="css/main.css">
     <link href="css/creative.css" rel="stylesheet">
     <link href="css/usuarios.css" rel="stylesheet">
+		<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
 <!--===============================================================================================-->
 </head>
 <body style="background-color: #B2EBF2">
@@ -69,19 +71,14 @@
 		<div class="">
 			<br><br>
 			<div class="row">
-					<h1 class=" col titulo" >BUSCAR USUARIO</h1>
+					<h1 class=" col titulo" >CONSULTAR HORARIO</h1>
 			</div>
 			<div class="form-usuarios">
 				<div class="row" >
-					<span class="col-6 label-input-citas col-form-label">Busqueda por dentista </span>
-					<input class="col form-control" type="text" placeholder="">
+					<span class="col-6 label-input-citas col-form-label" >Dentista: </span>
+					<span class="col form-control" id="dentista" >Dentista: </span>
 				</div><br>
 
-
-				<div class="row">
-					<div class="col-7"></div>
-					<button type="button" class="btn btn-success">Busqueda</button>
-				</div>
 			</div>
 <!-- Tabla ------------------------------------------------------------------------------------------------------------>
 
@@ -91,72 +88,23 @@
 					<table id="tabla">
 					  <thead>
 					    <tr>
-					      <th>Doctor</th>
-					      <th>Habilitado</th>
-					      <th>Horario</th>
-					      <th>Opciones</th>
+					      <th>Dia</th>
+					      <th>Horario inicio</th>
+								<th>Horario fin</th>
+					      <th>¿Descanso?</th>
+					      <th>Inicio descanso</th>
+								<th>Fin descanso</th>
+								<th>Box atención</th>
 					    </tr>
 					  </thead>
 					  <tbody id="usuarios">
-
 					  </tbody>
 					</table>
-					<br>
-
-					<div class="row justify-content-between" >
-						<div class="row justify-content-center">
-						</div>
-						<div class="row">
-							<div class="col-3 justify-content-center"></div>
-							<button type="button" class="boton" href="altaHorario">
-								<a class="btn" href="altaHorario.html" style="color:white">Nuevo</a>
-							</button>
-						</div>
-					</div>
 				</form>
 			</div>
 
 	<div id="dropDownSelect1"></div>
-	<!-- Modal delete ---------------------------------------------------------------------------------------->
-	<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-	  <div class="modal-dialog modal-dialog-centered" role="document">
-	    <div class="modal-content">
-	      <div class="modal-header">
-	        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-	          <span aria-hidden="true">&times;</span>
-	        </button>
-	      </div>
-	      <div class="modal-body">
-	        ¿Está seguro que desea eliminar el horario?
-	      </div>
-	      <div class="modal-footer">
-	        <button type="button" class="btn btn-primary" id="modalEliminar" >Eliminar</button>
-	        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-	      </div>
-	    </div>
-	  </div>
-	</div>
-	<!-- Modal habilitar ---------------------------------------------------------------------------------------->
-	<div class="modal fade" id="habilitar-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-		<div class="modal-dialog modal-dialog-centered" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-				</div>
-				<div class="modal-body">
-					¿Está seguro que desea habilitar a este dentista?
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-primary" id="modalHabilitar" >Cambiar</button>
-					<button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-				</div>
-			</div>
-		</div>
-	</div>
+
 <!--===============================================================================================-->
 	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
@@ -166,5 +114,6 @@
 <!--===============================================================================================-->
   <script src="js/creative.min.js"></script>
 	<script type="text/javascript" src="js/consultarHorario.js"></script>
+
 </body>
 </html>

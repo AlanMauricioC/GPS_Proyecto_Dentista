@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Horarios</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <link href="css/creative.css" rel="stylesheet">
+    <link href="css/usuarios.css" rel="stylesheet">
+<!--===============================================================================================-->
+</head>
+<body style="background-color: #B2EBF2">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+  			<a href=""><img class="logo1" src="img/icon.png"></a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+ <!-- Menú desplegable Usuarios	-->
+            <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          Usuarios
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		          <a class="dropdown-item" href="#">Nuevo Usuario</a>
+		          <a class="dropdown-item" href="busca_usuario.html">Buscar Usuario</a>
+		          <a class="dropdown-item" href="#">Dentistas</a>
+		        </div>
+		    </li>
+<!-- Horario-->
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#">Horarios</a>
+            </li>
+ <!-- Menú desplegable Citas	-->
+            <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          Citas
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		          <a class="dropdown-item" href="agendar_cita.html">Agendar Cita</a>
+		          <a class="dropdown-item" href="#">Buscar Cita</a>
+		        </div>
+		    </li>
+
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#">Agenda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#">Reportes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#">Configuración</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+	<div class="container" style="margin-top: 5%">
+
+		<div class="">
+			<br><br>
+			<div class="form-usuarios">
+				<div class="row" >
+					<span class="col-6 label-input-citas col-form-label" >Busqueda por dentista </span>
+					<input class="col form-control" id="dentista" type="text" placeholder="">
+				</div><br>
+
+
+				<div class="row">
+					<div class="col-7"></div>
+					<button type="button" class="btn btn-success" id="btnBusqueda">Busqueda</button>
+				</div>
+			</div>
+<!-- Tabla ------------------------------------------------------------------------------------------------------------>
+
+
+			</form>
+				<div>
+					<table id="tabla">
+					  <thead>
+					    <tr>
+					      <th>Doctor</th>
+					      <th>Habilitado</th>
+					      <th>Horario</th>
+					      <th>Opciones</th>
+					    </tr>
+					  </thead>
+					  <tbody id="usuarios">
+
+					  </tbody>
+					</table>
+					<br>
+
+					<div class="row justify-content-between" >
+						<div class="row justify-content-center">
+						</div>
+						<div class="row">
+							<div class="col-3 justify-content-center"></div>
+								<a class="btn" href="altaHorario.html" style="color:white">
+								<button type="button" class="boton" href="altaHorario">
+									Nuevo
+								</button>
+							</a>
+						</div>
+					</div>
+				</form>
+			</div>
+
+	<div id="dropDownSelect1"></div>
+	<!-- Modal delete ---------------------------------------------------------------------------------------->
+	<div class="modal fade" id="delete-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+	  <div class="modal-dialog modal-dialog-centered" role="document">
+	    <div class="modal-content">
+	      <div class="modal-header">
+	        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	          <span aria-hidden="true">&times;</span>
+	        </button>
+	      </div>
+	      <div class="modal-body">
+	        ¿Está seguro que desea eliminar el horario?
+	      </div>
+	      <div class="modal-footer">
+	        <button type="button" class="btn btn-primary" id="modalEliminar" >Eliminar</button>
+	        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+	      </div>
+	    </div>
+	  </div>
+	</div>
+	<!-- Modal habilitar ---------------------------------------------------------------------------------------->
+	<div class="modal fade" id="habilitar-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+				</div>
+				<div class="modal-body">
+					¿Está seguro que desea habilitar a este dentista?
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-primary" id="modalHabilitar" >Cambiar</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal" id="modalHabilitarC">Cancelar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+<!--===============================================================================================-->
+  <script src="js/creative.min.js"></script>
+	<script type="text/javascript" src="js/Horario.js"></script>
+</body>
+</html>

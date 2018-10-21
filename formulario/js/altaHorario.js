@@ -33,9 +33,10 @@ function validar(){
 	var envia=true;
 	localStorage.setItem("IDUsuario",1);//se tiene que poner en la página anterior
 	var descansoFin=$("#descansoFin").val();
-	var descansoInicio=$("#descansoFin").val();
+	var descansoInicio=$("#descansoInicio").val();
 	var horaInicio=$("#horaInicio").val();
 	var horaFin=$("#horaFin").val();
+	alert(descansoInicio+"<"+descansoFin);
 
 	horaFin=horaFin.substr(0, horaFin.indexOf(':'));
 	horaInicio=horaInicio.substr(0, horaInicio.indexOf(':'));
@@ -63,8 +64,7 @@ function validar(){
 		$("#SPANhoraFin").css('font-size', 'larger');
 		envia=false;
 	}
-
-	if (descansoInicio<descansoFin) {
+	if (descansoInicio<descansoFin||!$("#descanso").prop('checked')) {
 		$("#SPANdescansoInicio").css('color', 'gray');
 		$("#SPANdescansoInicio").css('font-size', 'smaller');
 		$("#SPANdescansoFin").css('color', 'gray');
