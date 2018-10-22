@@ -14,12 +14,14 @@ $(document).ready(function(){
 function init(){
 
 		$.ajax({
-			url: 'https://localhost/slim/index.php/consultaDentistaAgendar',
+			url: 'https://www.kimberly-clark-logistica.com/slim/index.php/consultaDentistaAgendar',
 			type : 'GET',
 			data: null,
 			dataType : 'json',
 			success: function(response) {
+				alert(response[i].ID_USUARIO);
 				for (var i = 0; i < response.length; i++) {
+
 					$("#usuario").append("<option value="+response[i].ID_USUARIO+"> "+response[i].NOMBRE+" "+response[i].APELLIDOS+" ID: "+response[i].ID_USUARIO+"</option>")
 				}
 			},
@@ -36,7 +38,6 @@ function validar(){
 	var descansoInicio=$("#descansoInicio").val();
 	var horaInicio=$("#horaInicio").val();
 	var horaFin=$("#horaFin").val();
-	alert(descansoInicio+"<"+descansoFin);
 
 	horaFin=horaFin.substr(0, horaFin.indexOf(':'));
 	horaInicio=horaInicio.substr(0, horaInicio.indexOf(':'));
@@ -102,7 +103,7 @@ function validar(){
 
 function enviar(data) {
 	$.ajax({
-		url: 'https://localhost/slim/index.php/insertHorarios',
+		url: 'https://www.kimberly-clark-logistica.com/slim/index.php/insertHorarios',
 		type : 'POST',
 		data: data,
 		dataType : 'json',

@@ -12,7 +12,7 @@ function buscar() {
 	var data={};
 	data["usuario"] =$("#dentista").val();
 	$.ajax({
-		url: 'https://localhost/slim/index.php/searchHorarios',
+		url: 'https://www.kimberly-clark-logistica.com/slim/index.php/searchHorarios',
 		type : 'POST',
 		data: data,
 		dataType : 'json',
@@ -29,11 +29,12 @@ function buscar() {
 function init(){
 
 		$.ajax({
-			url: 'https://localhost/slim/index.php/getHorarios',
+			url: 'https://www.kimberly-clark-logistica.com/slim/index.php/getHorarios',
 			type : 'GET',
 			data: null,
 			dataType : 'json',
-			success: function(response) {insertarDatos(response);
+			success: function(response) {
+				insertarDatos(response);
 			},
 			error: function() {
 				console.log("No se ha podido obtener la información de usuarios");
@@ -91,6 +92,7 @@ function insertarDatos(response) {
 
 		}
 		$(".view").click(viewHorario);
+		$(".edit").click(editHorario);
 		$(".delete").click(deletemodal);
 		$(".checkDentista").change(habilitarmodal);
 }
@@ -108,7 +110,7 @@ function habilitar() {
 	data["ID"]=id;
 	data["estado"]=estado;
 	$.ajax({
-		url: 'https://localhost/slim/index.php/deshabilitarDentista',
+		url: 'https://www.kimberly-clark-logistica.com/slim/index.php/deshabilitarDentista',
 		type : 'POST',
 		data: data,
 		dataType : 'json',
@@ -133,7 +135,7 @@ function eliminar(){
 	var data= {};
 	data["ID"]=id;
 	$.ajax({
-		url: 'https://localhost/slim/index.php/deleteHorarios',
+		url: 'https://www.kimberly-clark-logistica.com/slim/index.php/deleteHorarios',
 		type : 'POST',
 		data: data,
 		dataType : 'json',
@@ -152,5 +154,11 @@ function viewHorario() {
 	id=$(this).attr('id').substring(4);
 	localStorage.setItem("IDDoctor",id);
 	window.location.replace("consultarHorario.html");
+
+}
+function editHorario() {
+	id=$(this).attr('id').substring(4);
+	localStorage.setItem("IDDoctor",id);
+	window.location.replace("editarHorario.html");
 
 }

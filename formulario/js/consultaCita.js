@@ -1,7 +1,7 @@
 $(document).ready(function(){
 //Cargar dentistas a formulario-----------------------------------------------------------------------------------------
 $.ajax({
-            url: "../../slim/index.php/consultaDentistaAgendar",
+            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaDentistaAgendar",
             type: "GET",
             async: true,
             data: $("#form_buscar_citas").serialize(),
@@ -19,7 +19,7 @@ $.ajax({
         });
 //Cargar estado a formulario-----------------------------------------------------------------------------------------
 $.ajax({
-            url: "../../slim/index.php/consultaEstadoAgendar",
+            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaEstadoAgendar",
             type: "GET",
             async: true,
             data: $("#form_buscar_citas").serialize(),
@@ -39,7 +39,7 @@ $.ajax({
 //Cargar horarios a formulario -----------------------------------------------------------------------------------------
 $( "#dentista" ).change(function() {
 $.ajax({
-            url: "../../slim/index.php/consultaHorarioAgendar",
+            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaHorarioAgendar",
             type: "GET",
             async: true,
             data: $("#form_buscar_citas").serialize(),
@@ -70,7 +70,7 @@ $.ajax({
 
 //Cargar pacientes a formulario-----------------------------------------------------------------------------------------
 $.ajax({
-            url: "../../slim/index.php/consultaPacienteAgendar",
+            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaPacienteAgendar",
             type: "GET",
             async: true,
             data: $("#form_buscar_citas").serialize(),
@@ -89,7 +89,7 @@ $.ajax({
 
 //Cargar especialidades a formulario-----------------------------------------------------------------------------------------
 $.ajax({
-            url: "../../slim/index.php/consultaEspecialidadAgendar",
+            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaEspecialidadAgendar",
             type: "GET",
             async: true,
             data: $("#form_buscar_citas").serialize(),
@@ -106,7 +106,7 @@ $.ajax({
         });
 //Cargar motivo atencion a formulario-----------------------------------------------------------------------------------------
 $.ajax({
-            url: "../../slim/index.php/consultaMotivoAtencionAgendar",
+            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaMotivoAtencionAgendar",
             type: "GET",
             async: true,
             data: $("#form_agendar_citas").serialize(),
@@ -136,7 +136,7 @@ valida_motivo();
 
 
    /*  $.ajax({
-            url: "../../slim/index.php/consultaAgenda",
+            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaAgenda",
             type: "GET",
             async: true,
             data: $("#form_agendar_citas").serialize(),
@@ -157,7 +157,7 @@ if(valida_fecha() && valida_hr_ini() && valida_hr_fin() && valida_paciente() && 
 
  if($("#btn_buscar_cita").text()=="Buscar"){
     $.ajax({
-                url: "../../slim/index.php/consultaAgenda",
+                url: "www.kimberly-clark-logistica.com/slim/index.php/consultaAgenda",
                 type: "GET",
                 async: true,
                 data: $("#form_buscar_citas").serialize(),
@@ -196,7 +196,7 @@ if(valida_fecha() && valida_hr_ini() && valida_hr_fin() && valida_paciente() && 
     }else{
         
    $.ajax({
-            url: "../../slim/index.php/updateAgenda",
+            url: "www.kimberly-clark-logistica.com/slim/index.php/updateAgenda",
             type: "GET",
             async: true,
             data: $("#form_buscar_citas").serialize(),
@@ -239,7 +239,7 @@ $("#btn_confirm_delete").click(function(){
 
 
     $.ajax({
-                url: "../../slim/index.php/deleteAgenda",
+                url: "www.kimberly-clark-logistica.com/slim/index.php/deleteAgenda",
                 type: "GET",
                 async: true,
                 data: "chk1=" + $("#chk1").val(),

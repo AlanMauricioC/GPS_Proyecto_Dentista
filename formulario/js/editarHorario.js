@@ -6,7 +6,7 @@ function init(){
 		var data={};
 		data["ID_USUARIO"]=localStorage.getItem("IDDoctor");
 		$.ajax({
-			url: 'https://localhost/slim/index.php/getHorarios',
+			url: 'https://www.kimberly-clark-logistica.com/slim/index.php/getHorarios',
 			type : 'POST',
 			data: data,
 			dataType : 'json',
@@ -156,7 +156,7 @@ function actualizar() {
 	data["DESCANSO"]=$("#DESCANSO"+dia).prop('checked')? 1: 0;
 	data["DIA"]=dia.substr(0,2).toUpperCase();
 	$.ajax({
-		url: 'https://localhost/slim/index.php/updateHorarios',
+		url: 'https://www.kimberly-clark-logistica.com/slim/index.php/updateHorarios',
 		type : 'POST',
 		data: data,
 		dataType : 'json',

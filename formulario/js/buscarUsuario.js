@@ -5,7 +5,7 @@ $(document).ready(function(){
 	$("#aceptar").hide();
 	//llena los datos de la tabla con los usuarios existentes
 	$.ajax({
-            url: "../../slim/index.php/consultaUsuario",
+            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaUsuario",
             type: "GET",
             async: true,
             data: $("#formulario").serialize(),
@@ -47,7 +47,7 @@ $(document).ready(function(){
             }
         });
 
-	 
+
 
 	//función para crear filas
 	function createRow(data) {
@@ -64,13 +64,13 @@ $(document).ready(function(){
   		);
 	}
 
-	
+
 
 	//función para eliminar usuario
 	$("#eliminar").click(function(argument){
 		if (confirm('¿Seguro que desea eliminar al usuario?')) {
 		$.ajax({
-            url: "../../slim/index.php/eliminarUsuario",
+            url: "www.kimberly-clark-logistica.com/slim/index.php/eliminarUsuario",
             type: "GET",
             async: true,
             data: $("#formulario").serialize(),
@@ -96,7 +96,7 @@ $(document).ready(function(){
 		$("#aceptar").show();
 		//LLENAR LOS SELECT
 		$.ajax({
-            url: "../../slim/index.php/consultaPerfiles",
+            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaPerfiles",
             type: "GET",
             async: true,
             data: $("#formulario").serialize(),
@@ -114,7 +114,7 @@ $(document).ready(function(){
         });
 
     $.ajax({
-            url: "../../slim/index.php/consultaSucursales",
+            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaSucursales",
             type: "GET",
             async: true,
             data: $("#formulario").serialize(),
@@ -132,7 +132,7 @@ $(document).ready(function(){
         });
 
     $.ajax({
-            url: "../../slim/index.php/consultaTipoUsuarios",
+            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaTipoUsuarios",
             type: "GET",
             async: true,
             data: $("#formulario").serialize(),
@@ -150,7 +150,7 @@ $(document).ready(function(){
         });
 		// llena los campos con el usuario que se busca
 		$.ajax({
-            url: "../../slim/index.php/consultaUsuario",
+            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaUsuario",
             type: "GET",
             async: true,
             data: $("#formulario").serialize(),
@@ -173,7 +173,7 @@ $(document).ready(function(){
                     	$("#estado").prop("checked", true);
                     }
                     if (response[i].ES_DENTISTA == true) {
-                    	$("#esdentista").prop("checked", true);	
+                    	$("#esdentista").prop("checked", true);
                     }
             	}
             },
@@ -187,7 +187,7 @@ $(document).ready(function(){
 
 	$("#aceptar").click(function(argument){
 		if (confirm('¿Seguro que desea modificar al usuario?')) {
-		//guarda los cambios 
+		//guarda los cambios
         var faltas = 0;
 		//validar que el campo nombre no esté vacío
 		if($("#name").val() == ""){
@@ -229,7 +229,7 @@ $(document).ready(function(){
         	$("#etclave").css('color', 'gray');
         	$("#etclave").css('font-size', 'smaller');
     	}
-    	
+
     	//validar el RFC
     	var regex = /^([A-ZÑ&]{3,4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$/
     	if(regex.test($("#rfc").val())){
@@ -262,7 +262,7 @@ $(document).ready(function(){
         //Insertar datos en tabla
         if(faltas == 0){
             $.ajax({
-                url: "../../slim/index.php/modificarUsuario",
+                url: "www.kimberly-clark-logistica.com/slim/index.php/modificarUsuario",
                 method: "POST",
                 async: true,
                 data: $("#formulario2").serialize(),
@@ -282,12 +282,12 @@ $(document).ready(function(){
 	$("#buscar").click(function(argument) {
 		//borra las filas agregadas por default
 		for(var i = 0 ; i < cont ; i++){
-			$("#fila1").remove();	
+			$("#fila1").remove();
 		}
-		
+
 		//busca al usuario
 		$.ajax({
-            url: "../../slim/index.php/consultaUsuario",
+            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaUsuario",
             type: "GET",
             async: true,
             data: $("#formulario").serialize(),
@@ -310,7 +310,7 @@ $(document).ready(function(){
                 alert("no se encontró usuario con ese nombre")
             }
         });
-		
+
 
         return false;
 

@@ -6,7 +6,7 @@ function init(){
 		var data={};
 		data["ID_USUARIO"]=localStorage.getItem("IDDoctor");
 		$.ajax({
-			url: 'https://localhost/slim/index.php/getHorarios',
+			url: 'https://www.kimberly-clark-logistica.com/slim/index.php/getHorarios',
 			type : 'POST',
 			data: data,
 			dataType : 'json',

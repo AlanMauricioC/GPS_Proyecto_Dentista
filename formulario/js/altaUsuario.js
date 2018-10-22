@@ -1,7 +1,7 @@
 $(document).ready(function(){
-    
+
     $.ajax({
-            url: "../../slim/index.php/consultaPerfiles",
+            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaPerfiles",
             type: "GET",
             async: true,
             data: $("#formulario").serialize(),
@@ -19,7 +19,7 @@ $(document).ready(function(){
         });
 
     $.ajax({
-            url: "../../slim/index.php/consultaSucursales",
+            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaSucursales",
             type: "GET",
             async: true,
             data: $("#formulario").serialize(),
@@ -37,7 +37,7 @@ $(document).ready(function(){
         });
 
     $.ajax({
-            url: "../../slim/index.php/consultaTipoUsuarios",
+            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaTipoUsuarios",
             type: "GET",
             async: true,
             data: $("#formulario").serialize(),
@@ -58,7 +58,7 @@ $(document).ready(function(){
         $("#estado").change();
 
         $.ajax({
-            url: "../../slim/index.php/consultaUsuario",
+            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaUsuario",
             type: "GET",
             async: true,
             data: $("#formulario").serialize(),
@@ -119,7 +119,7 @@ $(document).ready(function(){
         	$("#etclave").css('color', 'gray');
         	$("#etclave").css('font-size', 'smaller');
     	}
-    	
+
     	//validar el RFC
     	var regex = /^([A-ZÑ&]{3,4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$/
     	if(regex.test($("#rfc").val())){
@@ -152,7 +152,7 @@ $(document).ready(function(){
         //Insertar datos en tabla
         if(faltas == 0){
             $.ajax({
-                url: "../../slim/index.php/insertUsuarios",
+                url: "www.kimberly-clark-logistica.com/slim/index.php/insertUsuarios",
                 method: "POST",
                 async: true,
                 data: $("#formulario").serialize(),
