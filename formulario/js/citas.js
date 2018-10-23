@@ -23,7 +23,7 @@ $("#fecha_cita" ).change(function() {
     }
 
 $.ajax({
-            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaHorarioAgendar",
+            url: "https://www.kimberly-clark-logistica.com/slim/index.php/consultaHorarioAgendar",
             type: "GET",
             async: true,
             data: $("#form_agendar_citas").serialize(),
@@ -57,7 +57,7 @@ $.ajax({
 
 //Cargar dentistas a formulario-----------------------------------------------------------------------------------------
 $.ajax({
-            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaDentistaAgendar",
+            url: "https://www.kimberly-clark-logistica.com/slim/index.php/consultaDentistaAgendar",
             type: "GET",
             async: true,
             data: $("#form_agendar_citas").serialize(),
@@ -75,7 +75,7 @@ $.ajax({
         });
 //Cargar estado a formulario-----------------------------------------------------------------------------------------
 $.ajax({
-            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaEstadoAgendar",
+            url: "https://www.kimberly-clark-logistica.com/slim/index.php/consultaEstadoAgendar",
             type: "GET",
             async: true,
             data: $("#form_agendar_citas").serialize(),
@@ -94,7 +94,7 @@ $.ajax({
 //Cargar horarios a formulario -----------------------------------------------------------------------------------------
 $("#dentista" ).change(function() {
 $.ajax({
-            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaHorarioAgendar",
+            url: "https://www.kimberly-clark-logistica.com/slim/index.php/consultaHorarioAgendar",
             type: "GET",
             async: true,
             data: $("#form_agendar_citas").serialize(),
@@ -125,7 +125,7 @@ $.ajax({
 
 //Cargar pacientes a formulario-----------------------------------------------------------------------------------------
 $.ajax({
-            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaPacienteAgendar",
+            url: "https://www.kimberly-clark-logistica.com/slim/index.php/consultaPacienteAgendar",
             type: "GET",
             async: true,
             data: $("#form_agendar_citas").serialize(),
@@ -144,7 +144,7 @@ $.ajax({
 
 //Cargar especialidades a formulario-----------------------------------------------------------------------------------------
 $.ajax({
-            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaEspecialidadAgendar",
+            url: "https://www.kimberly-clark-logistica.com/slim/index.php/consultaEspecialidadAgendar",
             type: "GET",
             async: true,
             data: $("#form_agendar_citas").serialize(),
@@ -161,7 +161,7 @@ $.ajax({
         });
 //Cargar motivo atencion a formulario-----------------------------------------------------------------------------------------
 $.ajax({
-            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaMotivoAtencionAgendar",
+            url: "https://www.kimberly-clark-logistica.com/slim/index.php/consultaMotivoAtencionAgendar",
             type: "GET",
             async: true,
             data: $("#form_agendar_citas").serialize(),
@@ -193,7 +193,7 @@ valida_motivo();
 
    
      $.ajax({
-            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaAgenda",
+            url: "https://www.kimberly-clark-logistica.com/slim/index.php/consultaAgenda",
             type: "GET",
             async: true,
             data: $("#form_agendar_citas").serialize(),
@@ -210,7 +210,7 @@ valida_motivo();
 
 if(valida_fecha() && valida_hr_ini() && valida_hr_fin() && valida_paciente() && valida_dentista() && valida_estado() && valida_especialidad() && valida_motivo()){
 $.ajax({
-            url: "www.kimberly-clark-logistica.com/slim/index.php/insertAgenda",
+            url: "https://www.kimberly-clark-logistica.com/slim/index.php/insertAgenda",
             type: "GET",
             async: true,
             data: $("#form_agendar_citas").serialize(),
