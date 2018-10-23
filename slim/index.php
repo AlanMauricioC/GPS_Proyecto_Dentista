@@ -2,9 +2,13 @@
 
 require 'vendor/autoload.php';
 require 'includes/conexion.php';
+require 'DAO/citasDAO.php';
+require 'DAO/usuariosDAO.php';
+require 'DAO/horariosDAO.php';
 require 'servicios/servicios.php';
 require 'servicios/userController.php';
 require 'servicios/horariosController.php';
+//
 
 $configuration = [
     'settings' => [
@@ -29,11 +33,11 @@ $app->post('/insertUsuarios', '\servicios:insertUsuarios');
 
 $app->get('/ejemploConsulta', '\servicios:ejemploConsulta');
 
-$app->post('/consultaPerfiles', '\servicios:consultaPerfiles');
+$app->get('/consultaPerfiles', '\servicios:consultaPerfiles');
 
-$app->post('/consultaSucursales', '\servicios:consultaSucursales');
+$app->get('/consultaSucursales', '\servicios:consultaSucursales');
 
-$app->post('/consultaTipoUsuarios', '\servicios:consultaTipoUsuarios');
+$app->get('/consultaTipoUsuarios', '\servicios:consultaTipoUsuarios');
 
 $app->post('/consultaUsuario', '\servicios:consultaUsuario');
 
@@ -42,6 +46,8 @@ $app->post('/consultaUsuarios', '\servicios:consultaUsuarios');
 $app->post('/eliminarUsuarios', '\servicios:eliminarUsuarios');
 
 $app->post('/modificarUsuario', '\servicios:modificarUsuario');
+
+$app->get('/consultaPermisos', '\servicios:consultaPermisos');
 
 //Alan<---
 $app->post('/insertHorarios', '\horariosController:insertHorarios');

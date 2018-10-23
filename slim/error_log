@@ -1,0 +1,348 @@
+[20-Oct-2018 23:17:15 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/kimberly/public_html/slim/includes/conexion.php on line 10
+[20-Oct-2018 23:17:15 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/kimberly/public_html/slim/includes/conexion.php on line 10
+[20-Oct-2018 23:17:15 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/kimberly/public_html/slim/includes/conexion.php on line 10
+[20-Oct-2018 23:17:15 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[20-Oct-2018 23:17:15 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[20-Oct-2018 23:17:15 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[20-Oct-2018 23:17:15 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[20-Oct-2018 23:17:15 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[20-Oct-2018 23:17:15 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[20-Oct-2018 23:17:15 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[20-Oct-2018 23:17:15 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[20-Oct-2018 23:17:15 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[21-Oct-2018 17:59:41 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/kimberly/public_html/slim/includes/conexion.php on line 10
+[21-Oct-2018 17:59:41 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/kimberly/public_html/slim/includes/conexion.php on line 10
+[21-Oct-2018 17:59:41 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/kimberly/public_html/slim/includes/conexion.php on line 10
+[21-Oct-2018 17:59:41 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[21-Oct-2018 17:59:41 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[21-Oct-2018 17:59:41 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[21-Oct-2018 17:59:41 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[21-Oct-2018 17:59:41 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[21-Oct-2018 17:59:41 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[21-Oct-2018 17:59:41 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[21-Oct-2018 17:59:41 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[21-Oct-2018 17:59:41 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 04:22:49 UTC] PHP Warning:  mysqli_connect(): (HY000/1045): Access denied for user 'root'@'localhost' (using password: NO) in /home/kimberly/public_html/slim/includes/conexion.php on line 10
+[22-Oct-2018 04:22:49 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 04:22:49 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 04:22:49 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:21:32 UTC] PHP Warning:  require(includes/conexion.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 4
+[22-Oct-2018 06:21:32 UTC] PHP Warning:  require(includes/conexion.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 4
+[22-Oct-2018 06:21:32 UTC] PHP Fatal error:  require(): Failed opening required 'includes/conexion.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/index.php on line 4
+[22-Oct-2018 06:21:57 UTC] PHP Warning:  require(includes/conexion.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 4
+[22-Oct-2018 06:21:57 UTC] PHP Warning:  require(includes/conexion.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 4
+[22-Oct-2018 06:21:57 UTC] PHP Fatal error:  require(): Failed opening required 'includes/conexion.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/index.php on line 4
+[22-Oct-2018 06:23:05 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:23:05 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:23:05 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:23:17 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:23:17 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:23:17 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:24:14 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:24:14 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:24:14 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:25:17 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:25:17 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:25:17 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:25:41 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:25:41 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:25:41 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:27:35 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:27:35 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:27:35 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:27:44 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:27:44 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:27:44 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:28:05 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:28:05 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:28:05 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:28:14 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:28:14 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:28:14 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:28:47 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:28:47 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:28:47 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:28:57 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:28:57 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:28:57 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:29:01 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:29:01 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:29:01 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:29:53 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:29:53 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:29:53 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:30:01 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:30:01 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:30:01 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:30:50 UTC] PHP Parse error:  syntax error, unexpected 'global' (T_GLOBAL) in /home/kimberly/public_html/slim/includes/conexion.php on line 10
+[22-Oct-2018 06:31:00 UTC] PHP Parse error:  syntax error, unexpected 'global' (T_GLOBAL) in /home/kimberly/public_html/slim/includes/conexion.php on line 10
+[22-Oct-2018 06:31:25 UTC] PHP Parse error:  syntax error, unexpected 'global' (T_GLOBAL) in /home/kimberly/public_html/slim/includes/conexion.php on line 10
+[22-Oct-2018 06:31:32 UTC] PHP Parse error:  syntax error, unexpected 'global' (T_GLOBAL) in /home/kimberly/public_html/slim/includes/conexion.php on line 10
+[22-Oct-2018 06:31:46 UTC] PHP Parse error:  syntax error, unexpected 'global' (T_GLOBAL) in /home/kimberly/public_html/slim/includes/conexion.php on line 10
+[22-Oct-2018 06:31:52 UTC] PHP Parse error:  syntax error, unexpected 'global' (T_GLOBAL) in /home/kimberly/public_html/slim/includes/conexion.php on line 10
+[22-Oct-2018 06:34:06 UTC] PHP Parse error:  syntax error, unexpected 'global' (T_GLOBAL) in /home/kimberly/public_html/slim/includes/conexion.php on line 10
+[22-Oct-2018 06:34:29 UTC] PHP Parse error:  syntax error, unexpected 'global' (T_GLOBAL) in /home/kimberly/public_html/slim/includes/conexion.php on line 10
+[22-Oct-2018 06:34:40 UTC] PHP Parse error:  syntax error, unexpected 'global' (T_GLOBAL) in /home/kimberly/public_html/slim/includes/conexion.php on line 10
+[22-Oct-2018 06:34:44 UTC] PHP Parse error:  syntax error, unexpected 'global' (T_GLOBAL) in /home/kimberly/public_html/slim/includes/conexion.php on line 10
+[22-Oct-2018 06:35:42 UTC] PHP Parse error:  syntax error, unexpected 'global' (T_GLOBAL) in /home/kimberly/public_html/slim/includes/conexion.php on line 10
+[22-Oct-2018 06:36:13 UTC] PHP Parse error:  syntax error, unexpected 'global' (T_GLOBAL) in /home/kimberly/public_html/slim/includes/conexion.php on line 10
+[22-Oct-2018 06:36:52 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:36:52 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:36:52 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:37:28 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:37:29 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:37:29 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:37:58 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:37:58 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:37:58 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:38:08 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:38:08 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:38:08 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:38:45 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:38:45 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:38:45 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:39:05 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:39:05 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:39:05 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:39:22 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:39:22 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:39:22 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:39:35 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:39:35 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:39:35 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:39:50 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:39:50 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:39:50 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:40:02 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:40:02 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:40:02 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:40:21 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:40:21 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:40:21 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:41:32 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:41:32 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:41:32 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:42:06 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 4
+[22-Oct-2018 06:42:06 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 4
+[22-Oct-2018 06:42:06 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 4
+[22-Oct-2018 06:42:28 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 4
+[22-Oct-2018 06:42:28 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 4
+[22-Oct-2018 06:42:28 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 4
+[22-Oct-2018 06:43:06 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 4
+[22-Oct-2018 06:43:06 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 4
+[22-Oct-2018 06:43:06 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 4
+[22-Oct-2018 06:43:50 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 4
+[22-Oct-2018 06:43:50 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 4
+[22-Oct-2018 06:43:50 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 4
+[22-Oct-2018 06:47:31 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:47:31 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:47:31 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:48:15 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:48:15 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:48:15 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 2
+[22-Oct-2018 06:48:38 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 3
+[22-Oct-2018 06:48:38 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 3
+[22-Oct-2018 06:48:38 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 3
+[22-Oct-2018 06:49:22 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 3
+[22-Oct-2018 06:49:22 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 3
+[22-Oct-2018 06:49:22 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 3
+[22-Oct-2018 06:50:44 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 8
+[22-Oct-2018 06:50:44 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 8
+[22-Oct-2018 06:50:44 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/index.php on line 8
+[22-Oct-2018 06:51:37 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 11
+[22-Oct-2018 06:51:37 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 11
+[22-Oct-2018 06:51:37 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/index.php on line 11
+[22-Oct-2018 06:54:15 UTC] PHP Fatal error:  Class 'Horarios' not found in /home/kimberly/public_html/slim/servicios/horariosController.php on line 8
+[22-Oct-2018 06:54:41 UTC] PHP Fatal error:  Class 'Horarios' not found in /home/kimberly/public_html/slim/servicios/horariosController.php on line 8
+[22-Oct-2018 06:55:21 UTC] PHP Fatal error:  Class 'Horarios' not found in /home/kimberly/public_html/slim/servicios/horariosController.php on line 9
+[22-Oct-2018 06:55:30 UTC] PHP Fatal error:  Class 'Horarios' not found in /home/kimberly/public_html/slim/servicios/horariosController.php on line 9
+[22-Oct-2018 06:55:53 UTC] PHP Fatal error:  Class 'Horarios' not found in /home/kimberly/public_html/slim/servicios/horariosController.php on line 9
+[22-Oct-2018 06:56:56 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 3
+[22-Oct-2018 06:56:56 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/servicios/horariosController.php on line 3
+[22-Oct-2018 06:56:56 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/servicios/horariosController.php on line 3
+[22-Oct-2018 06:57:27 UTC] PHP Fatal error:  Cannot redeclare class Usuarios in /home/kimberly/public_html/slim/DAO/usuariosDAO.php on line 3
+[22-Oct-2018 06:58:09 UTC] PHP Fatal error:  Cannot redeclare class Agenda in /home/kimberly/public_html/slim/DAO/citasDAO.php on line 5
+[22-Oct-2018 06:58:26 UTC] PHP Fatal error:  Class 'Horarios' not found in /home/kimberly/public_html/slim/servicios/horariosController.php on line 9
+[22-Oct-2018 07:00:50 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 5
+[22-Oct-2018 07:00:50 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 5
+[22-Oct-2018 07:00:50 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/index.php on line 5
+[22-Oct-2018 07:05:12 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:05:12 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:05:12 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:05:38 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:05:38 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:05:38 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:05:45 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:05:45 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:05:45 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:06:00 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:06:00 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:06:00 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:06:02 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:06:02 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:06:02 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:06:03 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:06:03 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:06:03 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:06:05 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:06:05 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:06:05 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:06:07 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:06:07 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:06:07 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:06:08 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:06:08 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:06:08 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:06:10 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:06:10 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:06:10 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:06:15 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:06:15 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:06:15 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:06:46 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:06:46 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:06:46 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:07:07 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:07:07 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:07:07 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:07:25 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:07:25 UTC] PHP Warning:  require(DAO/horariosDAO.php): failed to open stream: No such file or directory in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 07:07:25 UTC] PHP Fatal error:  require(): Failed opening required 'DAO/horariosDAO.php' (include_path='.
+;
+; Windows: \path1') in /home/kimberly/public_html/slim/index.php on line 7
+[22-Oct-2018 19:35:12 UTC] PHP Fatal error:  Call to undefined method Usuarios::insertar() in /home/kimberly/public_html/slim/servicios/servicios.php on line 34
+[22-Oct-2018 19:38:35 UTC] PHP Fatal error:  Call to a member function fetch_array() on boolean in /home/kimberly/public_html/slim/DAO/usuariosDAO.php on line 42
+[22-Oct-2018 19:38:35 UTC] PHP Fatal error:  Call to undefined method Usuarios::insertar() in /home/kimberly/public_html/slim/servicios/servicios.php on line 34
+[22-Oct-2018 19:43:35 UTC] PHP Fatal error:  Call to a member function fetch_array() on boolean in /home/kimberly/public_html/slim/DAO/usuariosDAO.php on line 42
+[22-Oct-2018 19:48:47 UTC] PHP Fatal error:  Call to a member function fetch_array() on boolean in /home/kimberly/public_html/slim/DAO/usuariosDAO.php on line 42
+[22-Oct-2018 19:52:24 UTC] PHP Fatal error:  Call to a member function fetch_array() on boolean in /home/kimberly/public_html/slim/DAO/usuariosDAO.php on line 42
+[22-Oct-2018 19:55:39 UTC] PHP Fatal error:  Call to a member function fetch_array() on boolean in /home/kimberly/public_html/slim/DAO/usuariosDAO.php on line 42
+[22-Oct-2018 19:56:43 UTC] PHP Fatal error:  Call to a member function fetch_array() on boolean in /home/kimberly/public_html/slim/DAO/usuariosDAO.php on line 42
+[22-Oct-2018 20:12:19 UTC] PHP Fatal error:  Call to undefined method Usuarios::insertar() in /home/kimberly/public_html/slim/servicios/servicios.php on line 34
+[22-Oct-2018 20:50:08 UTC] PHP Fatal error:  Call to undefined method Usuarios::insertar() in /home/kimberly/public_html/slim/servicios/servicios.php on line 34
+[22-Oct-2018 22:57:24 UTC] PHP Fatal error:  Call to a member function fetch_array() on boolean in /home/kimberly/public_html/slim/DAO/usuariosDAO.php on line 41
+[22-Oct-2018 23:05:04 UTC] PHP Fatal error:  Call to undefined method Usuarios::insertar() in /home/kimberly/public_html/slim/servicios/servicios.php on line 34
+[22-Oct-2018 23:09:52 UTC] PHP Fatal error:  Call to undefined method Usuarios::insertar() in /home/kimberly/public_html/slim/servicios/servicios.php on line 34
+[22-Oct-2018 23:22:38 UTC] PHP Fatal error:  Call to undefined method Usuarios::insertar() in /home/kimberly/public_html/slim/servicios/servicios.php on line 34
+[22-Oct-2018 23:23:18 UTC] PHP Fatal error:  Call to undefined method Usuarios::insertar() in /home/kimberly/public_html/slim/servicios/servicios.php on line 34
+[22-Oct-2018 23:48:12 UTC] PHP Fatal error:  Call to undefined method Usuarios::insertar() in /home/kimberly/public_html/slim/servicios/servicios.php on line 34

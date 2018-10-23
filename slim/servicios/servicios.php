@@ -1,5 +1,4 @@
 <?php
-require 'DAO/citasDAO.php';
 
 class servicios {
    
@@ -32,7 +31,7 @@ class servicios {
         
         $usuarios = new Usuarios();
        
-        return $usuarios->insertar();
+        return $usuarios->insert();
     }
 
     public function consultaUsuario($request, $response, $args) {
@@ -76,7 +75,13 @@ class servicios {
        
         return $usuarios->search();
     }    
-
+    
+    public function consultaPermisos($request, $response, $args) {
+        
+        $usuarios = new Usuarios();
+       
+        return $usuarios->consultaPermisosP();
+    }
 
 //Jafet <-- 
 public function consultaAgenda($request, $response, $args) {

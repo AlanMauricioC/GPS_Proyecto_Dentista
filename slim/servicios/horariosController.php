@@ -1,5 +1,5 @@
 <?php
-require 'DAO/horariosDAO.php';
+
 class horariosController {
 
     public function getHorarios($request, $response, $args) {

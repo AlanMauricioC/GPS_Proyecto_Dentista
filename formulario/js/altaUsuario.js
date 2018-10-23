@@ -1,10 +1,11 @@
 $(document).ready(function(){
 
     $.ajax({
-            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaPerfiles",
+        
+            url: "https://www.kimberly-clark-logistica.com/slim/index.php/consultaPerfiles",
             type: "GET",
             async: true,
-            data: $("#formulario").serialize(),
+            data: null,
             dataType: "json",
             success: function(response){
 
@@ -19,10 +20,10 @@ $(document).ready(function(){
         });
 
     $.ajax({
-            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaSucursales",
+            url: "https://www.kimberly-clark-logistica.com/slim/index.php/consultaSucursales",
             type: "GET",
             async: true,
-            data: $("#formulario").serialize(),
+            data: null,
             dataType: "json",
             success: function(response){
 
@@ -37,50 +38,72 @@ $(document).ready(function(){
         });
 
     $.ajax({
-            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaTipoUsuarios",
+            url: "https://www.kimberly-clark-logistica.com/slim/index.php/consultaTipoUsuarios",
             type: "GET",
             async: true,
-            data: $("#formulario").serialize(),
+            data: null,
             dataType: "json",
             success: function(response){
 
                 for (var i = 0; i < response.length; i++) {
-                    var desc = response[i].DESCRIPCION+ "( "+ response[i] + " )";
-                    $("#sucursal").append($("<option></option>").attr("value",response[i].ID_TIPODEUSUARIO).text(desc));
+                    var desc = response[i].DESCRIPCION+ "( "+ response[i].ADMIN_O_CLINICO + " )";
+                    $("#sel1").append($("<option></option>").attr("value",response[i].ID_TIPODEUSUARIO).text(desc));
                 }
             },
             error: function(error){
                 alert("no hay tipos de usuario agregados")
+            }
+        });
+        
+            $.ajax({
+            url: "https://www.kimberly-clark-logistica.com/slim/index.php/consultaPermisos",
+            type: "GET",
+            async: true,
+            data: null,
+            dataType: "json",
+            success: function(response){
+
+                for (var i = 0; i < response.length; i++) {
+                    var desc = response[i].DESCRIPCION+ "( "+ response[i].PERFIL + " )";
+                    $("#permisos").append($("<option></option>").attr("value",response[i].ID_PERFILPERMISOS).text(desc));
+                }
+            },
+            error: function(error){
+                alert("no hay permisos agregados")
             }
         });
 
 	$("#aceptar").click(function(argument) {
         $("#estado").change();
 
+        var faltas = 0;
         $.ajax({
-            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaUsuario",
-            type: "GET",
+            url: "https://www.kimberly-clark-logistica.com/slim/index.php/consultaUsuario",
+            type: "POST",
             async: true,
             data: $("#formulario").serialize(),
             dataType: "json",
             success: function(response){
 
                 for (var i = 0; i < response.length; i++) {
-                    if(response[i] == null){
+                    if(response[i].ID_USUARIO === null){
                         $("#etusuario").css('color', 'red');
                         $("#etusuario").css('font-size', 'larger');
                         faltas += 1;
                     }
                 }
+                if(faltas > 0){
+                    alert(faltas)
+                }
             },
             error: function(error){
-                alert("no hay tipos de usuario agregados")
+                
             }
         });
 
-        var faltas = 0;
+        
 		//validar que el campo nombre no esté vacío
-		if($("#name").val() == ""){
+		if($("#name").val() === ""){
         	$("#etname").css('color', 'red');
         	$("#etname").css('font-size', 'larger');
             faltas += 1;
@@ -90,7 +113,7 @@ $(document).ready(function(){
         	$("#etname").css('font-size', 'smaller');
     	}
     	//validar que el campo apellidos no esté vacío
-		if($("#apellidos").val() == ""){
+		if($("#apellidos").val() === ""){
         	$("#etapellidos").css('color', 'red');
         	$("#etapellidos").css('font-size', 'larger');
             faltas += 1;
@@ -100,7 +123,7 @@ $(document).ready(function(){
         	$("#etapellidos").css('font-size', 'smaller');
     	}
     	//validar que el campo usuario no esté vacío
-		if($("#usuario").val() == ""){
+		if($(isNaN($("#usuario").val()) || "#usuario").val() === ""){
         	$("#etusuario").css('color', 'red');
         	$("#etusuario").css('font-size', 'larger');
             faltas += 1;
@@ -110,7 +133,7 @@ $(document).ready(function(){
         	$("#etusuario").css('font-size', 'smaller');
     	}
     	//validar que el campo clave no esté vacío
-		if($("#clave").val() == ""){
+		if($("#clave").val() === ""){
         	$("#etclave").css('color', 'red');
         	$("#etclave").css('font-size', 'larger');
             faltas += 1;
@@ -141,7 +164,7 @@ $(document).ready(function(){
         	$("#etphone").css('font-size', 'smaller');
     	}
     	//valida que el campo phone sea un número y no esté vacío
-		if(isNaN($("#cel").val()) || $("#cel").val() == ""){
+		if(isNaN($("#cel").val()) || $("#cel").val() === ""){
         	$("#etcel").css('color', 'red');
         	$("#etcel").css('font-size', 'larger');
             faltas += 1;
@@ -150,17 +173,19 @@ $(document).ready(function(){
         	$("#etcel").css('font-size', 'smaller');
     	}
         //Insertar datos en tabla
-        if(faltas == 0){
+        if(faltas === 0){
             $.ajax({
-                url: "www.kimberly-clark-logistica.com/slim/index.php/insertUsuarios",
+                url: "https://www.kimberly-clark-logistica.com/slim/index.php/insertUsuarios",
                 method: "POST",
                 async: true,
                 data: $("#formulario").serialize(),
                 dataType: "json",
                 success: function(respuesta) {
                 //Accion 1
+                alert("Se ha insertado correctamente el nuevo usuario");
                 }
             });
+            alert("Se ha insertado correctamente el nuevo usuario");
         }
     	return false;
 	})

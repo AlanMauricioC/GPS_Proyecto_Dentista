@@ -5,20 +5,25 @@ $(document).ready(function(){
 	$("#aceptar").hide();
 	//llena los datos de la tabla con los usuarios existentes
 	$.ajax({
-            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaUsuario",
-            type: "GET",
+            url: "https://www.kimberly-clark-logistica.com/slim/index.php/consultaUsuarios",
+            type: "POST",
             async: true,
             data: $("#formulario").serialize(),
             dataType: "json",
             success: function(response){
-
+                var estado;
                 for (var i = 0; i < response.length; i++) {
+                    if(response[i].ESTADO == true){
+                        estado= "Activo";
+                    }else{
+                        estado= "Inactivo";
+                    }
                     var row = createRow({
     					tipo: response[i].ID_TIPODEUSUARIO,
-    					nombre: response.NOMBRE,
-    					apellidos: response.APELLIDOS,
+    					nombre: response[i].NOMBRE,
+    					apellidos: response[i].APELLIDOS,
     					perfil: response[i].ID_PERFIL,
-    					estado:response[i].ESTADO,
+    					estado:estado,
     					rfc: response[i].RFC
   					});
   					$('table tbody').append(row);
@@ -26,24 +31,6 @@ $(document).ready(function(){
             },
             error: function(error){
                 alert("no hay datos de usuario agregados")
-                var row = createRow({
-    					tipo: "response[i].ID_TIPODEUSUARIO",
-    					nombre: "response.NOMBRE",
-    					apellidos: "response.APELLIDOS",
-    					perfil: "response[i].ID_PERFIL",
-    					estado:"response[i].ESTADO",
-    					rfc: "response[i].RFC"
-  					});
-  					$('table tbody').append(row);
-  					var row = createRow({
-    					tipo: "response[i].ID_TIPODEUSUARIO2",
-    					nombre: "response.NOMBRE",
-    					apellidos: "response.APELLIDOS",
-    					perfil: "response[i].ID_PERFIL",
-    					estado:"response[i].ESTADO",
-    					rfc: "response[i].RFC"
-  					});
-  					$('table tbody').append(row);
             }
         });
 
@@ -70,7 +57,7 @@ $(document).ready(function(){
 	$("#eliminar").click(function(argument){
 		if (confirm('¿Seguro que desea eliminar al usuario?')) {
 		$.ajax({
-            url: "www.kimberly-clark-logistica.com/slim/index.php/eliminarUsuario",
+            url: "https://www.kimberly-clark-logistica.com/slim/index.php/eliminarUsuario",
             type: "GET",
             async: true,
             data: $("#formulario").serialize(),
@@ -90,13 +77,30 @@ $(document).ready(function(){
 	$("#modificar").click(function(argument){
 
 		//introduce el formulario
-		$("#modif").append("<div class=\"row\"><h1 class=\" col titulo\" >MODIFICAR USUARIO</h1></div><form class=\"contact100-form validate-form\" name=\"formulario2\" id=\"formulario2\"><div class=\"wrap-input100 validate-input\" data-validate=\"Se requiere tipo de usuario\"><span class=\"label-input100\" id=\"etsell\">Tipo de usuario:</span> <select class=\"form-control\" id=\"sel1\" name=\"sel1\"> <option>Informes</option> <option>Administración</option><option>Dirección</option><option>Recursos Humanos</option></select>	<span class=\"focus-input100\"></span></div><div class=\"wrap-input100 validate-input\" data-validate=\"Se requiere nombre\"><span class=\"label-input100\" id=\"etname\">Nombre:</span><input class=\"input100\" type=\"textv\" name=\"name\" id=\"name\">	<span class=\"focus-input100\"></span></div><div class=\"wrap-input100 validate-input\" data-validate=\"Se requieren apellidos\"><span class=\"label-input100\" id=\"etapellidos\">Apellidos:</span><input class=\"input100\" type=\"text\" name=\"apellidos\" id=\"apellidos\"><span class=\"focus-input100\"></span></div><div class=\"wrap-input100 validate-input\" data-validate=\"Se requiere usuario\"><span class=\"label-input100\" id=\"etusuario\">Usuario:</span><input class=\"input100\" type=\"text\" name=\"usuario2\" id=\"usuario2\"><span class=\"focus-input100\"></span>	</div><div class=\"wrap-input100 validate-input\" data-validate=\"Se requiere clave\"><span class=\"label-input100\" id=\"etclave\">Clave:</span><input class=\"input100\" type=\"text\" name=\"clave\" id=\"clave\"><span class=\"focus-input100\"></span></div><div class=\"wrap-input100 validate-input\" data-validate=\"Se requiere perfil\"><span class=\"label-input100\" id=\"etperfil\">Perfil:</span> <select class=\"form-control\" name=\"perfil\" id=\"perfil\"></select><span class=\"focus-input100\"></span></div><div class=\"wrap-input100 validate-input\" data-validate=\"Se requiere sucursal\"><span class=\"label-input100\" id=\"etsucursal\">Sucursal:</span> <select class=\"form-control\" name=\"sucursal\" id=\"sucursal\"></select><span class=\"focus-input100\"></span></div><div class=\"validate-input\"><span class=\"label-input100\" id=\"etdentista\">Dentista:</span><input type=\"checkbox\" name=\"esdentista\" id=\"esdentista\" data-toggle=\"toggle\" data-onstyle=\"info\" data-on=\"Sí\" data-off=\"No\">	<span class=\"focus-input100\"></span></div><br><div class=\"validate-input\"><span class=\"label-input100\" id=\"etestado\">Estado:</span>	<input type=\"checkbox\" name=\"estado\" id=\"estado\" data-toggle=\"toggle\" data-onstyle=\"info\" data-on=\"Sí\" data-off=\"No\">	</div><br/><br/><div class=\"wrap-input100 validate-input\" data-validate=\"Se requiere RFC\"><span class=\"label-input100\" id=\"etrfc\">RFC:</span><input class=\"input100\" type=\"text\" name=\"rfc\" id=\"rfc\"><span class=\"focus-input100\"></span></div><div class=\"wrap-input100 validate-input\" data-validate=\"Se requiere teléfono\"><span class=\"label-input100\" id=\"etphone\">Teléfono:</span><input class=\"input100\" type=\"text\" name=\"phone\" id=\"phone\">\<span class=\"focus-input100\"></span></div><div class=\"wrap-input100 validate-input\" data-validate=\"Se requiere número de celular\"><span class=\"label-input100\" id=\"etcel\">Celular:</span><input class=\"input100\" type=\"text\" name=\"cel\" id=\"cel\"><span class=\"focus-input100\"></span></div><div class=\"wrap-input100 validate-input\" data-validate=\"Se requieren permisos\"><span class=\"label-input100\" id=\"etpermiso\">Permisos:</span><select class=\"form-control\" name=\"permisos\" id=\"permisos\"></select><span class=\"focus-input100\"></span></div></div></form>");
+		$("#modif").append("<div class=\"row\"><h1 class=\" col titulo\" >MODIFICAR USUARIO</h1></div><form class=\"contact100-form validate-form\" name=\"formulario2\" id=\"formulario2\"><div class=\"wrap-input100 validate-input\" data-validate=\"Se requiere tipo de usuario\"><span class=\"label-input100\" id=\"etsell\">Tipo de usuario:</span> <select class=\"form-control\" id=\"sel1\" name=\"sel1\"></select>	<span class=\"focus-input100\"></span></div><div class=\"wrap-input100 validate-input\" data-validate=\"Se requiere nombre\"><span class=\"label-input100\" id=\"etname\">Nombre:</span><input class=\"input100\" type=\"textv\" name=\"name\" id=\"name\">	<span class=\"focus-input100\"></span></div><div class=\"wrap-input100 validate-input\" data-validate=\"Se requieren apellidos\"><span class=\"label-input100\" id=\"etapellidos\">Apellidos:</span><input class=\"input100\" type=\"text\" name=\"apellidos\" id=\"apellidos\"><span class=\"focus-input100\"></span></div><div class=\"wrap-input100 validate-input\" data-validate=\"Se requiere usuario\"><span class=\"label-input100\" id=\"etusuario\">Usuario:</span><input class=\"input100\" type=\"text\" name=\"usuario2\" id=\"usuario2\"><span class=\"focus-input100\"></span>	</div><div class=\"wrap-input100 validate-input\" data-validate=\"Se requiere clave\"><span class=\"label-input100\" id=\"etclave\">Clave:</span><input class=\"input100\" type=\"text\" name=\"clave\" id=\"clave\"><span class=\"focus-input100\"></span></div><div class=\"wrap-input100 validate-input\" data-validate=\"Se requiere perfil\"><span class=\"label-input100\" id=\"etperfil\">Perfil:</span> <select class=\"form-control\" name=\"perfil\" id=\"perfil\"></select><span class=\"focus-input100\"></span></div><div class=\"wrap-input100 validate-input\" data-validate=\"Se requiere sucursal\"><span class=\"label-input100\" id=\"etsucursal\">Sucursal:</span> <select class=\"form-control\" name=\"sucursal\" id=\"sucursal\"></select><span class=\"focus-input100\"></span></div><div class=\"validate-input\"><span class=\"label-input100\" id=\"etdentista\">Dentista:</span><input type=\"checkbox\" name=\"esdentista\" id=\"esdentista\" data-toggle=\"toggle\" data-onstyle=\"info\" data-on=\"Sí\" data-off=\"No\">	<span class=\"focus-input100\"></span></div><br><div class=\"validate-input\"><span class=\"label-input100\" id=\"etestado\">Estado:</span>	<input type=\"checkbox\" name=\"estado\" id=\"estado\" data-toggle=\"toggle\" data-onstyle=\"info\" data-on=\"Sí\" data-off=\"No\">	</div><br/><br/><div class=\"wrap-input100 validate-input\" data-validate=\"Se requiere RFC\"><span class=\"label-input100\" id=\"etrfc\">RFC:</span><input class=\"input100\" type=\"text\" name=\"rfc\" id=\"rfc\"><span class=\"focus-input100\"></span></div><div class=\"wrap-input100 validate-input\" data-validate=\"Se requiere teléfono\"><span class=\"label-input100\" id=\"etphone\">Teléfono:</span><input class=\"input100\" type=\"text\" name=\"phone\" id=\"phone\">\<span class=\"focus-input100\"></span></div><div class=\"wrap-input100 validate-input\" data-validate=\"Se requiere número de celular\"><span class=\"label-input100\" id=\"etcel\">Celular:</span><input class=\"input100\" type=\"text\" name=\"cel\" id=\"cel\"><span class=\"focus-input100\"></span></div><div class=\"wrap-input100 validate-input\" data-validate=\"Se requieren permisos\"><span class=\"label-input100\" id=\"etpermiso\">Permisos:</span><select class=\"form-control\" name=\"permisos\" id=\"permisos\"></select><span class=\"focus-input100\"></span></div></div></form>");
 		//muestra botones
 		$("#cancelar").show();
 		$("#aceptar").show();
 		//LLENAR LOS SELECT
 		$.ajax({
-            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaPerfiles",
+            url: "https://www.kimberly-clark-logistica.com/slim/index.php/consultaPermisos",
+            type: "GET",
+            async: true,
+            data: null,
+            dataType: "json",
+            success: function(response){
+
+                for (var i = 0; i < response.length; i++) {
+                    var desc = response[i].DESCRIPCION+ "( "+ response[i].PERFIL + " )";
+                    $("#permisos").append($("<option></option>").attr("value",response[i].ID_PERFILPERMISOS).text(desc));
+                }
+            },
+            error: function(error){
+                alert("no hay permisos agregados")
+            }
+        });
+		$.ajax({
+            url: "https://www.kimberly-clark-logistica.com/slim/index.php/consultaPerfiles",
             type: "GET",
             async: true,
             data: $("#formulario").serialize(),
@@ -114,7 +118,7 @@ $(document).ready(function(){
         });
 
     $.ajax({
-            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaSucursales",
+            url: "https://www.kimberly-clark-logistica.com/slim/index.php/consultaSucursales",
             type: "GET",
             async: true,
             data: $("#formulario").serialize(),
@@ -132,7 +136,7 @@ $(document).ready(function(){
         });
 
     $.ajax({
-            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaTipoUsuarios",
+            url: "https://www.kimberly-clark-logistica.com/slim/index.php/consultaTipoUsuarios",
             type: "GET",
             async: true,
             data: $("#formulario").serialize(),
@@ -140,8 +144,8 @@ $(document).ready(function(){
             success: function(response){
 
                 for (var i = 0; i < response.length; i++) {
-                    var desc = response[i].DESCRIPCION+ "( "+ response[i] + " )";
-                    $("#sucursal").append($("<option></option>").attr("value",response[i].ID_TIPODEUSUARIO).text(desc));
+                    var desc = response[i].DESCRIPCION+ "( "+ response[i].ADMIN_O_CLINICO + " )";
+                    $("#sel1").append($("<option></option>").attr("value",response[i].ID_TIPODEUSUARIO).text(desc));
                 }
             },
             error: function(error){
@@ -150,8 +154,8 @@ $(document).ready(function(){
         });
 		// llena los campos con el usuario que se busca
 		$.ajax({
-            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaUsuario",
-            type: "GET",
+            url: "https://www.kimberly-clark-logistica.com/slim/index.php/consultaUsuario",
+            type: "POST",
             async: true,
             data: $("#formulario").serialize(),
             dataType: "json",
@@ -165,10 +169,10 @@ $(document).ready(function(){
                     $("#sucursal").val(response[i].SUCURSAL);
                     $("#permisos").val(response[i].ID_PERMISOS);
                     $("#rfc").val(response[i].RFC);
-                    $("#usuario2").val(response[i].USUARIO);
+                    $("#usuario2").val(response[i].ID_USUARIO);
                     $("#clave").val(response[i].CLAVE);
-                    $("#phone").val(response[i].TELEFONO);
-                    $("#cel").val(response[i].CELULAR);
+                    $("#phone").val(response[i].NUM_TEL);
+                    $("#cel").val(response[i].NUM_CEL);
                     if(response[i].ESTADO == true){
                     	$("#estado").prop("checked", true);
                     }
@@ -190,7 +194,7 @@ $(document).ready(function(){
 		//guarda los cambios
         var faltas = 0;
 		//validar que el campo nombre no esté vacío
-		if($("#name").val() == ""){
+		if($("#name").val() === ""){
         	$("#etname").css('color', 'red');
         	$("#etname").css('font-size', 'larger');
             faltas += 1;
@@ -200,7 +204,7 @@ $(document).ready(function(){
         	$("#etname").css('font-size', 'smaller');
     	}
     	//validar que el campo apellidos no esté vacío
-		if($("#apellidos").val() == ""){
+		if($("#apellidos").val() === ""){
         	$("#etapellidos").css('color', 'red');
         	$("#etapellidos").css('font-size', 'larger');
             faltas += 1;
@@ -210,7 +214,7 @@ $(document).ready(function(){
         	$("#etapellidos").css('font-size', 'smaller');
     	}
     	//validar que el campo usuario no esté vacío
-		if($("#usuario").val() == ""){
+		if(isNaN($("#usuario").val()) || $("#usuario").val() === ""){
         	$("#etusuario").css('color', 'red');
         	$("#etusuario").css('font-size', 'larger');
             faltas += 1;
@@ -220,7 +224,7 @@ $(document).ready(function(){
         	$("#etusuario").css('font-size', 'smaller');
     	}
     	//validar que el campo clave no esté vacío
-		if($("#clave").val() == ""){
+		if($("#clave").val() === ""){
         	$("#etclave").css('color', 'red');
         	$("#etclave").css('font-size', 'larger');
             faltas += 1;
@@ -262,7 +266,7 @@ $(document).ready(function(){
         //Insertar datos en tabla
         if(faltas == 0){
             $.ajax({
-                url: "www.kimberly-clark-logistica.com/slim/index.php/modificarUsuario",
+                url: "https://www.kimberly-clark-logistica.com/slim/index.php/modificarUsuario",
                 method: "POST",
                 async: true,
                 data: $("#formulario2").serialize(),
@@ -287,20 +291,25 @@ $(document).ready(function(){
 
 		//busca al usuario
 		$.ajax({
-            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaUsuario",
-            type: "GET",
+            url: "https://www.kimberly-clark-logistica.com/slim/index.php/consultaUsuario",
+            type: "POST",
             async: true,
             data: $("#formulario").serialize(),
             dataType: "json",
             success: function(response){
 
                 for (var i = 0; i < response.length; i++) {
+                    if(response[i].ESTADO == true){
+                        estado= "Activo";
+                    }else{
+                        estado= "Inactivo";
+                    }
                     var row = createRow({
     					tipo: response[i].ID_TIPODEUSUARIO,
-    					nombre: response.NOMBRE,
-    					apellidos: response.APELLIDOS,
+    					nombre: response[i].NOMBRE,
+    					apellidos: response[i].APELLIDOS,
     					perfil: response[i].ID_PERFIL,
-    					estado:response[i].ESTADO,
+    					estado:estado,
     					rfc: response[i].RFC
   					});
   					$('table tbody').append(row);

@@ -1,5 +1,4 @@
 <?php
-require 'DAO/usuariosDAO.php';
 class userController {
    
     public function getUsuarios($request, $response, $args) {

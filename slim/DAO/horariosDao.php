@@ -1,5 +1,4 @@
 <?php
-
 class Horarios {
 
     public function searchHorarios($usuario)

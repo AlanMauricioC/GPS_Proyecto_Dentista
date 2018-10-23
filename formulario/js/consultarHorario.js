@@ -22,7 +22,7 @@ function init(){
 
 
 function insertarDatos(response) {
-	//$("#usuarios").empty();
+	$("#usuarios").empty();
 
 	response=response["data"];
 	var dia=[null,null,null,null,null,null,null]
