@@ -78,6 +78,7 @@
 				<div class="row" >
 					<span class="col-4 label-input-citas col-form-label">Fecha: </span>
 					<input class="col form-control" type="date" name="fecha_cita" id="fecha_cita">
+					<input type="hidden" name="dia_semana_agendar" id="dia_semana_agendar">
 				</div>
 				<div class="row">
 					<div class="col-4"></div>
@@ -168,9 +169,9 @@
 
 				
 					<br>
-				<div class="row">
-					<div class="col-4"></div>
-					<button type="button" class="btn btn-success" id="btn_agendar_cita">Aceptar</button>
+				<div class="row justify-content-around" style="margin-left: 25%" >
+					<button type="button" class="btn btn-success" id="btn_agendar_cita">Aceptar</button>					
+					<button type="button" class="btn btn-danger" id="btn_agendar_cita_cancelar">Cancelar</button>
 				</div>
 			</form>
 			<br><br>

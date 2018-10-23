@@ -44,8 +44,8 @@ class Agenda {
 
     public function consultaHorario() {
         $conn = $GLOBALS['conn'];
-        $res = $conn -> query("select * from catalogo_horario_dentista where ID_USUARIO =".$_GET["dentista"].";");
-        
+        $res = $conn -> query("select * from catalogo_horario_dentista where ID_USUARIO =".$_GET["dentista"]." and DIA='".$_GET["dia_semana_agendar"]."';");
+                
         $array = array();
         $i=0;
         while ($registro = $res->fetch_array()) {
@@ -188,7 +188,7 @@ class Agenda {
 ///        echo $_GET["fecha_cita"];
         $id_usr=12;
         
-        $sql = "update agenda set FECHA = '".$_GET["fecha_cita_b"]."', HORA_INICIO = ".$_GET["hora_ini_b"].", HORA_FIN=".$_GET["hora_fin_b"].", ID_PACIENTE =".$_GET["paciente_b"].", ID_ESTADO_CITA = ".$_GET["estado"].", ID_ESPECIALIDAD =".$_GET["especialidad_b"].", ID_MOTIVO_ATENCION =".$_GET["motivo"]." WHERE ID_AGENDA = ".$_GET["idAgenda"]." ;";
+        $sql = "update agenda set FECHA = '".$_GET["fecha_cita_b"]."', HORA_INICIO = ".$_GET["hora_ini_b"].", HORA_FIN=".$_GET["hora_fin_b"].", ID_PACIENTE =".$_GET["paciente_b"].", ID_ESTADO_CITA = ".$_GET["estado"].", ID_ESPECIALIDAD =".$_GET["especialidad_b"].", ID_USUARIO_DOCTOR =".$_GET["dentista"].", ID_MOTIVO_ATENCION =".$_GET["motivo"]." WHERE ID_AGENDA = ".$_GET["idAgenda"]." ;";
 
     try{
          if(mysqli_query($conn,$sql))

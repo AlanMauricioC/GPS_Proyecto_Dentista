@@ -1,43 +1,26 @@
 $(document).ready(function(){
-//Cargar dentistas a formulario-----------------------------------------------------------------------------------------
-$.ajax({
-            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaDentistaAgendar",
-            type: "GET",
-            async: true,
-            data: $("#form_buscar_citas").serialize(),
-            dataType: "json",
-            success: function(response){
+//Dia de la semana-----------------------------------------------------------------------------------------
+$("#fecha_cita_b" ).change(function() {
+    var fecha = new Date($(this).val());
+    var dia = fecha.getDay();
+    switch (dia){
+        case 0 : $("#dia_semana_agendar").val("LU");
+            break;
+        case 1 : $("#dia_semana_agendar").val("MA");
+            break;
+        case 2 : $("#dia_semana_agendar").val("MI");
+            break;
+        case 3 : $("#dia_semana_agendar").val("JU");
+            break;
+        case 4 : $("#dia_semana_agendar").val("VI");
+            break;
+        case 5 : $("#dia_semana_agendar").val("SA");
+            break;
+        case 6 : $("#dia_semana_agendar").val("DO");
+            break;
 
-                for (var i = 0; i < response.length; i++) {
-                    var dentista = response[i].NOMBRE + " " + response[i].APELLIDOS;
-                    $("#dentista").append($("<option></option>").attr("value",response[i].ID_USUARIO).text(dentista));
-                }
-            },
-            error: function(error){
-                alert("no hay dentistas registrados")
-            }
-        });
-//Cargar estado a formulario-----------------------------------------------------------------------------------------
-$.ajax({
-            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaEstadoAgendar",
-            type: "GET",
-            async: true,
-            data: $("#form_buscar_citas").serialize(),
-            dataType: "json",
-            success: function(response){
+    }
 
-                for (var i = 0; i < response.length; i++) {
-                    $("#estado").append($("<option></option>").attr("value",response[i].ID_ESTADO_CITA).text(response[i].DESCRIPCION));
-                }
-            },
-            error: function(error){
-                alert("no hay dentistas registrados")
-            }
-        });
-
-
-//Cargar horarios a formulario -----------------------------------------------------------------------------------------
-$( "#dentista" ).change(function() {
 $.ajax({
             url: "www.kimberly-clark-logistica.com/slim/index.php/consultaHorarioAgendar",
             type: "GET",
@@ -62,7 +45,78 @@ $.ajax({
 
             },
             error: function(error){
-                alert("Seleccione. un dentista")
+                alert("Seleccione un dentista");
+            }
+        });
+
+
+});
+   
+
+//Cargar dentistas a formulario-----------------------------------------------------------------------------------------
+$.ajax({
+            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaDentistaAgendar",
+            type: "GET",
+            async: true,
+            data: $("#form_buscar_citas").serialize(),
+            dataType: "json",
+            success: function(response){
+
+                for (var i = 0; i < response.length; i++) {
+                    var dentista = response[i].NOMBRE + " " + response[i].APELLIDOS;
+                    $("#dentista").append($("<option></option>").attr("value",response[i].ID_USUARIO).text(dentista));
+                }
+            },
+            error: function(error){
+                alert("no hay dentistas registrados");
+            }
+        });
+//Cargar estado a formulario-----------------------------------------------------------------------------------------
+$.ajax({
+            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaEstadoAgendar",
+            type: "GET",
+            async: true,
+            data: $("#form_buscar_citas").serialize(),
+            dataType: "json",
+            success: function(response){
+
+                for (var i = 0; i < response.length; i++) {
+                    $("#estado").append($("<option></option>").attr("value",response[i].ID_ESTADO_CITA).text(response[i].DESCRIPCION));
+                }
+            },
+            error: function(error){
+                alert("no hay dentistas registrados");
+            }
+        });
+
+
+//Cargar horarios a formulario -----------------------------------------------------------------------------------------
+$("#dentista" ).change(function() {
+$.ajax({
+            url: "www.kimberly-clark-logistica.com/slim/index.php/consultaHorarioAgendar",
+            type: "GET",
+            async: true,
+            data: $("#form_buscar_citas").serialize(),
+            dataType: "json",
+            success: function(response){
+                    //limpia horarios anteriores
+                     $("#hora_ini_b").empty().append($("<option></option>").text("Selecciona una opción"));
+                     $("#hora_fin_b").empty().append($("<option></option>").text("Selecciona una opción"));
+
+                    var inicio = parseInt(response[0].HORA_INICIO);
+                    var fin = parseInt(response[0].HORA_TERMINO);
+
+                    for (var i = inicio; i < fin; i++) {
+                        $("#hora_ini_b").append($("<option></option>").attr("value",i).text(i+":00"));
+                    }
+
+                    for (var i = inicio+1 ; i <= fin; i++) {
+                        $("#hora_fin_b").append($("<option></option>").attr("value",i).text(i+":00"));
+                    }               
+
+            },
+            error: function(error){
+                alert("Seleccione una fecha");
             }
         }); 
 
@@ -83,7 +137,7 @@ $.ajax({
                 }
             },
             error: function(error){
-                alert("no hay pacientes registrados")
+                alert("no hay pacientes registrados");
             }
         });
 
@@ -101,7 +155,7 @@ $.ajax({
                 }
             },
             error: function(error){
-                alert("no hay pacientes registrados")
+                alert("no hay pacientes registrados");
             }
         });
 //Cargar motivo atencion a formulario-----------------------------------------------------------------------------------------
@@ -118,7 +172,7 @@ $.ajax({
                 }
             },
             error: function(error){
-                alert("no hay pacientes registrados")
+                alert("no hay pacientes registrados");
             }
         });
 
@@ -179,7 +233,7 @@ if(valida_fecha() && valida_hr_ini() && valida_hr_fin() && valida_paciente() && 
                         $('#btn_imprimir_cita').removeAttr("disabled");
                         $('#btn_eliminar_cita').removeAttr("disabled");
                     }catch(e){
-                        alert("No se encontró ningnún registro");
+                        alert("No se encontró ningún registro");
                         $("#tabla").empty().append("<thead><tr><th>Fecha</th><th>Hora</th><th>Paciente</th><th>Estado</th><th>Motivo</th></tr></thead>");
                         $("#btn_modificar_cita").attr("disabled", true);
                         $("#btn_imprimir_cita").attr("disabled", true);
@@ -194,6 +248,11 @@ if(valida_fecha() && valida_hr_ini() && valida_hr_fin() && valida_paciente() && 
                 }
             });
     }else{
+             $("#btn_buscar_cita").attr("data-target", "#modal_update_confirmar");
+    }
+    /*else{       
+        alert("jeje");
+  a
         
    $.ajax({
             url: "www.kimberly-clark-logistica.com/slim/index.php/updateAgenda",
@@ -210,10 +269,13 @@ if(valida_fecha() && valida_hr_ini() && valida_hr_fin() && valida_paciente() && 
 
 
 
-    }
+    }*/
 
 
 
+
+}else{       
+    $("#btn_buscar_cita").attr("data-target", "#");
 
 }
 
@@ -229,6 +291,7 @@ $("#btn_modificar_cita").click(function(){
      $("#btn_imprimir_cita").hide();
      $("#btn_eliminar_cita").hide();
      $("html, body").animate({ scrollTop: 0 }, "slow");
+    // $("#btn_buscar_cita").attr("data-target", "#modal_update_confirmar");
 
 
 });
@@ -263,6 +326,29 @@ $("#btn_confirm_delete").click(function(){
 
 });
 
+//Boton modificar cita-----------------------------------------------------------------------------------------
+
+$("#btn_confirm_update").click(function(){
+
+
+   $.ajax({
+            url: "www.kimberly-clark-logistica.com/slim/index.php/updateAgenda",
+            type: "GET",
+            async: true,
+            data: $("#form_buscar_citas").serialize(),
+            dataType: "json",
+            success: function(response){
+              alert("todo bien");
+            },
+            error: function(error){
+            }
+        });
+});
+
+//Regresar a Buscar_cita----------------------------------------------------------------------------------------
+$("#btn_aceptar_modificada").click(function(){
+    location.reload();
+});
 
 
 
