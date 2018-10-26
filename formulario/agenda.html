@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Alta Horarios</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="css/agenda.css">
+	<link href="css/usuarios.css" rel="stylesheet">
+    <link href="css/creative.css" rel="stylesheet">
+     <link rel="stylesheet" href="css/styles.css">
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
+
+<!--===============================================================================================-->
+</head>
+<body style="background-color: #B2EBF2">
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+      <div class="container">
+  			<a href=""><img class="logo1" src="img/icon.png"></a>
+        	<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          		<span class="navbar-toggler-icon"></span>
+        	</button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+ <!-- Menú desplegable Usuarios	-->
+            <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          Usuarios
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		          <a class="dropdown-item" href="altaUsuario.html">Nuevo Usuario</a>
+		          <a class="dropdown-item" href="busca_usuario.html">Buscar Usuario</a>
+		          <a class="dropdown-item" href="consultarUsuario.html">Dentistas</a>
+		        </div>
+		    </li>
+<!-- Horario-->
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="Horario.html">Horarios</a>
+            </li>
+ <!-- Menú desplegable Citas	-->
+            <li class="nav-item dropdown">
+		        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		          Citas
+		        </a>
+		        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+		          <a class="dropdown-item" href="agendar_cita.html">Agendar Cita</a>
+		          <a class="dropdown-item" href="buscar_cita.html">Buscar Cita</a>
+		        </div>
+		    </li>
+
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#">Agenda</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#">Reportes</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link js-scroll-trigger" href="#">Configuración</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+	<div class="container-contact100" style="margin-top: 5%">
+
+
+		<div class="wrap-contact100" style="background-color: #B2EBF2">
+			<div class="row">
+					<h1 class=" col titulo" >AGENDA</h1>
+                    <div class="col-2">
+                         <span  id="imprimir">
+                            <button class="contact100-form-btn" id="print">
+                                <span>
+                                    Imprimir
+                                    <i class="fa fa-print m-l-7" aria-hidden="true"></i>
+                                </span>
+                            </button>
+                        </span>
+                     </div>
+             </div>
+
+                
+                <form class="contact100-form validate-form">
+                    <div class="wrap-input100 validate-input" data-validate="Se requiere hora" style="border-bottom: 0px">
+                        <div class="row">
+                         <div class="col-3">
+                            <span class="label-input100" id="etconsulta">Consulta de agenda: </span>
+
+                         </div>
+                         <div class="col-3">
+                             <label class="checkbox-inline"><input type="checkbox" value=""> Especificar doctor</label>
+                         </div>
+                     </div>
+                        <div class="row">
+                            <div class="col-3">
+                                <span  id="presentaAgenda">
+
+                                        <select class="form-control"  id="agenda">
+                                            <option>Diaria</option>
+                                            <option>Semanal</option>
+                                            <option>Mensual</option>
+                                        </select>
+
+                                </span>
+                             </div>
+                             <div class="col-4">
+                                 <label class="checkbox-inline"><input type="checkbox" value=""> Especificar paciente</label>
+                             </div>
+                            
+                            <div class="col-3">
+                                 <span  id="selectPacientes">
+
+                                        <select class="form-control"  id="pacientes">
+                                            <option>P1</option>
+                                            <option>P2</option>
+                                            <option>P3</option>
+                                        </select>
+
+                                </span>
+                             </div>
+                            
+                            <div class="col-2">
+                                 <span  id="ver">
+                                    <button class="contact100-form-btn" id="aceptar">
+                                        <span>
+                                            Ver
+                                            <i class="fa fa-eye m-l-7" aria-hidden="true"></i>
+                                        </span>
+                                    </button>
+                                </span>
+                             </div>
+                            
+                            
+                        </div>
+                        
+                    </div>
+                
+                    
+                    <div class="wrap-input100 validate-input" id="calendario">
+                
+                    <h3 class="title">Calendario mensual</h3>
+
+                    <div class="calendar">
+                        <div class="calendar__info">
+                            <div class="calendar__prev" id="prev-month">&#9664;</div>
+                            <div class="calendar__month" id="month"></div>
+                            <div class="calendar__year" id="year"></div>
+                            <div class="calendar__next" id="next-month">&#9654;</div>
+                        </div>
+
+                        <div class="calendar__week">
+                            <div class="calendar__day calendar__item">Mon</div>
+                            <div class="calendar__day calendar__item">Tue</div>
+                            <div class="calendar__day calendar__item">Wed</div>
+                            <div class="calendar__day calendar__item">Thu</div>
+                            <div class="calendar__day calendar__item">Fri</div>
+                            <div class="calendar__day calendar__item">Sat</div>
+                            <div class="calendar__day calendar__item">Sun</div>
+                        </div>
+
+                        <div class="calendar__dates" id="dates"></div>
+                   </div>
+                </div>
+			</form>
+		</div>
+	</div>
+
+
+
+	<div id="dropDownSelect1"></div>
+
+<!--===============================================================================================-->
+	<script src="vendor/jquery/jquery-3.2.1.min.js"></script>
+<script src="js/scripts-dist.js"></script>
+<!--===============================================================================================-->
+	<script src="vendor/bootstrap/js/popper.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="vendor/scrollreveal/scrollreveal.min.js"></script>
+<!--===============================================================================================-->
+	<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+  <script type="text/javascript" src="js/altaHorario.js"></script>
+
+</body>
+</html>
