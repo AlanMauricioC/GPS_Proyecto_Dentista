@@ -8,6 +8,7 @@ require 'DAO/horariosDAO.php';
 require 'servicios/servicios.php';
 require 'servicios/userController.php';
 require 'servicios/horariosController.php';
+require 'servicios/pdf/ImprimirHorario.php';
 //
 
 $configuration = [
@@ -64,6 +65,7 @@ $app->post('/deshabilitarDentista', '\horariosController:deshabilitarDentista');
 
 $app->post('/searchHorarios', '\horariosController:searchHorarios');
 
+$app->post('/printHorarios', '\horariosController:printHorarios');
 
 
 //Jafet <---

@@ -105,6 +105,27 @@ function habilitarmodal() {
 	estado=$(this).prop('checked')
 }
 
+function printHorario() {
+	id=$(this).attr('id').substring(5);
+	localStorage.setItem("IDDoctor",id);
+	alert(id);
+	var data={};
+	data["ID_USUARIO"]=id;
+	$.ajax({
+		url: 'https://www.kimberly-clark-logistica.com/slim/index.php/printHorarios',
+		type : 'POST',
+		data: data,
+		dataType : 'json',
+		success: function(response) {
+			alert("excelente");
+			//window.location.replace("consultarHorario.html");
+		},
+		error: function() {
+			console.log("No se ha podido obtener la información de usuarios");
+		}
+	});
+}
+
 function habilitar() {
 	var data= {};
 	data["ID"]=id;

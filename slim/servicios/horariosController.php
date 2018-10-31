@@ -88,6 +88,18 @@ class horariosController {
       return json_encode($res);
     }
 
+    public function printHorarios($request, $response, $args)
+    {
+      $post = $request->getParsedBody();
+      $horarios=new Horarios();
+      $res=$horarios->search($post["ID_USUARIO"]);
+      $usuarios=new Usuarios();
+      $usuario=$usuarios->consultaUsuarioByID($post["ID_USUARIO"]);
+      $res["Nombre"]=$usuario;
+      $print=new ImprimirHorario();
+      return $print->generarPDF($res);
+    }
+
     public function updateHorarios($request, $response, $args)
     {
       $post = $request->getParsedBody();
