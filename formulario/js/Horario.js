@@ -93,6 +93,7 @@ function insertarDatos(response) {
 		}
 		$(".view").click(viewHorario);
 		$(".edit").click(editHorario);
+		$(".print").click(printHorario);
 		$(".delete").click(deletemodal);
 		$(".checkDentista").change(habilitarmodal);
 }
@@ -111,6 +112,7 @@ function printHorario() {
 	alert(id);
 	var data={};
 	data["ID_USUARIO"]=id;
+
 	$.ajax({
 		url: 'https://www.kimberly-clark-logistica.com/slim/index.php/printHorarios',
 		type : 'POST',
@@ -119,6 +121,7 @@ function printHorario() {
 		success: function(response) {
 			alert("excelente");
 			//window.location.replace("consultarHorario.html");
+			window.open('https://www.kimberly-clark-logistica.com/slim/'+response.direccion, '_blank');
 		},
 		error: function() {
 			console.log("No se ha podido obtener la información de usuarios");
