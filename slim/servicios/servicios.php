@@ -151,6 +151,12 @@ public function consultaAgenda($request, $response, $args) {
 
         return $agenda->delete();
     }
+    public function citaRepetida($request, $response, $args) {
+        
+        $agenda=new Agenda();
+
+        return $agenda->citaRepetida();
+    }
 // -->
 
 

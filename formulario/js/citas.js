@@ -209,24 +209,46 @@ valida_motivo();
 //alert("jeje");
 
 if(valida_fecha() && valida_hr_ini() && valida_hr_fin() && valida_paciente() && valida_dentista() && valida_estado() && valida_especialidad() && valida_motivo()){
-$.ajax({
-            url: "https://www.kimberly-clark-logistica.com/slim/index.php/insertAgenda",
-            type: "GET",
-            async: true,
-            data: $("#form_agendar_citas").serialize(),
-            dataType: "json",
-            success: function(response){
-             if(response.respuesta)
-                alert("Nueva cita registrada");
-            else
-                alert("La cita ya se encuentra registrada");
+//---------
+ $.ajax({
+                url: "https://www.kimberly-clark-logistica.com/slim/index.php/citaRepetida",
+                type: "GET",
+                async: true,
+                data: $("#form_agendar_citas").serialize(),
+                dataType: "json",
+                success: function(response){
+                    try{
+                        var id_agenda = response[0].ID_AGENDA;
+                        alert("La cita ya se encuentra registrada");
+                    }catch(e){
+                         $.ajax({
+                                url: "https://www.kimberly-clark-logistica.com/slim/index.php/insertAgenda",
+                                type: "GET",
+                                async: true,
+                                data: $("#form_agendar_citas").serialize(),
+                                dataType: "json",
+                                success: function(response){
+                                 if(response.respuesta)
+                                    alert("Nueva cita registrada");
+                                else
+                                    alert("La cita ya se encuentra registrada");
 
-            },
-            error: function(error){
-                alert("La cita ya se encuentra registrada");
+                                },
+                                error: function(error){
+                                    alert("error al registrar");
+                                }
+                                });
+                    }
 
-            }
-        });
+                              },
+                error: function(error){
+                    alert("La cita ya se encuentra registrada");
+
+                }
+            });
+
+//----------
+
 }
 
 });

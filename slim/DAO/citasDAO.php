@@ -45,7 +45,7 @@ class Agenda {
     public function consultaHorario() {
         $conn = $GLOBALS['conn'];
         $res = $conn -> query("select * from catalogo_horario_dentista where ID_USUARIO =".$_GET["dentista"]." and DIA='".$_GET["dia_semana_agendar"]."';");
-                
+        
         $array = array();
         $i=0;
         while ($registro = $res->fetch_array()) {
@@ -218,8 +218,44 @@ class Agenda {
     }
 
     }
+//--
+    public function citaRepetida() {
+
+        $conn = $GLOBALS['conn'];
+
+        $res = $conn -> query("select ID_AGENDA,FECHA,HORA_INICIO,HORA_FIN,NOMBRE,APELLIDOS,e.DESCRIPCION as DESCRIPCION_E,m.DESCRIPCION as DESCRIPCION_M from 
+                                agenda a inner join tabla_pacientes p on a.ID_PACIENTE = p.ID_PACIENTE 
+                                inner join catalogo_motivo_atencion m on a.ID_MOTIVO_ATENCION = m.ID_MOTIVO_ATENCION
+                                inner join catalogo_estado_de_cita e on a.ID_ESTADO_CITA = e.ID_ESTADO_CITA WHERE 
+                                FECHA = '".$_GET["fecha_cita"]."' AND 
+                                HORA_INICIO = ".$_GET["hora_ini"]." AND
+                                HORA_FIN = ".$_GET["hora_fin"]." AND 
+                                a.ID_PACIENTE = ".$_GET["paciente"]." AND
+                                a.ID_ESPECIALIDAD = ".$_GET["especialidad"]." AND
+                                a.ID_MOTIVO_ATENCION = ".$_GET["motivo"]." AND
+                                a.ID_ESTADO_CITA = ".$_GET["estado"]." ;");
+        $array = array();
+        $array[100]="no hay";
+        $i=0;
+        while ($registro = $res->fetch_array()) {
+            $array[$i]["ID_AGENDA"] = utf8_decode($registro["ID_AGENDA"]);
+            $array[$i]["FECHA"] = utf8_decode($registro["FECHA"]);
+            $array[$i]["HORA_INICIO"] = utf8_decode($registro["HORA_INICIO"]);
+            $array[$i]["HORA_FIN"] = utf8_decode($registro["HORA_FIN"]);
+            $array[$i]["NOMBRE"] = utf8_decode($registro["NOMBRE"]);
+            $array[$i]["APELLIDOS"] = utf8_decode($registro["APELLIDOS"]);
+            $array[$i]["DESCRIPCION_E"] = utf8_decode($registro["DESCRIPCION_E"]);
+            $array[$i]["DESCRIPCION_M"] = utf8_decode($registro["DESCRIPCION_M"]);
+
+            echo "hola";
+            $i++;
+        }
 
 
+        return json_encode($array);
+
+    }
+//--
 
 
 
