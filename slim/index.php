@@ -9,6 +9,7 @@ require 'servicios/servicios.php';
 require 'servicios/userController.php';
 require 'servicios/horariosController.php';
 require 'servicios/pdf/ImprimirHorario.php';
+require 'servicios/pdf/imprimirCita.php';
 //
 
 $configuration = [
@@ -88,6 +89,8 @@ $app->get('/insertAgenda', '\servicios:insertAgenda');
 $app->get('/updateAgenda', '\servicios:updateAgenda');
 
 $app->get('/deleteAgenda', '\servicios:deleteAgenda');
+
+$app->get('/imprimirCita', '\servicios:imprimirCita');
 
 
 //--  -->

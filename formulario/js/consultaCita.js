@@ -345,6 +345,32 @@ $("#btn_confirm_update").click(function(){
         });
 });
 
+//Boton imprimir cita-----------------------------------------------------------------------------------------
+
+$("#btn_imprimir_cita").click(function(){
+
+
+    $.ajax({
+                url: "https://www.kimberly-clark-logistica.com/slim/index.php/imprimirCita",
+                type: "GET",
+                async: true,
+                data: "chk1=" + $("#chk1").val(),
+                dataType: "json",
+                success: function(response){
+                alert("PDF generado correctamente");
+                window.open('https://www.kimberly-clark-logistica.com/slim/'+response, '_blank');
+
+                },
+                error: function(error){
+                    alert("error");
+                }
+            });
+
+
+
+
+});
+
 //Regresar a Buscar_cita----------------------------------------------------------------------------------------
 $("#btn_aceptar_modificada").click(function(){
     location.reload();
