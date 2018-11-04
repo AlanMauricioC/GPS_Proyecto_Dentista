@@ -347,7 +347,7 @@ $("#btn_confirm_update").click(function(){
 
 //Boton imprimir cita-----------------------------------------------------------------------------------------
 
-$("#btn_imprimir_cita").click(function(){
+$("#btn_confirm_imprimir").click(function(){
 
 
     $.ajax({
