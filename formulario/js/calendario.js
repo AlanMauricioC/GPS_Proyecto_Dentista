@@ -1,70 +1,98 @@
-var color_Tipo1 = '#ccc';
-var color_Tipo2 = '#ABC';
-var color_Tipo3 = '#B0A';
-var color_Tipo4 = '#BB1';
+$(document).ready(function(){
 
-YUI().use(
-  'aui-scheduler',
-  function(Y) {
-    var events = [
-      {
-        content: 'AllDay',
-        endDate: new Date(2013, 1, 5, 23, 59),
-        startDate: new Date(2013, 1, 5, 0)
-      },
-      {
-        color: color_Tipo3,
-        content: 'Colorful',
-        endDate: new Date(2013, 1, 6, 6),
-        startDate: new Date(2013, 1, 6, 2)
-      },
-      {
-        content: 'MultipleDays',
-        endDate: new Date(2013, 1, 8),
-        startDate: new Date(2013, 1, 4)
-      },
-      {
-        content: 'Disabled',
-        disabled: true,
-        endDate: new Date(2013, 1, 8, 5),
-        startDate: new Date(2013, 1, 8, 1)
-      },
-      {
-        content: 'Meeting',
-        endDate: new Date(2013, 1, 7, 7),
-        meeting: true,
-        startDate: new Date(2013, 1, 7, 3)
-      },
-      {
-        color: '#88D',
-        content: 'Overlap',
-        endDate: new Date(2013, 1, 5, 4),
-        startDate: new Date(2013, 1, 5, 1)
-      },
-      {
-        content: 'Reminder',
-        endDate: new Date(2013, 1, 4, 4),
-        reminder: true,
-        startDate: new Date(2013, 1, 4, 0)
+  init();
+
+})
+
+
+function init(){
+  calendario();
+  $.ajax({
+    url: 'http://localhost/slim/index.php/consultaDentistaAgendar',
+    type : 'GET',
+    data: null,
+    dataType : 'json',
+    success: function(response) {
+      
+      for (var i = 0; i < response.length; i++) {
+
+        $("#usuario").append("<option value="+response[i].ID_USUARIO+"> "+response[i].NOMBRE+" "+response[i].APELLIDOS+" ID: "+response[i].ID_USUARIO+"</option>");
+
+        
       }
-    ];
+      $("#usuario").change(cargarHorario);
 
+    },
+    error: function() {
+      console.log("No se ha podido obtener la información de usuarios");
+    }
+  });
+}
 
-    var agendaView = new Y.SchedulerAgendaView();
-    var dayView = new Y.SchedulerDayView();
-    var eventRecorder = new Y.SchedulerEventRecorder();
-    var monthView = new Y.SchedulerMonthView();
-    var weekView = new Y.SchedulerWeekView();
+var eventos=[];
+function cargarHorario() {
+    var data={};
 
-    new Y.Scheduler(
-      {
-        boundingBox: '#myScheduler',
-        date: new Date(2013, 1, 4),
-        //eventRecorder: eventRecorder,
-        items: events,
-        render: true,
-        views: [monthView,weekView,dayView ]
+    data["ID"]=$(this).val();
+    $.ajax({
+    url: 'http://localhost/slim/index.php/getCalendario',
+    type : 'POST',
+    data: data,
+    dataType : 'json',
+    success: function(response) {
+      for (var i = 0; i < response["calendario"].length; i++) {
+        eventos.push(getEvent(response["calendario"][i]));
       }
-    );
+      calendarioObj.modifyAttr('items',eventos);
+
+      calendarioObj.reset();//limpia el div
+      calendario();//vuelve a generar el calendario
+      eventos=[];
+    },
+    error: function() {
+      console.log("No se ha podido obtener la información de usuarios");
+    }
+  });
+}
+
+function getEvent(info) {
+  //console.log(info[11].substring(6))
+  console.log(info[8].substring(0,4));
+  return {
+    color: info[11].substring(6),
+    content: info[9]+' ' +info[10],
+    endDate: new Date(info[8].substring(0,4), info[8].substring(5,7), info[8].substring(8,10), info[2], 0),
+    startDate: new Date(info[8].substring(0,4), info[8].substring(5,7),info[8].substring(8,10),info[3], 0)
   }
-);
+}
+
+
+var calendarioObj;
+
+function calendario() {
+  YUI().use(
+    'aui-scheduler',
+    function(Y) {
+
+      //console.log(events);
+
+      var agendaView = new Y.SchedulerAgendaView();
+      var dayView = new Y.SchedulerDayView();
+      var eventRecorder = new Y.SchedulerEventRecorder();
+      var monthView = new Y.SchedulerMonthView();
+      var weekView = new Y.SchedulerWeekView();
+
+
+      calendarioObj=new Y.Scheduler(
+        {
+          boundingBox: '#myScheduler',
+          date: new Date(),
+          eventRecorder: eventRecorder,
+          items: eventos,
+          render: true,
+          views: [monthView,weekView,dayView ]
+        }
+      );
+    }
+  );
+}

@@ -5,11 +5,12 @@ require 'includes/conexion.php';
 require 'DAO/citasDAO.php';
 require 'DAO/usuariosDAO.php';
 require 'DAO/horariosDAO.php';
+require 'DAO/calendarioDAO.php';
 require 'servicios/servicios.php';
 require 'servicios/userController.php';
 require 'servicios/horariosController.php';
+require 'servicios/calendarioController.php';
 require 'servicios/pdf/ImprimirHorario.php';
-require 'servicios/pdf/imprimirCita.php';
 //
 
 $configuration = [
@@ -68,6 +69,9 @@ $app->post('/searchHorarios', '\horariosController:searchHorarios');
 
 $app->post('/printHorarios', '\horariosController:printHorarios');
 
+//Obtener calendario:
+$app->post('/getCalendario', '\calendarioController:getCalendario');
+
 
 //Jafet <---
 $app->get('/consultaAgenda', '\servicios:consultaAgenda');
@@ -89,8 +93,6 @@ $app->get('/insertAgenda', '\servicios:insertAgenda');
 $app->get('/updateAgenda', '\servicios:updateAgenda');
 
 $app->get('/deleteAgenda', '\servicios:deleteAgenda');
-
-$app->get('/imprimirCita', '\servicios:imprimirCita');
 
 
 //--  -->
