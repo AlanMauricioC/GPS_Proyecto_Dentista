@@ -78,7 +78,84 @@ function calendario() {
 
       var agendaView = new Y.SchedulerAgendaView();
       var dayView = new Y.SchedulerDayView();
-      var eventRecorder = new Y.SchedulerEventRecorder();
+    //       var myEventRecorder = Y.Component.create({
+    //     EXTENDS: Y.SchedulerEventRecorder,
+
+    //     NAME: 'scheduler-event-recorder',
+    //     strings:{
+    //             'delete': 'elimina',
+    //             'description-hint': 'Nombre del paciente',
+    //             cancel: 'Cancela',
+    //             description: 'Descripción',
+    //             edit: 'Edita',
+    //             save: 'Guarda',
+    //             when: 'Cuando'
+    //           },
+
+    //     prototype: {
+    //         _getFooterToolbar: function() {
+    //             var instance = this,
+    //             event = instance.get('event'),
+    //             strings = instance.get('strings'),
+    //             children = [
+    //                 {
+    //                     label: strings['cancel'],
+    //                     on: {
+    //                         click: Y.bind(instance._handleCancelEvent, instance)
+    //                     }
+    //                 }
+    //             ];
+
+    //             var requestId = event && event.get('requestId');
+
+    //             if (requestId) {
+    //                 children.push({
+    //                     label: strings['open_request'],
+    //                     on: {
+    //                         click: Y.bind(instance._handleOpenRequest, instance)
+    //                     }
+    //                 });
+    //             }
+
+    //             return [children];
+    //         },
+
+    //         _handleOpenRequest : function() {
+    //             //console.log(arguments);
+    //         }
+    //     }
+    // });
+
+          var eventRecorder = new Y.SchedulerEventRecorder(
+            {
+              strings:{
+                'delete': 'elimina',
+                'description-hint': 'Nombre del paciente',
+                cancel: 'Cancela',
+                description: 'Descripción',
+                edit: 'Edita',
+                save: 'Guarda',
+                when: 'Cuando'
+              },
+              on: {
+                save: function(event) {
+                    //alert('Save Event:' + this.isNew() + ' --- ' + this.getContentNode().val());
+                },
+                edit: function(event) {
+                    //alert('Edit Event:' + this.isNew() + ' --- ' + this.getContentNode().val());
+                },
+                delete: function(event) {
+                    //alert('Delete Event:' + this.isNew() + ' --- ' + this.getContentNode().val());
+                },
+                
+'widget:contentUpdate': function(event) {
+                    alert('Delete Event:' );
+                }
+              } 
+            }
+          );
+
+       var eventRecorder = new myEventRecorder();
       var monthView = new Y.SchedulerMonthView();
       var weekView = new Y.SchedulerWeekView();
 
@@ -90,7 +167,16 @@ function calendario() {
           eventRecorder: eventRecorder,
           items: eventos,
           render: true,
-          views: [monthView,weekView,dayView ]
+          views: [monthView,weekView,dayView ],
+          strings:{
+            agenda: 'Agenda',
+            day: 'Dia',
+            month: 'Mes',
+            table: 'Tabla',
+            today: 'Hoy',
+            week: 'Semana',
+            year: 'Año'
+          }
         }
       );
     }
