@@ -155,7 +155,7 @@ function calendario() {
             }
           );
 
-       var eventRecorder = new myEventRecorder();
+       //var eventRecorder = new myEventRecorder();
       var monthView = new Y.SchedulerMonthView();
       var weekView = new Y.SchedulerWeekView();
 
