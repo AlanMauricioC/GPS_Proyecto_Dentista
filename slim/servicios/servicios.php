@@ -165,6 +165,41 @@ public function consultaAgenda($request, $response, $args) {
 
         return $cita->generarPDF();
     }
+
+    public function imprimirAgendaMensual($request, $response, $args) {
+        
+        $agenda=new imprimirAgendaMensual();
+
+        return $agenda->generarPDF();
+    }    
+
+    public function imprimirAgendaSemanal($request, $response, $args) {
+        
+        $agenda=new imprimirAgendaSemanal();
+
+        return $agenda->generarPDF();
+    }
+    
+    public function imprimirAgendaDiaria($request, $response, $args) {
+        
+        $agenda=new imprimirAgendaDiaria();
+
+        return $agenda->generarPDF();
+    }
+    
+    public function insertComentario($request, $response, $args) {
+        
+        $comentario=new Comentario();
+
+        return $comentario->insert();
+    }
+
+    public function selectComentario($request, $response, $args) {
+        
+        $comentario=new Comentario();
+
+        return $comentario->select();
+    }
 // -->
 
 

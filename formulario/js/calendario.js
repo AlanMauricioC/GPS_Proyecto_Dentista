@@ -1,6 +1,88 @@
 $(document).ready(function(){
 
   init();
+$("#print").click(function(argument) {
+
+
+  
+    var vistaActiva = calendarioObj.get('activeView')+'jeje';
+    if(vistaActiva.indexOf('week')!= -1){
+      
+          var primer_dia = calendarioObj.get('viewDate').toISOString().slice(0,10);
+          
+          date = new Date();   
+          var lastday = calendarioObj.get('viewDate').getDate() - (calendarioObj.get('viewDate').getDay() - 1) + 5;
+          var ultimo_dia = new Date(date.setDate(lastday));
+          var ultimo_dia_ymd = ultimo_dia.toISOString().slice(0,10);
+          
+
+          $.ajax({
+                url: "../../slim/index.php/imprimirAgendaSemanal",
+                type: "GET",
+                async: true,
+                data: "primer_dia="+primer_dia+"&&ultimo_dia="+ultimo_dia_ymd+"&&dentista="+$("#usuario").val() ,
+                dataType: "json",
+                success: function(response){
+                  alert("PDF generado correctamente");
+                  window.open('../../slim/'+response, '_blank');
+                },
+                error: function(error){
+                    alert("no hay citas registradas en esta fecha");
+                }
+            });
+
+
+    }
+
+    if(vistaActiva.indexOf('month')!= -1){
+      
+          var mes = calendarioObj.get('viewDate').toISOString().slice(0,7);
+         
+          $.ajax({
+                url: "../../slim/index.php/imprimirAgendaMensual",
+                type: "GET",
+                async: true,
+                data: "mes="+mes+"&&dentista="+$("#usuario").val(),
+                dataType: "json",
+                success: function(response){
+                  alert("PDF generado correctamente");
+                  window.open('../../slim/'+response, '_blank');
+                },
+                error: function(error){
+                    alert("no hay citas registradas en esta fecha");
+                }
+            });
+            
+
+
+    }
+
+    if(vistaActiva.indexOf('day')!= -1){
+      
+          var dia = calendarioObj.get('viewDate').toISOString().slice(0,10);
+         
+          $.ajax({
+                url: "../../slim/index.php/imprimirAgendaDiaria",
+                type: "GET",
+                async: true,
+                data: "dia="+dia+"&&dentista="+$("#usuario").val(),
+                dataType: "json",
+                success: function(response){
+                  alert("PDF generado correctamente");
+                  window.open('../../slim/'+response, '_blank');
+                },
+                error: function(error){
+                    alert("no hay citas registradas en esta fecha");
+                }
+            });
+            
+
+
+    }
+
+      
+  });
+
 
 })
 

@@ -6,11 +6,15 @@ require 'DAO/citasDAO.php';
 require 'DAO/usuariosDAO.php';
 require 'DAO/horariosDAO.php';
 require 'DAO/calendarioDAO.php';
+require 'DAO/comentariosDAO.php';
 require 'servicios/servicios.php';
 require 'servicios/userController.php';
 require 'servicios/horariosController.php';
 require 'servicios/calendarioController.php';
 require 'servicios/pdf/ImprimirHorario.php';
+require 'servicios/pdf/imprimirAgendaMensual.php';
+require 'servicios/pdf/imprimirAgendaSemanal.php';
+require 'servicios/pdf/imprimirAgendaDiaria.php';
 //
 
 $configuration = [
@@ -93,6 +97,16 @@ $app->get('/insertAgenda', '\servicios:insertAgenda');
 $app->get('/updateAgenda', '\servicios:updateAgenda');
 
 $app->get('/deleteAgenda', '\servicios:deleteAgenda');
+
+$app->get('/imprimirAgendaMensual', '\servicios:imprimirAgendaMensual');
+
+$app->get('/imprimirAgendaSemanal', '\servicios:imprimirAgendaSemanal');
+
+$app->get('/imprimirAgendaDiaria', '\servicios:imprimirAgendaDiaria');
+
+$app->get('/insertComentario', '\servicios:insertComentario');
+
+$app->get('/selectComentario', '\servicios:selectComentario');
 
 
 //--  -->
