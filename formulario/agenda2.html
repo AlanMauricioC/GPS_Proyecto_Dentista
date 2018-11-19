@@ -56,7 +56,7 @@
         </li>
 
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#">Agenda</a>
+              <a class="nav-link js-scroll-trigger" href="agenda2.html">Agenda</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#">Reportes</a>
@@ -89,16 +89,34 @@
 
                 
       <form class="contact100-form validate-form">
-        <div class="wrap-input100" >
-          <span class="label-input100" id="etname">Dentista:</span>
-          <span  id="usuarioDentista">
-            <select class="form-control"  id="usuario">
-
-           </select>
-         </span>
+        <div class="row">
+          <!-- Seleccionar elementos de la agenda y todo eso -->
+          <div class="col-9">
+            <div class="wrap-input100" >
+              <span class="label-input100" id="etname">Dentista:</span>
+              <span  id="usuarioDentista">
+                <select class="form-control"  id="usuario">
+                  <option  selected disabled>Selecciona un dentista</option>
+               </select>
+             </span>
+            </div>
+            <!-- Calendario -->
+            <div id="myScheduler">
+              
+            </div>
+          </div>
+          <!-- Notificaciones -->
+          <div class="col-3">
+            <div>
+              <div>
+                <button type="button" class="btn btn-success" data-toggle="modal" id="btn_guardar_cambios">Guardar cambios</button>
+              </div>
+              <span>Notificaciones:</span>
+              <div id="notificaciones" style="background-color: #fff;min-height: 250px;" >
+              </div>  
+            </div>
+          </div>
         </div>
-        <!-- Calendario -->
-        <div id="myScheduler"></div>
       </form>
     </div>
   </div>

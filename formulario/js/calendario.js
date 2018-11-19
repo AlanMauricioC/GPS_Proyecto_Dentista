@@ -1,6 +1,10 @@
 $(document).ready(function(){
 
   init();
+
+  $("#btn_guardar_cambios").click(guardar_cambios);
+
+
 $("#print").click(function(argument) {
 
 
@@ -86,7 +90,8 @@ $("#print").click(function(argument) {
 
 })
 
-
+var cal;//en donde se guardan los eventos para su posterior cambio con el botón guardar
+var cambios=[];
 function init(){
   calendario();
   $.ajax({
@@ -114,8 +119,8 @@ function init(){
 var eventos=[];
 function cargarHorario() {
     var data={};
-
-    data["ID"]=$(this).val();
+    var cambios=[];
+    data["ID"]=$("#usuario").val();
     $.ajax({
     url: 'http://localhost/slim/index.php/getCalendario',
     type : 'POST',
@@ -124,7 +129,9 @@ function cargarHorario() {
     success: function(response) {
       for (var i = 0; i < response["calendario"].length; i++) {
         eventos.push(getEvent(response["calendario"][i]));
+        
       }
+      cal=response["calendario"];
       calendarioObj.modifyAttr('items',eventos);
 
       calendarioObj.reset();//limpia el div
@@ -138,14 +145,49 @@ function cargarHorario() {
 }
 
 function getEvent(info) {
-  //console.log(info[11].substring(6))
-  console.log(info[8].substring(0,4));
+  var inicio=new Date(info[8].substring(0,4), parseInt(info[8].substring(5,7)-1),info[8].substring(8,10),info[3], 0);
+  if (inicio>new Date()) {
+    $("#notificaciones").append('<div>'+'cita con: '+info[9]+' ' +info[10]+' el '+inicio.getFullYear()+'/'+(inicio.getMonth()+1)+'/'+inicio.getDate()+'<br>a la(s) '+inicio.getHours()+'</div>')
+  }
   return {
     color: info[11].substring(6),
-    content: info[9]+' ' +info[10],
-    endDate: new Date(info[8].substring(0,4), info[8].substring(5,7), info[8].substring(8,10), info[2], 0),
-    startDate: new Date(info[8].substring(0,4), info[8].substring(5,7),info[8].substring(8,10),info[3], 0)
+    content: info[12]+"|"+info[9]+' ' +info[10],
+    endDate: new Date(info[8].substring(0,4), parseInt(info[8].substring(5,7))-1, info[8].substring(8,10), info[2], 0),
+    startDate: inicio
   }
+}
+
+
+function guardar_cambios() {
+  var tmp;
+  for(val in cambios){
+    var data={
+      'ID_AGENDA':val,
+      'ID_ESTADO_CITA':cambios[val]
+    };
+    $.when(
+      $.ajax({
+        url: 'http://localhost/slim/index.php/udateCalendario',
+        type : 'POST',
+        data: data,
+        dataType : 'json',
+        success: function(response) {
+          tmp=true;
+        },
+        error: function() {
+          tmp=false;
+          console.log("No se ha podido obtener la información de usuarios");
+        }
+      })
+    ).then(function (argument) {
+      if (tmp) {
+        console.log("Cambios guardados correctamente");
+        cargarHorario();
+      }
+    })
+    
+  }
+  alert("cambios guardados correctamente");
 }
 
 
@@ -160,84 +202,107 @@ function calendario() {
 
       var agendaView = new Y.SchedulerAgendaView();
       var dayView = new Y.SchedulerDayView();
-    //       var myEventRecorder = Y.Component.create({
-    //     EXTENDS: Y.SchedulerEventRecorder,
+      var myEventRecorder = Y.Component.create({
 
-    //     NAME: 'scheduler-event-recorder',
-    //     strings:{
-    //             'delete': 'elimina',
-    //             'description-hint': 'Nombre del paciente',
-    //             cancel: 'Cancela',
-    //             description: 'Descripción',
-    //             edit: 'Edita',
-    //             save: 'Guarda',
-    //             when: 'Cuando'
-    //           },
+        ATTRS: {
 
-    //     prototype: {
-    //         _getFooterToolbar: function() {
-    //             var instance = this,
-    //             event = instance.get('event'),
-    //             strings = instance.get('strings'),
-    //             children = [
-    //                 {
-    //                     label: strings['cancel'],
-    //                     on: {
-    //                         click: Y.bind(instance._handleCancelEvent, instance)
-    //                     }
-    //                 }
-    //             ];
-
-    //             var requestId = event && event.get('requestId');
-
-    //             if (requestId) {
-    //                 children.push({
-    //                     label: strings['open_request'],
-    //                     on: {
-    //                         click: Y.bind(instance._handleOpenRequest, instance)
-    //                     }
-    //                 });
-    //             }
-
-    //             return [children];
-    //         },
-
-    //         _handleOpenRequest : function() {
-    //             //console.log(arguments);
-    //         }
-    //     }
-    // });
-
-          var eventRecorder = new Y.SchedulerEventRecorder(
-            {
-              strings:{
-                'delete': 'elimina',
-                'description-hint': 'Nombre del paciente',
-                cancel: 'Cancela',
-                description: 'Descripción',
-                edit: 'Edita',
-                save: 'Guarda',
-                when: 'Cuando'
+          /**
+           * Collection of strings used to label elements of the UI.
+           * This attribute defaults to `{}` unless the attribute is set.
+           * When this attribute is set, the passed value merges with a
+           * pseudo-default collection of strings.
+           *
+           * @attribute strings
+           * @default {}
+           * @type {Object}
+           */
+          strings: {
+              value: {},
+              setter: function(val) {
+                  return Y.merge({
+                          'delete': 'Delete',
+                          'description-hint': 'Ninguna cita para mostrar',
+                          cancel: 'Cancel',
+                          description: 'Description',
+                          edit: 'Edit',
+                          save: 'Save',
+                          when: 'When'
+                      },
+                      val || {}
+                  );
               },
-              on: {
-                save: function(event) {
-                    //alert('Save Event:' + this.isNew() + ' --- ' + this.getContentNode().val());
-                },
-                edit: function(event) {
-                    //alert('Edit Event:' + this.isNew() + ' --- ' + this.getContentNode().val());
-                },
-                delete: function(event) {
-                    //alert('Delete Event:' + this.isNew() + ' --- ' + this.getContentNode().val());
-                },
-                
-'widget:contentUpdate': function(event) {
-                    alert('Delete Event:' );
-                }
-              } 
-            }
-          );
+          },
+        },
+        EXTENDS: Y.SchedulerEventRecorder,
 
-       //var eventRecorder = new myEventRecorder();
+        NAME: 'scheduler-event-recorder',
+        
+
+        prototype: {
+
+            _getFooterToolbar: function() {
+                var instance = this,
+                event = instance.get('event'),
+                strings = {
+                  'delete': 'elimina',
+                  'description-hint': 'Nombre del paciente',
+                  cancel: 'cerrar',
+                  description: 'Descripción',
+                  edit: 'Edita',
+                  save: 'cambiar estado',
+                  when: 'Cuando'
+                },
+                children = [];
+
+              if (event) {
+                  children.push(
+                  {
+                      label: strings.save,
+                      on: {
+                          click: Y.bind(instance._handleSaveEvent, instance)
+                      }
+                  },
+                  {
+                    label: strings.cancel,
+                    on: {
+                        click: Y.bind(instance._handleCancelEvent, instance)
+                    }
+                  });
+              }
+
+              return [children];
+            },
+            /**
+             * Handles `save` events.
+             *
+             * @method _handleSaveEvent
+             * @param {EventFacade} event
+             * @protected
+             */
+            _handleSaveEvent: function(event) {
+                var instance = this,
+                    eventName = instance.get('event') ? 'edit' : 'save';
+                
+                var id=this.getContentNode().val().substr(0, this.getContentNode().val().indexOf('|'));
+                for (var i = 0; i < cal.length; i++) {
+                  if (cal[i][12]==id) {
+                    var val=(cal[i][5]==1)?2:1;
+                  }
+                }
+                cambios[id]=val;
+                console.log(cambios);
+                alert("Cambio de estado a "+((val==1)?'cancelada':'activo'));
+                instance.fire('cancel');
+                if (event.domEvent) {
+                    event.domEvent.preventDefault();
+                }
+
+                event.preventDefault();
+            },
+        },
+    });
+
+      var eventRecorder = new myEventRecorder();
       var monthView = new Y.SchedulerMonthView();
       var weekView = new Y.SchedulerWeekView();
 
@@ -253,6 +318,7 @@ function calendario() {
           strings:{
             agenda: 'Agenda',
             day: 'Dia',
+            'description-hint': 'Nombre del paciente',
             month: 'Mes',
             table: 'Tabla',
             today: 'Hoy',

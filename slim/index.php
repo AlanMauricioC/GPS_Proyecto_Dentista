@@ -76,6 +76,7 @@ $app->post('/printHorarios', '\horariosController:printHorarios');
 //Obtener calendario:
 $app->post('/getCalendario', '\calendarioController:getCalendario');
 
+$app->post('/udateCalendario', '\calendarioController:updateCalendario');
 
 //Jafet <---
 $app->get('/consultaAgenda', '\servicios:consultaAgenda');
