@@ -3,6 +3,7 @@
 require 'vendor/autoload.php';
 require 'includes/conexion.php';
 require 'DAO/citasDAO.php';
+require 'DAO/reportesDAO.php';
 require 'DAO/usuariosDAO.php';
 require 'DAO/horariosDAO.php';
 require 'DAO/calendarioDAO.php';
@@ -108,6 +109,8 @@ $app->get('/imprimirAgendaDiaria', '\servicios:imprimirAgendaDiaria');
 $app->get('/insertComentario', '\servicios:insertComentario');
 
 $app->get('/selectComentario', '\servicios:selectComentario');
+
+$app->get('/pacientesAtendidos', '\servicios:PacientesAtendidos');
 
 
 //--  -->

@@ -200,6 +200,13 @@ public function consultaAgenda($request, $response, $args) {
 
         return $comentario->select();
     }
+
+   public function pacientesAtendidos($request, $response, $args) {
+        
+        $reporte=new Reporte();
+
+        return $reporte->pacientesAtendidos();
+    }
 // -->
 
 
