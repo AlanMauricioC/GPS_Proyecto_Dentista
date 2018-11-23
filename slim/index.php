@@ -110,6 +110,8 @@ $app->get('/insertComentario', '\servicios:insertComentario');
 
 $app->get('/selectComentario', '\servicios:selectComentario');
 
+$app->get('/deleteComentario', '\servicios:deleteComentario');
+
 $app->get('/pacientesAtendidos', '\servicios:PacientesAtendidos');
 
 

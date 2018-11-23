@@ -200,6 +200,13 @@ public function consultaAgenda($request, $response, $args) {
 
         return $comentario->select();
     }
+    
+    public function deleteComentario($request, $response, $args) {
+        
+        $comentario=new Comentario();
+
+        return $comentario->delete();
+    }  
 
    public function pacientesAtendidos($request, $response, $args) {
         
