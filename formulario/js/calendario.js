@@ -8,6 +8,8 @@ $(document).ready(function(){
 
   $("#btn_modificar_comentario").click(modificar_comentario);
 
+  $("#btn_insertar_comentario").click(modificar_comentario);
+
 
 
 $("#print").click(function(argument) {
@@ -388,6 +390,11 @@ function comentario(id){
                   success: function(response){
                     $("#comentarios").val(response[0].COMENTARIO);
                     $("#id_txt_comentario").val(id);
+                    if(response[0].COMENTARIO.length<1){
+                      $("#btn_guardar_comentario").attr('data-target','#modal_insertar_comentario');
+                    }else{
+                      $("#btn_guardar_comentario").attr('data-target','#modal_modificar_confirmar');
+                    }
                   },
                   error: function(error){
                   }
