@@ -41,6 +41,28 @@ class Comentario {
 
     }
 
+    public function delete() {
+        $conn = $GLOBALS['conn'];
+        $sql = "update agenda set COMENTARIO = NULL WHERE ID_AGENDA = '".$_GET["id_agenda"]."' ";
+
+    try{
+         if(mysqli_query($conn,$sql))
+         $response["respuesta"] = true;
+     else{
+        echo mysqli_error($conn);
+        $response["respuesta"] = false;
+        }
+ 
+
+    }catch(PDOException $e){
+        echo $e->getMessage();
+            $response["respuesta"] = false;
+
+    }
+            return json_encode($response);
+
+    }
+
     
 
     

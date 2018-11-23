@@ -59,7 +59,7 @@
               <a class="nav-link js-scroll-trigger" href="agenda2.html">Agenda</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link js-scroll-trigger" href="#">Reportes</a>
+              <a class="nav-link js-scroll-trigger" href="reportes.html">Reportes</a>
             </li>
             <li class="nav-item">
               <a class="nav-link js-scroll-trigger" href="#">Configuración</a>
@@ -102,18 +102,28 @@
             </div>
             <!-- Calendario -->
             <div id="myScheduler">
-              
+
             </div>
           </div>
-          <!-- Notificaciones -->
           <div class="col-3">
-            <div>
+            <!-- Comentarios -->  
+              <div> 
+                <textarea id="comentarios" style="background: rgba(254,253,170);min-height: 200px;"></textarea>
+              </div>
+              <br>
+              <div>
+                <button type="button" class="btn btn-danger" id="" style="margin-right: 10px;" data-toggle="modal" data-target="#modal_delete_confirmar"> X </button>
+                <button type="button" class="btn btn-success" id="" data-toggle="modal" data-target="#modal_modificar_confirmar">Guardar</button>
+                <input type="hidden" name="id_txt_comentario" id="id_txt_comentario">
+              </div>
+              <br>
+              <!-- Notificaciones -->
               <div>
                 <button type="button" class="btn btn-success" data-toggle="modal" id="btn_guardar_cambios">Guardar cambios</button>
               </div>
               <span>Notificaciones:</span>
               <div id="notificaciones" style="background-color: #fff;min-height: 250px;" >
-              </div>  
+              </div>
             </div>
           </div>
         </div>
@@ -121,7 +131,90 @@
     </div>
   </div>
 
+<!-- Modal confirmación de eliminación comentario--------------------------------------------------------------------------------------->
 
+      <div class="modal fade" id="modal_delete_confirmar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id=""></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                ¿Está seguro que desea eliminar el comentario?
+            </div>
+            <div class="modal-footer row justify-content-around">
+              <button type="button" id="btn_borrar_comentario" class="boton" data-dismiss="modal" data-toggle="modal" data-target="#modal_comentario_eliminado">Si</button>              
+              <button type="button" id="" class="boton" data-dismiss="modal">No</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!-- Modal comentario eliminado--------------------------------------------------------------------------------------->
+
+      <div class="modal fade" id="modal_comentario_eliminado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id=""></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                Comentario eliminado
+            </div>
+            <div class="modal-footer">
+              <button type="button" id="btn_cancel_delete" class="boton" data-dismiss="modal">Aceptar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+<!-- Modal confirmación de modificación comentario--------------------------------------------------------------------------------------->
+
+      <div class="modal fade" id="modal_modificar_confirmar" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id=""></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                ¿Está seguro que desea modificar el comentario?
+            </div>
+            <div class="modal-footer row justify-content-around">
+              <button type="button" id="btn_modificar_comentario" class="boton" data-dismiss="modal" data-toggle="modal" data-target="#modal_comentario_modificado">Si</button>              
+              <button type="button" id="" class="boton" data-dismiss="modal">No</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+<!-- Modal comentario modificado--------------------------------------------------------------------------------------->
+
+      <div class="modal fade" id="modal_comentario_modificado" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id=""></h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+                Comentario modificado
+            </div>
+            <div class="modal-footer">
+              <button type="button" id="" class="boton" data-dismiss="modal">Aceptar</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
   <div id="dropDownSelect1"></div>
 

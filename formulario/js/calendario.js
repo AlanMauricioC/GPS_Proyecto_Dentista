@@ -4,6 +4,11 @@ $(document).ready(function(){
 
   $("#btn_guardar_cambios").click(guardar_cambios);
 
+  $("#btn_borrar_comentario").click(borrar_comentario);
+
+  $("#btn_modificar_comentario").click(modificar_comentario);
+
+
 
 $("#print").click(function(argument) {
 
@@ -250,6 +255,7 @@ function calendario() {
                   description: 'Descripción',
                   edit: 'Edita',
                   save: 'cambiar estado',
+                  comment: 'comentario', //------------------------ 
                   when: 'Cuando'
                 },
                 children = [];
@@ -262,6 +268,12 @@ function calendario() {
                           click: Y.bind(instance._handleSaveEvent, instance)
                       }
                   },
+                  {//--------------------------------------------------
+                      label: strings.comment,
+                      on: {
+                          click: Y.bind(instance._handleCommentEvent, instance)
+                      }
+                  },//--------------------------------------------
                   {
                     label: strings.cancel,
                     on: {
@@ -299,6 +311,11 @@ function calendario() {
 
                 event.preventDefault();
             },
+            _handleCommentEvent: function(event) {
+                    var id=this.getContentNode().val().substr(0, this.getContentNode().val().indexOf('|'));
+                    comentario(id);
+                    this.fire('cancel');
+            },
         },
     });
 
@@ -329,4 +346,50 @@ function calendario() {
       );
     }
   );
+}
+
+function borrar_comentario() {
+   $.ajax({
+                  url: "../../slim/index.php/deleteComentario",
+                  type: "GET",
+                  async: true,
+                  data: "id_agenda="+$("#id_txt_comentario").val() ,
+                  dataType: "json",
+                  success: function(response){
+                    $("#comentarios").text('');
+                  },
+                  error: function(error){
+                  }
+              });
+}
+
+function modificar_comentario() {
+   $.ajax({
+                  url: "../../slim/index.php/insertComentario",
+                  type: "GET",
+                  async: true,
+                  data: "id_agenda="+$("#id_txt_comentario").val()+"&&comentario="+$("#comentarios").val() ,
+                  dataType: "json",
+                  success: function(response){
+
+                  },
+                  error: function(error){
+                  }
+              });
+}
+
+function comentario(id){  
+  $.ajax({
+                  url: "../../slim/index.php/selectComentario",
+                  type: "GET",
+                  async: true,
+                  data: "id_agenda="+id ,
+                  dataType: "json",
+                  success: function(response){
+                    $("#comentarios").val(response[0].COMENTARIO);
+                    $("#id_txt_comentario").val(id);
+                  },
+                  error: function(error){
+                  }
+              });
 }
