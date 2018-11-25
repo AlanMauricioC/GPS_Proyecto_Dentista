@@ -24,8 +24,9 @@ $.ajax({
 $("#btn_ver_reportes").click(function(){
 
         switch($("#ver_reporte").val()){
-            case '1': atend_cancel();
-                break;  
+            case '1': pacientes_atendidos();
+                break;
+ 
         }
             
 
@@ -37,7 +38,8 @@ $("#btn_ver_reportes").click(function(){
 
 
 
-function atend_cancel() {
+function pacientes_atendidos() {
+    $("#titulo_reporte").text('Reporte de pacientes atendidos');
       $.ajax({
                 url: "../../slim/index.php/pacientesAtendidos",
                 type: "GET",
@@ -45,6 +47,7 @@ function atend_cancel() {
                 data: $("#form_reportes").serialize(),
                 dataType: "json",
                 success: function(response){
+                    $("#tabla_reportes").empty();
                     $("#tabla_at").empty().append("<thead><tr><th>PACIENTES ATENDIDOS</th></tr></thead>");
                     $("#tabla_cancel").empty().append("<thead><tr>><th>PACIENTES CANCELADOS</th></tr></thead>");
                     var t1=0,t2=0;
@@ -56,7 +59,7 @@ function atend_cancel() {
                             var estado =response[i].ID_ESTADO;
                             if(estado==1){
                                 $("#tabla_at").append("<tr><td>" + fecha + "<br>"+paciente+"</td></tr>"  );
-                                t1++
+                                t1++;
                             }else
                                 if(estado==2){
                                     $("#tabla_cancel").append("<tr><td>" + fecha + "<br>"+paciente+"</td></tr>"  );
