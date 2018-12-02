@@ -26,6 +26,15 @@ $("#btn_ver_reportes").click(function(){
         switch($("#ver_reporte").val()){
             case '1': pacientes_atendidos();
                 break;
+            case '2':
+                reporteAgenda();
+            break;
+            case '3':
+                reporteCita();
+            break;
+            case '4':
+                reporteCitasCanceladas();
+            break;
             case '5': citas_estados_tipo();
                 break;
             case '6': reporte_por_fecha();
