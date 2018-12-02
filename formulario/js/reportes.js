@@ -26,7 +26,15 @@ $("#btn_ver_reportes").click(function(){
         switch($("#ver_reporte").val()){
             case '1': pacientes_atendidos();
                 break;
- 
+            case '2':
+            reporteAgenda();
+            break;
+            case '3':
+            reporteCita();
+            break;
+            case '4':
+            reporteCitasCanceladas();
+            break;
         }
             
 
@@ -96,4 +104,120 @@ function pacientes_atendidos() {
 });
 
 
+function reporteAgenda() {
+    
+    if ($("#dentista").val()) {
+        var data={};
+        data["ID_USUARIO"]=$("#dentista").val();
+        $.ajax({
+            url: 'http://localhost/slim/index.php/getReporteAgenda',
+            type : 'POST',
+            data: data,
+            dataType : 'json',
+            success: function(response) {
+                
+                insertarAgenda(response.result);
+            },
+            error: function() {
+                console.log("No se ha podido obtener la información de usuarios");
+            }
+        }); 
+    }else{
+        alert("Selecciona un dentista")
+    }
+           
+}
 
+function insertarAgenda(data) {
+    $("#tabla_reportes").empty().append("<thead><tr><th>FECHA</th><th>HORA</th><th>PACIENTE</th><th>ESPECIALIDAD</th><th>MOTIVO DE ATENCIÓN</th><th>ESTADO</th></tr></thead><tbody>");
+    $("#tabla_at").empty();
+    $("#tabla_cancel").empty();
+    $("#titulo").empty().append("Reporte de agenda");
+    if (data) {
+        for (var i = 0; i < data.length; i++) {
+            $("#tabla_reportes").append("<tr><td>"+data[i].fecha+"</td><td>"+data[i].hora+"</td><td>"+data[i].nombre_paciente+" "+data[i].apellidos_paciente+"</td><td>"+data[i].especialidad+"</td><td>"+data[i].motivo_de_atencion+"</td><td>"+data[i].estado_de_cita+"</td></tr>");        
+        }   
+    } else {
+        
+    }
+    $("#tabla_reportes").append("</tbody>");
+}
+
+function reporteCita() {
+    
+    if ($("#dentista").val()) {
+        var data={};
+        data["ID_USUARIO"]=$("#dentista").val();
+        $.ajax({
+            url: 'http://localhost/slim/index.php/getReporteCitas',
+            type : 'POST',
+            data: data,
+            dataType : 'json',
+            success: function(response) {
+                
+                insertarCita(response.result);
+            },
+            error: function() {
+                console.log("No se ha podido obtener la información de usuarios");
+            }
+        }); 
+    }else{
+        alert("Selecciona un dentista")
+    }
+           
+}
+
+function insertarCita(data) {
+    $("#tabla_reportes").empty().append("<thead><tr><th>FECHA</th><th>HORA</th><th>PACIENTE</th><th>COMENTARIOS</th><th>MOTIVO DE ATENCIÓN</th><th>ESTADO</th></tr></thead><tbody>");
+    $("#tabla_at").empty();
+    $("#tabla_cancel").empty();
+    $("#titulo").empty().append("Reporte de Citas");
+    if (data) {
+        for (var i = 0; i < data.length; i++) {
+            $("#tabla_reportes").append("<tr><td>"+data[i].fecha+"</td><td>"+data[i].hora+"</td><td>"+data[i].nombre_paciente+" "+data[i].apellidos_paciente+"</td><td>"+data[i].comentarios+"</td><td>"+data[i].motivo_de_atencion+"</td><td>"+data[i].estado_de_cita+"</td></tr>");        
+        }   
+    } else {
+        
+    }
+    $("#tabla_reportes").append("</tbody>");
+}
+
+
+function reporteCitasCanceladas() {
+    
+    if ($("#dentista").val()) {
+        var data={};
+        data["ID_USUARIO"]=$("#dentista").val();
+        $.ajax({
+            url: 'http://localhost/slim/index.php/getReporteCitascanceladas',
+            type : 'POST',
+            data: data,
+            dataType : 'json',
+            success: function(response) {
+                
+                insertarCitasCanceladas(response.result);
+            },
+            error: function() {
+                console.log("No se ha podido obtener la información de usuarios");
+            }
+        }); 
+    }else{
+        alert("Selecciona un dentista")
+    }
+           
+}
+
+function insertarCitasCanceladas(data) {
+    $("#tabla_reportes").empty().append("<thead><tr><th>Paciente</th><th>Estado</th><th>Tipo de consulta</th><th>Fecha</th></tr></thead><tbody>");
+    $("#tabla_at").empty();
+    $("#tabla_cancel").empty();
+    $("#titulo").empty().append("Reporte de citas antendidas y canceladas");
+    if (data) {
+        for (var i = 0; i < data.length; i++) {
+            $("#tabla_reportes").append("<tr><td>"+data[i].nombre_paciente+" "+data[i].apellidos_paciente+"</td><td>"+data[i].estado_de_cita+"</td><td>"+data[i].motivo_de_atencion+"</td><td>"+data[i].fecha+"</td></tr>");        
+        }   
+    } else {
+        
+    }
+    $("#tabla_reportes").append("</tbody>");
+}

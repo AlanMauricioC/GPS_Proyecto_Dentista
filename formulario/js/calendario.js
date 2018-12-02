@@ -102,7 +102,7 @@ var cambios=[];
 function init(){
   calendario();
   $.ajax({
-    url: 'http://localhost/slim/index.php/consultaDentistaAgendar',
+    url: 'https://www.kimberly-clark-logistica.com/slim/index.php/consultaDentistaAgendar',
     type : 'GET',
     data: null,
     dataType : 'json',
@@ -129,7 +129,7 @@ function cargarHorario() {
     var cambios=[];
     data["ID"]=$("#usuario").val();
     $.ajax({
-    url: 'http://localhost/slim/index.php/getCalendario',
+    url: 'https://www.kimberly-clark-logistica.com/slim/index.php/getCalendario',
     type : 'POST',
     data: data,
     dataType : 'json',
@@ -174,7 +174,7 @@ function guardar_cambios() {
     };
     $.when(
       $.ajax({
-        url: 'http://localhost/slim/index.php/udateCalendario',
+        url: 'https://www.kimberly-clark-logistica.com/slim/index.php/udateCalendario',
         type : 'POST',
         data: data,
         dataType : 'json',

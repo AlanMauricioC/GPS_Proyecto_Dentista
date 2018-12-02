@@ -76,15 +76,18 @@
 				<div class="row">
 					<span class="col-2 label-input-citas col-form-label">Ver reporte de:</span>
 					<select class="col-3 form-control" name="ver_reporte" id="ver_reporte">
-				      <option value="0">Selecciona una opción</option>
+				      <option disabled selected value="0">Selecciona una opción</option>
 				      <option value="1">Pacientes atendidos</option>
+				      <option value="2">Agenda</option>
+				      <option value="3">Citas de pacientes</option>
+				      <option value="4">citas atendidas y canceladas por mes</option>
 				      <option value="5">citas atendidas y canceladas</option>
 				    </select>
 				</div><br>	
 				<div class="row">
 					<span class="col-2 label-input-citas col-form-label">Dentista: </span>
 					<select class="col-3 form-control" name="dentista" id="dentista">
-				      <option>Selecciona una opción</option>
+				      <option disabled selected>Selecciona una opción</option>
 				    </select>
 				    <div class="col-1"></div>
 					<button type="button" class="btn btn-success col-2" id="btn_ver_reportes">Ver</button>					
@@ -92,7 +95,7 @@
 
 				<!-- Tabla ------------------------------------------------------------------------------------------------------------>
 				<div class="row justify-content-md-center">
-					<h1 class="titulo">Reporte de pacientes atendidos</h1>
+					<h1 class="titulo" id="titulo">Reporte de pacientes atendidos</h1>
 				</div><br>
 				<div class="row">
 					<table id="tabla_at" class="tabla_reportes" name="tabla_at" >

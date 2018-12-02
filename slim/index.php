@@ -12,6 +12,7 @@ require 'servicios/servicios.php';
 require 'servicios/userController.php';
 require 'servicios/horariosController.php';
 require 'servicios/calendarioController.php';
+require 'servicios/reportesController.php';
 require 'servicios/pdf/ImprimirHorario.php';
 require 'servicios/pdf/imprimirAgendaMensual.php';
 require 'servicios/pdf/imprimirAgendaSemanal.php';
@@ -73,6 +74,13 @@ $app->post('/deshabilitarDentista', '\horariosController:deshabilitarDentista');
 $app->post('/searchHorarios', '\horariosController:searchHorarios');
 
 $app->post('/printHorarios', '\horariosController:printHorarios');
+
+$app->post('/getReporteAgenda', '\reportesController:getReporteAgenda');
+
+$app->post('/getReporteCitas', '\reportesController:getReporteCitas');
+
+$app->post('/getReporteCitascanceladas', '\reportesController:getReporteCitascanceladas');
+
 
 //Obtener calendario:
 $app->post('/getCalendario', '\calendarioController:getCalendario');
