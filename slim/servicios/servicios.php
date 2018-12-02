@@ -214,6 +214,27 @@ public function consultaAgenda($request, $response, $args) {
 
         return $reporte->pacientesAtendidos();
     }
+    
+    public function citasEstadosTipo($request, $response, $args) {
+        
+        $reporte=new Reporte();
+
+        return $reporte->citasEstadosTipo();
+    }
+
+    public function citasPorFecha($request, $response, $args) {
+        
+        $reporte=new Reporte();
+
+        return $reporte->citasPorFecha();
+    }    
+
+    public function citasPorEstado($request, $response, $args) {
+        
+        $reporte=new Reporte();
+
+        return $reporte->citasPorEstado();
+    }
 // -->
 
 

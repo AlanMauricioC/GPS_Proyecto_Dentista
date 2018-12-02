@@ -6,11 +6,11 @@ class Reporte {
 
         $conn = $GLOBALS['conn'];
 
-        $res = $conn -> query("select ID_AGENDA,FECHA,p.NOMBRE as NOMBRE,p.APELLIDOS as APELLIDOS,e.ID_ESTADO_CITA as ID_ESTADO from 
-                                agenda a inner join tabla_pacientes p on a.ID_PACIENTE = p.ID_PACIENTE 
-                                inner join catalogo_estado_de_cita e on a.ID_ESTADO_CITA = e.ID_ESTADO_CITA 
+        $res = $conn -> query("select ID_AGENDA,FECHA,p.NOMBRE as NOMBRE,p.APELLIDOS as APELLIDOS,e.ID_ESTADO_CITA as ID_ESTADO from
+                                agenda a inner join tabla_pacientes p on a.ID_PACIENTE = p.ID_PACIENTE
+                                inner join catalogo_estado_de_cita e on a.ID_ESTADO_CITA = e.ID_ESTADO_CITA
                                 inner join usuario u on u.ID_USUARIO = a.ID_USUARIO_DOCTOR
-                                WHERE 
+                                WHERE
                                 ID_USUARIO_DOCTOR = ".$_GET['dentista'].";");
         $array = array();
         $i=0;
@@ -28,13 +28,90 @@ class Reporte {
 
     }
 
+    public function citasEstadosTipo() {
 
-    //SELECT a.FECHA AS fecha, a.HORA_INICIO AS hora,tp.NOMBRE AS nombre_paciente ,tp.APELLIDOS AS apellidos_paciente, ce.DESCRIPCION AS especialidad,ma.DESCRIPCION AS motivo_de_atencion ,ec.DESCRIPCION AS estado_de_cita FROM agenda a INNER JOIN tabla_pacientes tp ON a.ID_PACIENTE =tp.ID_PACIENTE INNER JOIN catalogo_especialidades ce ON a.ID_ESPECIALIDAD=ce.ID_ESPECIALIDAD INNER JOIN catalogo_motivo_atencion ma ON a.ID_MOTIVO_ATENCION =ma.ID_MOTIVO_ATENCION INNER JOIN catalogo_estado_de_cita ec ON a.ID_ESTADO_CITA=ec.ID_ESTADO_CITA WHERE ID_USUARIO_DOCTOR=?
+        $conn = $GLOBALS['conn'];
+
+        $res = $conn -> query("select ID_AGENDA,FECHA,p.NOMBRE as NOMBRE,p.APELLIDOS as APELLIDOS, e.DESCRIPCION as ESTADO, m.DESCRIPCION as MOTIVO from
+                                agenda a inner join tabla_pacientes p on a.ID_PACIENTE = p.ID_PACIENTE
+                                inner join catalogo_estado_de_cita e on a.ID_ESTADO_CITA = e.ID_ESTADO_CITA
+                                inner join catalogo_motivo_atencion m on a.ID_MOTIVO_ATENCION = m.ID_MOTIVO_ATENCION
+                                inner join usuario u on u.ID_USUARIO = a.ID_USUARIO_DOCTOR
+                                WHERE
+                                ID_USUARIO_DOCTOR = ".$_GET['dentista'].";");
+        $array = array();
+        $i=0;
+        while ($registro = $res->fetch_array()) {
+            $array[$i]["FECHA"] = utf8_decode($registro["FECHA"]);
+            $array[$i]["NOMBRE"] = utf8_decode($registro["NOMBRE"]);
+            $array[$i]["APELLIDOS"] = utf8_decode($registro["APELLIDOS"]);
+            $array[$i]["ESTADO"] = utf8_decode($registro["ESTADO"]);
+            $array[$i]["MOTIVO"] = utf8_decode($registro["MOTIVO"]);
 
 
-//SELECT a.FECHA AS fecha, a.HORA_INICIO AS hora,tp.NOMBRE AS nombre_paciente ,tp.APELLIDOS AS apellidos_paciente, a.comentarios AS comentarios,ma.DESCRIPCION AS motivo_de_atencion ,ec.DESCRIPCION AS estado_de_cita FROM agenda a INNER JOIN tabla_pacientes tp ON a.ID_PACIENTE =tp.ID_PACIENTE INNER JOIN catalogo_especialidades ce ON a.ID_ESPECIALIDAD=ce.ID_ESPECIALIDAD INNER JOIN catalogo_motivo_atencion ma ON a.ID_MOTIVO_ATENCION =ma.ID_MOTIVO_ATENCION INNER JOIN catalogo_estado_de_cita ec ON a.ID_ESTADO_CITA=ec.ID_ESTADO_CITA WHERE ID_USUARIO_DOCTOR=?
+            $i++;
+        }
 
-    
+        return json_encode($array);
+
+    }
+
+    public function citasPorFecha() {
+
+        $conn = $GLOBALS['conn'];
+
+        $res = $conn -> query("select ID_AGENDA,FECHA,p.NOMBRE as NOMBRE,p.APELLIDOS as APELLIDOS, e.DESCRIPCION as ESTADO, m.DESCRIPCION as MOTIVO from
+                                agenda a inner join tabla_pacientes p on a.ID_PACIENTE = p.ID_PACIENTE
+                                inner join catalogo_estado_de_cita e on a.ID_ESTADO_CITA = e.ID_ESTADO_CITA
+                                inner join catalogo_motivo_atencion m on a.ID_MOTIVO_ATENCION = m.ID_MOTIVO_ATENCION
+                                inner join usuario u on u.ID_USUARIO = a.ID_USUARIO_DOCTOR
+                                WHERE
+                                ID_USUARIO_DOCTOR = ".$_GET['dentista']." ORDER BY FECHA DESC;");
+        $array = array();
+        $i=0;
+        while ($registro = $res->fetch_array()) {
+            $array[$i]["FECHA"] = utf8_decode($registro["FECHA"]);
+            $array[$i]["NOMBRE"] = utf8_decode($registro["NOMBRE"]);
+            $array[$i]["APELLIDOS"] = utf8_decode($registro["APELLIDOS"]);
+            $array[$i]["ESTADO"] = utf8_decode($registro["ESTADO"]);
+            $array[$i]["MOTIVO"] = utf8_decode($registro["MOTIVO"]);
+
+
+            $i++;
+        }
+
+        return json_encode($array);
+
+    }
+
+    public function citasPorEstado() {
+
+        $conn = $GLOBALS['conn'];
+
+        $res = $conn -> query("select ID_AGENDA,FECHA,p.NOMBRE as NOMBRE,p.APELLIDOS as APELLIDOS, e.DESCRIPCION as ESTADO, m.DESCRIPCION as MOTIVO from
+                                agenda a inner join tabla_pacientes p on a.ID_PACIENTE = p.ID_PACIENTE
+                                inner join catalogo_estado_de_cita e on a.ID_ESTADO_CITA = e.ID_ESTADO_CITA
+                                inner join catalogo_motivo_atencion m on a.ID_MOTIVO_ATENCION = m.ID_MOTIVO_ATENCION
+                                inner join usuario u on u.ID_USUARIO = a.ID_USUARIO_DOCTOR
+                                WHERE
+                                ID_USUARIO_DOCTOR = ".$_GET['dentista']." ORDER BY a.ID_ESTADO_CITA;");
+        $array = array();
+        $i=0;
+        while ($registro = $res->fetch_array()) {
+            $array[$i]["FECHA"] = utf8_decode($registro["FECHA"]);
+            $array[$i]["NOMBRE"] = utf8_decode($registro["NOMBRE"]);
+            $array[$i]["APELLIDOS"] = utf8_decode($registro["APELLIDOS"]);
+            $array[$i]["ESTADO"] = utf8_decode($registro["ESTADO"]);
+            $array[$i]["MOTIVO"] = utf8_decode($registro["MOTIVO"]);
+
+
+            $i++;
+        }
+
+        return json_encode($array);
+
+    }
+
     public function getReporteAgenda($id_doctor)
     {
       $conn = $GLOBALS['conn'];
@@ -68,7 +145,7 @@ class Reporte {
                 $tmp["especialidad"]=$fila[4];
                 $tmp["motivo_de_atencion"]=$fila[5];
                 $tmp["estado_de_cita"]=$fila[6];
-                
+
                 $arrayRes[]=$tmp;
 
             }
@@ -118,7 +195,7 @@ class Reporte {
                 $tmp["comentarios"]=$fila[4];
                 $tmp["motivo_de_atencion"]=$fila[5];
                 $tmp["estado_de_cita"]=$fila[6];
-                
+
                 $arrayRes[]=$tmp;
 
             }
@@ -166,7 +243,7 @@ class Reporte {
                 $tmp["apellidos_paciente"]=$fila[2];
                 $tmp["motivo_de_atencion"]=$fila[3];
                 $tmp["estado_de_cita"]=$fila[4];
-                
+
                 $arrayRes[]=$tmp;
 
             }

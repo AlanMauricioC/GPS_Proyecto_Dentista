@@ -122,6 +122,12 @@ $app->get('/deleteComentario', '\servicios:deleteComentario');
 
 $app->get('/pacientesAtendidos', '\servicios:PacientesAtendidos');
 
+$app->get('/citasEstadosTipo', '\servicios:citasEstadosTipo');
+
+$app->get('/citasPorFecha', '\servicios:citasPorFecha');
+
+$app->get('/citasPorEstado', '\servicios:citasPorEstado');
+
 
 //--  -->
 $app->post("/ejemploPost", '\servicios:ejemploPost');
