@@ -134,6 +134,8 @@ function cargarHorario() {
     data: data,
     dataType : 'json',
     success: function(response) {
+      $("#notificaciones").empty();
+      $("#comentarios").empty();
       for (var i = 0; i < response["calendario"].length; i++) {
         eventos.push(getEvent(response["calendario"][i]));
         
@@ -144,6 +146,7 @@ function cargarHorario() {
       calendarioObj.reset();//limpia el div
       calendario();//vuelve a generar el calendario
       eventos=[];
+
     },
     error: function() {
       console.log("No se ha podido obtener la información de usuarios");
@@ -154,7 +157,7 @@ function cargarHorario() {
 function getEvent(info) {
   var inicio=new Date(info[8].substring(0,4), parseInt(info[8].substring(5,7)-1),info[8].substring(8,10),info[3], 0);
   if (inicio>new Date()) {
-    $("#notificaciones").append('<div>'+'cita con: '+info[9]+' ' +info[10]+' el '+inicio.getFullYear()+'/'+(inicio.getMonth()+1)+'/'+inicio.getDate()+'<br>a la(s) '+inicio.getHours()+'</div>')
+    $("#notificaciones").append('<div style="border: 2px; bacgroud-color:cyan;">'+'cita con: '+info[9]+' ' +info[10]+' el '+inicio.getDate()+' de'+(inicio.getMonth()+1)+' del '+inicio.getFullYear()+'<br>a la(s) '+inicio.getHours()+'</div>')
   }
   return {
     color: info[11].substring(6),
@@ -206,9 +209,15 @@ function calendario() {
     function(Y) {
 
       //console.log(events);
-
-      var agendaView = new Y.SchedulerAgendaView();
-      var dayView = new Y.SchedulerDayView();
+      var es_ES_strings_allDay = { allDay: 'todo el dia' };
+      var agendaView = new Y.SchedulerAgendaView({
+                isoTime: true,
+                strings: es_ES_strings_allDay
+            });
+      var dayView = new Y.SchedulerDayView({
+                isoTime: true,
+                strings: es_ES_strings_allDay
+            });
       var myEventRecorder = Y.Component.create({
 
         ATTRS: {
@@ -305,7 +314,7 @@ function calendario() {
                 }
                 cambios[id]=val;
                 console.log(cambios);
-                alert("Cambio de estado a "+((val==1)?'cancelada':'activo'));
+                alert("Cambio de estado a "+((val==1)?'cancelada':'no cancelada'));
                 instance.fire('cancel');
                 if (event.domEvent) {
                     event.domEvent.preventDefault();
@@ -324,7 +333,7 @@ function calendario() {
       var eventRecorder = new myEventRecorder();
       var monthView = new Y.SchedulerMonthView();
       var weekView = new Y.SchedulerWeekView();
-
+      
 
       calendarioObj=new Y.Scheduler(
         {
@@ -334,6 +343,7 @@ function calendario() {
           items: eventos,
           render: true,
           views: [monthView,weekView,dayView ],
+          locale:"es-MX",
           strings:{
             agenda: 'Agenda',
             day: 'Dia',
@@ -346,6 +356,7 @@ function calendario() {
           }
         }
       );
+      console.log(monthView.set('locale',"es-MX"));
     }
   );
 }

@@ -231,7 +231,7 @@ function reporteAgenda() {
         var data={};
         data["ID_USUARIO"]=$("#dentista").val();
         $.ajax({
-            url: 'http://localhost/slim/index.php/getReporteAgenda',
+            url: '../../slim/index.php/getReporteAgenda',
             type : 'POST',
             data: data,
             dataType : 'json',
@@ -270,7 +270,7 @@ function reporteCita() {
         var data={};
         data["ID_USUARIO"]=$("#dentista").val();
         $.ajax({
-            url: 'http://localhost/slim/index.php/getReporteCitas',
+            url: '../../slim/index.php/getReporteCitas',
             type : 'POST',
             data: data,
             dataType : 'json',
@@ -310,7 +310,7 @@ function reporteCitasCanceladas() {
         var data={};
         data["ID_USUARIO"]=$("#dentista").val();
         $.ajax({
-            url: 'http://localhost/slim/index.php/getReporteCitascanceladas',
+            url: '../../slim/index.php/getReporteCitascanceladas',
             type : 'POST',
             data: data,
             dataType : 'json',

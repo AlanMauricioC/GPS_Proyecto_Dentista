@@ -1,5 +1,9 @@
 $(document).ready(function(){
 
+$("#btn_agendar_cita_cancelar").click(function () {
+    location.reload();
+})
+
 //Dia de la semana-----------------------------------------------------------------------------------------
 $("#fecha_cita" ).change(function() {
     var fecha = new Date($(this).val());
@@ -239,6 +243,7 @@ if(valida_fecha() && valida_hr_ini() && valida_hr_fin() && valida_paciente() && 
                                 }
                                 });
                     }
+                    location.reload();
 
                               },
                 error: function(error){
