@@ -259,6 +259,39 @@ class Reporte {
 
       return json_encode(null);
     }
+
+    public function citasPaciente() {
+
+        $conn = $GLOBALS['conn'];
+
+        $res = $conn -> query("select ID_AGENDA,FECHA,p.NOMBRE as NOMBRE,p.APELLIDOS as APELLIDOS, e.DESCRIPCION as ESTADO, m.DESCRIPCION as MOTIVO,HORA_INICIO, u.NOMBRE as NOMBRE_DOCTOR, u.APELLIDOS as APELLIDOS_DOCTOR,a.ID_MOTIVO_ATENCION as ID_MOTIVO from 
+                                agenda a inner join tabla_pacientes p on a.ID_PACIENTE = p.ID_PACIENTE 
+                                inner join catalogo_estado_de_cita e on a.ID_ESTADO_CITA = e.ID_ESTADO_CITA 
+                                inner join catalogo_motivo_atencion m on a.ID_MOTIVO_ATENCION = m.ID_MOTIVO_ATENCION
+                                inner join usuario u on u.ID_USUARIO = a.ID_USUARIO_DOCTOR
+                                WHERE 
+                                a.ID_PACIENTE = ".$_GET['paciente']." ORDER BY FECHA DESC;");
+        $array = array();
+        $i=0;
+        while ($registro = $res->fetch_array()) {
+            $array[$i]["FECHA"] = utf8_decode($registro["FECHA"]);
+            $array[$i]["NOMBRE"] = utf8_decode($registro["NOMBRE"]);
+            $array[$i]["APELLIDOS"] = utf8_decode($registro["APELLIDOS"]); 
+            $array[$i]["NOMBRE_DOCTOR"] = utf8_decode($registro["NOMBRE_DOCTOR"]);
+            $array[$i]["APELLIDOS_DOCTOR"] = utf8_decode($registro["APELLIDOS_DOCTOR"]);
+            $array[$i]["ESTADO"] = utf8_decode($registro["ESTADO"]);
+            $array[$i]["MOTIVO"] = utf8_decode($registro["MOTIVO"]);
+            $array[$i]["HORA_INICIO"] = utf8_decode($registro["HORA_INICIO"]);
+            $array[$i]["ID_MOTIVO"] = utf8_decode($registro["ID_MOTIVO"]);
+            $array[$i]["ID_AGENDA"] = utf8_decode($registro["ID_AGENDA"]);
+
+
+            $i++;
+        }
+
+        return json_encode($array);
+
+    }
 }
 
 ?>

@@ -235,6 +235,13 @@ public function consultaAgenda($request, $response, $args) {
 
         return $reporte->citasPorEstado();
     }
+
+    public function citasPaciente($request, $response, $args) {
+        
+        $reporte=new Reporte();
+
+        return $reporte->citasPaciente();
+    }
 // -->
 
 

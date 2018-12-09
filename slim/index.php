@@ -128,6 +128,7 @@ $app->get('/citasPorFecha', '\servicios:citasPorFecha');
 
 $app->get('/citasPorEstado', '\servicios:citasPorEstado');
 
+$app->get('/citasPaciente', '\servicios:citasPaciente');
 
 //--  -->
 $app->post("/ejemploPost", '\servicios:ejemploPost');

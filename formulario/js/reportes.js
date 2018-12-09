@@ -53,6 +53,7 @@ $("#btn_ver_reportes").click(function(){
 
 
 function pacientes_atendidos() {
+    if ($("#dentista").val()) {
     $("#titulo_reporte").text('Reporte de pacientes atendidos');
       $.ajax({
                 url: "../../slim/index.php/pacientesAtendidos",
@@ -89,7 +90,7 @@ function pacientes_atendidos() {
                                 $("#tabla_cancel").append("<tr><td><br><br></td></tr>"  );
                             }
                     else
-                        if (t2>t1)
+                        if (t2>t1) 
                             for (var i = 0; i < (t2-t1); i++) {
                                 $("#tabla_at").append("<tr><td><br><br></td></tr>"  );
                             }
@@ -100,8 +101,10 @@ function pacientes_atendidos() {
 
                 }
             });
+  }
 }
 function citas_estados_tipo() {
+    if ($("#dentista").val()) {
     $("#titulo_reporte").text('Reporte de citas, estados y tipo de atención');
       $.ajax({
                 url: "../../slim/index.php/citasEstadosTipo",
@@ -122,22 +125,24 @@ function citas_estados_tipo() {
                             var estado =response[i].ESTADO;
                             var motivo =response[i].MOTIVO;
                                 $("#tabla_reportes").append("<tr><td>"+paciente+"</td><td>"+estado+"</td><td>"+motivo+"</td><td>"+fecha+"</td></tr>"  );
-
+                            
                         }catch(e){
                             alert("No hay pacietes");
                         }
                     }
 
-
+                   
                 },
                 error: function(error){
                     alert("No hay pacientes");
 
                 }
             });
+  }
 }
 
 function reporte_por_fecha() {
+    if ($("#dentista").val()) {
     $("#titulo_reporte").text('Reporte por fecha');
       $.ajax({
                 url: "../../slim/index.php/citasPorFecha",
@@ -158,22 +163,24 @@ function reporte_por_fecha() {
                             var estado =response[i].ESTADO;
                             var motivo =response[i].MOTIVO;
                                 $("#tabla_reportes").append("<tr><td>"+fecha+"</td><td>"+paciente+"</td><td>"+estado+"</td><td>"+motivo+"</td></tr>"  );
-
+                            
                         }catch(e){
                             alert("No hay pacietes");
                         }
                     }
 
-
+                   
                 },
                 error: function(error){
                     alert("No hay pacientes");
 
                 }
             });
+  }
 }
 
 function reporte_por_estado() {
+    if ($("#dentista").val()) {
     $("#titulo_reporte").text('Reporte por estado');
       $.ajax({
                 url: "../../slim/index.php/citasPorEstado",
@@ -194,20 +201,21 @@ function reporte_por_estado() {
                             var estado =response[i].ESTADO;
                             var motivo =response[i].MOTIVO;
                                 $("#tabla_reportes").append("<tr><td>"+estado+"</td><td>"+paciente+"</td><td>"+motivo+"</td><td>"+fecha+"</td></tr>"  );
-
+                            
                         }catch(e){
                             alert("No hay pacietes");
                         }
                     }
 
-
+                   
                 },
                 error: function(error){
                     alert("No hay pacientes");
 
                 }
-            });
+            });}
 }
+
 
 
 
